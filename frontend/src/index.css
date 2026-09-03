@@ -37,6 +37,27 @@ html.lenis body {
     animation: dash-flow 1.1s linear infinite;
 }
 
+#presence-map-svg .map-dot {
+    transition: fill 0.35s ease;
+    fill: rgba(255, 255, 255, 0.10);
+}
+
+#presence-map-svg .dots-kenya .map-dot,
+#presence-map-svg .dots-uganda .map-dot,
+#presence-map-svg .dots-tanzania .map-dot,
+#presence-map-svg .dots-somalia .map-dot,
+#presence-map-svg .dots-somaliland .map-dot {
+    fill: rgba(255, 255, 255, 0.32);
+}
+
+#presence-map-svg[data-active="kenya"] .dots-kenya .map-dot,
+#presence-map-svg[data-active="uganda"] .dots-uganda .map-dot,
+#presence-map-svg[data-active="tanzania"] .dots-tanzania .map-dot,
+#presence-map-svg[data-active="somalia"] .dots-somalia .map-dot,
+#presence-map-svg[data-active="somaliland"] .dots-somaliland .map-dot {
+    fill: #D97725;
+}
+
 @layer base {
     :root {
         --background: 60 9% 96%;

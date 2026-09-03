@@ -67,6 +67,11 @@ Build a sleek, professional, elite-EPC website for GJW Energy — a newly incorp
 - About: Eng. Geoffrey Kipyegon re-titled Founder & Technical Director (portrait tag, role line, chapter 02); removed 20 MWp / 10 MWh BESS references from his bio and credentials list
 - Verified: founder title renders, no MWp/MWh text in spotlight, footer licences gone, service links and tel:/mailto: hrefs work
 
+## Iteration 8 (2026-09-03)
+- PresenceMap rebuilt as dot-matrix style (per user reference): 1,341 SVG dots generated from Natural Earth geometry — presence countries (Kenya, Uganda, Tanzania, Somalia, Somaliland) brighter white, context countries (Ethiopia, South Sudan, DRC, Rwanda, Burundi, Malawi) dim; active territory flips to ochre dots via CSS data-active attribute (no re-render cost); staggered per-country fade-in, pulsing city markers and animated arcs retained
+- ProjectLead: real headshot of Eng. Geoffrey Kipyegon (/images/geoffrey.jpg) replaces monogram panel; title updated to Co-Founder & Technical Director (portrait tag, role line, About chapter 02)
+- Verified: 1,341 dots render, Tanzania/Kenya hover flips ochre, portrait loads with correct title
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { COUNTRY_PATHS, CITIES, LINKS } from "@/components/mapData";
+import { MAP_DOTS, CITIES, LINKS } from "@/components/mapData";
 
 const TERRITORIES = [
   { id: "kenya", name: "Kenya", city: "nairobi", cityLabel: "Nairobi · HQ", note: "EPRA-licensed delivery, C&I & utility" },
@@ -72,36 +72,31 @@ export const PresenceMap = () => {
           <Reveal delay={0.15} className="lg:col-span-7">
             <div className="border border-white/10 bg-[#0D0D10] p-3 sm:p-6" data-testid="presence-map-canvas">
               <svg
+                id="presence-map-svg"
+                data-active={activeCountry}
                 viewBox="0 0 620 760"
                 className="h-auto w-full"
                 role="img"
                 aria-label="Map of GJW Energy's East African delivery footprint"
               >
-                <defs>
-                  <pattern id="mapDots" width="26" height="26" patternUnits="userSpaceOnUse">
-                    <circle cx="1.4" cy="1.4" r="1.4" fill="rgba(255,255,255,0.07)" />
-                  </pattern>
-                </defs>
-                <rect width="620" height="760" fill="url(#mapDots)" />
 
-                {Object.entries(COUNTRY_PATHS).map(([id, ds], ci) =>
-                  ds.map((d, pi) => (
-                    <motion.path
-                      key={`${id}-${pi}`}
-                      d={d}
-                      fill={activeCountry === id ? "#D97725" : "#2B3A2F"}
-                      fillOpacity={activeCountry === id ? 0.9 : 0.55}
-                      stroke={activeCountry === id ? "#D97725" : "rgba(255,255,255,0.28)"}
-                      strokeWidth={activeCountry === id ? 1.6 : 1}
-                      style={{ transition: "fill 0.45s ease, stroke 0.45s ease, fill-opacity 0.45s ease" }}
-                      initial={{ pathLength: 0 }}
-                      whileInView={{ pathLength: 1 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      transition={{ duration: 1.8, delay: 0.3 + ci * 0.25, ease: "easeInOut" }}
-                      onMouseEnter={() => setActive(id)}
-                    />
-                  ))
-                )}
+                {Object.entries(MAP_DOTS).map(([id, ds], ci) => (
+                  <motion.g
+                    key={id}
+                    className={`dots-${id}`}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-80px" }}
+                    transition={{ duration: 0.7, delay: 0.15 + ci * 0.12, ease: [0.22, 1, 0.36, 1] }}
+                    onMouseEnter={() =>
+                      ["kenya", "uganda", "tanzania", "somalia", "somaliland"].includes(id) && setActive(id)
+                    }
+                  >
+                    {ds.map(([x, y], i) => (
+                      <circle key={i} cx={x} cy={y} r="4.6" className="map-dot" />
+                    ))}
+                  </motion.g>
+                ))}
 
                 {Object.entries(LINKS).map(([city, d]) => (
                   <path

@@ -14,7 +14,7 @@ const CHAPTERS = [
   {
     n: "02",
     title: "How we operate",
-    body: "We are structured as a principal-led engineering and EPC business. Technical governance is anchored by our Founder & Technical Director and supported by specialist suppliers, installers and subcontract resources assembled to match each final construction programme — no bloated overheads, no diluted accountability.",
+    body: "We are structured as a principal-led engineering and EPC business. Technical governance is anchored by our Co-Founder & Technical Director and supported by specialist suppliers, installers and subcontract resources assembled to match each final construction programme — no bloated overheads, no diluted accountability.",
   },
   {
     n: "03",
