@@ -56,6 +56,11 @@ Build a sleek, professional, elite-EPC website for GJW Energy — a newly incorp
 - Services page: each service card (EPC, Construction, Design, Consultancy) now opens a dark modal on click with an expanded intro and 6 scope highlights (turnkey delivery, power stabilisation, civils/mechanical/electrical works, energy modelling, grid studies, O&M readiness, due diligence etc.) plus a "Discuss this scope" CTA to the contact form; hover reveals a "Click to explore the full scope" hint
 - Verified: EPC and Design dialogs open with full scope lists, stat counts up to 5
 
+## Iteration 6 (2026-09-03)
+- Real project photos (user-supplied, hosted in /public/images/) placed across the site: rooftop C&I array → Experience area 01; BESS containers → Experience area 02; aerial dusk solar farm → About image band; aerial day solar farm → Services EPC card; inverter room → Home EPC preview card. Hero images untouched; case study imagery unchanged per instruction
+- Quality & price positioning added: manifesto chapter 04 "Honest value" + new ValueBand section on Home ("Cheap solar dominates. We build what lasts.") with two pillars — Quality you can verify (Gem icon) and Pricing you can defend (Scale icon), hover-animated
+- Verified: all 5 local images load on their sections, chapter 04 renders, ValueBand pillars render
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

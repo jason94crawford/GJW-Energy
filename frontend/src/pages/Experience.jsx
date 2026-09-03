@@ -11,14 +11,14 @@ const AREAS = [
     title: "C&I & utility solar PV",
     icon: Sun,
     body: "Our team has engineered and delivered 20 MWp of solar PV across East Africa — predominantly commercial & industrial systems powering manufacturers, hotels, malls, hospitals and flower farms, alongside utility-scale plants.",
-    image: "https://images.pexels.com/photos/8783541/pexels-photo-8783541.jpeg",
+    image: "/images/rooftop-ci.jpeg",
   },
   {
     n: "02",
     title: "Battery energy storage",
     icon: BatteryCharging,
     body: "10 MWh of BESS designed, built and commissioned — integrating storage with C&I solar and grid infrastructure for reliable, dispatchable power.",
-    image: "https://images.unsplash.com/photo-1589276534126-adef63a95e05",
+    image: "/images/bess-containers.jpeg",
   },
   {
     n: "03",

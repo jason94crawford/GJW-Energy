@@ -28,7 +28,7 @@ const SERVICES = [
       "Testing, commissioning & QA/QC handover",
       "Performance monitoring & O&M readiness",
     ],
-    image: "https://images.pexels.com/photos/8783541/pexels-photo-8783541.jpeg",
+    image: "/images/aerial-day.jpeg",
     span: "md:col-span-4",
   },
   {

@@ -6,6 +6,7 @@ import { EditorialMarquee } from "@/components/EditorialMarquee";
 import { StatsBand } from "@/components/StatsBand";
 import { SectorsBand } from "@/components/SectorsBand";
 import { PresenceMap } from "@/components/PresenceMap";
+import { ValueBand } from "@/components/ValueBand";
 import { CredentialsBand } from "@/components/CredentialsBand";
 
 const MANIFESTO = [
@@ -24,6 +25,11 @@ const MANIFESTO = [
     title: "Built for the region",
     body: "From our base in Kenya, we assemble specialist suppliers, installers and subcontract resources matched precisely to each final construction programme — anywhere in East Africa.",
   },
+  {
+    n: "04",
+    title: "Honest value",
+    body: "Cheap solar and battery systems dominate this market — and fail quietly within years. We stand for authenticity in both quality and price: tier-1 equipment, engineered margins, and pricing that survives scrutiny.",
+  },
 ];
 
 const SERVICES = [
@@ -32,7 +38,7 @@ const SERVICES = [
     title: "EPC",
     icon: Zap,
     body: "Full turnkey engineering, procurement and construction for C&I and utility-scale solar PV, BESS and grid infrastructure.",
-    image: "https://images.pexels.com/photos/8783541/pexels-photo-8783541.jpeg",
+    image: "/images/inverter-room.jpeg",
     span: "md:col-span-4",
     dark: true,
   },
@@ -188,6 +194,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <ValueBand />
 
       <CredentialsBand />
 
