@@ -46,6 +46,11 @@ Build a sleek, professional, elite-EPC website for GJW Energy — a newly incorp
 - Replaced weak About rooftop photo with a dramatic golden-hour solar plant image (+ hover zoom); Experience teaser now links to the live case studies page; nav + footer gained Case Studies links
 - Verified: 8 case studies render with capacity/location/detail meta, sector icon hover animation works, About photo loads, no compile errors
 
+## Iteration 4 (2026-09-03)
+- Interactive geographical presence map on Home (PresenceMap.jsx + generated mapData.js): real simplified GeoJSON geometry for Kenya, Uganda, Tanzania, Somalia and Somaliland (own polygon from Natural Earth data), SVG draw-in animation on scroll, hover-synced territory list ↔ country highlight (ochre flip), pulsing city markers (Nairobi HQ, Kampala, Dar es Salaam, Mogadishu, Hargeisa), animated dashed arcs radiating from Nairobi, dot-grid texture
+- StatsBand numbers now count up on scroll (framer-motion animate + useInView)
+- Verified: 12 SVG paths render, each territory highlights independently (Kenya/Uganda/Tanzania/Somalia/Somaliland), count-up completes to correct values
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

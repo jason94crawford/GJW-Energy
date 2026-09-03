@@ -1,4 +1,31 @@
+import { useEffect, useRef, useState } from "react";
+import { animate, useInView } from "framer-motion";
 import { Reveal } from "@/components/Reveal";
+
+const CountUp = ({ value }) => {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  const num = parseInt(value, 10);
+  const suffix = value.includes("+") ? "+" : "";
+  const [display, setDisplay] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    const controls = animate(0, num, {
+      duration: 1.6,
+      ease: [0.22, 1, 0.36, 1],
+      onUpdate: (v) => setDisplay(Math.round(v)),
+    });
+    return () => controls.stop();
+  }, [inView, num]);
+
+  return (
+    <span ref={ref}>
+      {display}
+      {suffix}
+    </span>
+  );
+};
 
 const STATS = [
   { value: "20", unit: "MWp", label: "Solar PV delivered across C&I & utility projects", testId: "stat-solar" },
@@ -22,7 +49,7 @@ export const StatsBand = () => (
           <div key={s.testId} className="bg-obsidian p-8 lg:p-10" data-testid={s.testId}>
             <Reveal delay={i * 0.08}>
               <p className="font-display text-5xl font-extrabold tracking-tighter text-white lg:text-6xl">
-                {s.value}
+                <CountUp value={s.value} />
                 {s.unit && <span className="ml-1 text-2xl font-bold text-ochre lg:text-3xl">{s.unit}</span>}
               </p>
               <p className="mt-4 font-mono text-[11px] uppercase leading-relaxed tracking-[0.2em] text-white/45">

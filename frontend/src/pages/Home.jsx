@@ -5,6 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import { EditorialMarquee } from "@/components/EditorialMarquee";
 import { StatsBand } from "@/components/StatsBand";
 import { SectorsBand } from "@/components/SectorsBand";
+import { PresenceMap } from "@/components/PresenceMap";
 import { CredentialsBand } from "@/components/CredentialsBand";
 
 const MANIFESTO = [
@@ -121,6 +122,8 @@ export default function Home() {
       <StatsBand />
 
       <SectorsBand />
+
+      <PresenceMap />
 
       <section className="bg-bone py-24 lg:py-32" data-testid="services-preview">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
