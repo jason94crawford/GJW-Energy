@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, Zap, HardHat, DraftingCompass, ClipboardCheck, BadgeCheck } from "lucide-react";
+import { ArrowUpRight, Zap, HardHat, DraftingCompass, ClipboardCheck, BadgeCheck, Wrench, TrendingUp } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -85,6 +85,43 @@ const SERVICES = [
     image: "https://images.pexels.com/photos/934586/pexels-photo-934586.jpeg",
     span: "md:col-span-4",
   },
+  {
+    n: "05",
+    title: "O&M",
+    fullTitle: "Operations & Maintenance",
+    icon: Wrench,
+    tagline: "We stay after switch-on — keeping assets at peak yield.",
+    capabilities: ["Preventive & corrective maintenance", "Performance monitoring & reporting", "Spares & warranty management", "Rapid response teams"],
+    intro: "A solar plant is a 25-year promise. Our O&M programmes protect yield, catch faults early and keep warranties intact — so the asset performs as modelled, year after year.",
+    details: [
+      "Scheduled preventive maintenance & inspection",
+      "24/7 remote performance monitoring & alarms",
+      "Corrective maintenance & rapid fault response",
+      "Spare parts, warranty & claims management",
+      "Cleaning, vegetation & site upkeep programmes",
+      "Performance ratio guarantees & reporting",
+    ],
+    image: "/images/rooftop-ci.jpeg",
+    span: "md:col-span-3",
+  },
+  {
+    n: "06",
+    title: "Asset Management",
+    icon: TrendingUp,
+    tagline: "The numbers behind the asset — managed like the investment it is.",
+    capabilities: ["Technical & commercial asset management", "Billing, metering & revenue assurance", "Compliance, licences & reporting", "Lifecycle & repowering planning"],
+    intro: "We manage the technical and commercial life of energy assets for owners and investors — contracts, compliance, performance, and the data that ties them together.",
+    details: [
+      "Technical & commercial asset management",
+      "Performance analytics & investor reporting",
+      "Billing, metering & revenue assurance",
+      "Regulatory compliance & licence management — EPRA",
+      "Contract & O&M contractor oversight",
+      "Lifecycle, augmentation & repowering planning",
+    ],
+    span: "md:col-span-3",
+    theme: "forest",
+  },
 ];
 
 export default function Services() {
@@ -100,7 +137,7 @@ export default function Services() {
 
       <EditorialMarquee
         dark
-        items={["Engineering", "Procurement", "Construction", "Commissioning", "Owner's Engineer", "Due Diligence"]}
+        items={["Engineering", "Procurement", "Construction", "Commissioning", "Monitoring & Maintenance", "Asset Management", "Owner's Engineer", "Due Diligence"]}
       />
 
       <section className="bg-bone py-24 lg:py-32" data-testid="services-grid">
@@ -183,7 +220,7 @@ export default function Services() {
                         <p className="font-mono text-xs tracking-[0.3em] text-ochre">{s.n}</p>
                       </div>
                       <DialogTitle className="mt-6 text-left font-display text-3xl font-extrabold uppercase tracking-tighter text-white sm:text-4xl">
-                        {s.title}
+                        {s.fullTitle || s.title}
                       </DialogTitle>
                       <DialogDescription className="pt-3 text-left text-sm leading-relaxed text-white/60">
                         {s.intro}

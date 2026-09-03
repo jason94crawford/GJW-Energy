@@ -46,6 +46,8 @@ export default function Footer() {
                   ["Construction", "footer-service-construction"],
                   ["Design", "footer-service-design"],
                   ["Consultancy", "footer-service-consultancy"],
+                  ["O&M", "footer-service-om"],
+                  ["Asset Management", "footer-service-asset-management"],
                 ].map(([label, id]) => (
                   <li key={id}>
                     <Link

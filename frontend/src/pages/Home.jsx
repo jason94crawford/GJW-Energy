@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ArrowRight, Zap, HardHat, DraftingCompass, ClipboardCheck } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Zap, HardHat, DraftingCompass, ClipboardCheck, Wrench, TrendingUp } from "lucide-react";
 import { KineticHero } from "@/components/KineticHero";
 import { Reveal } from "@/components/Reveal";
 import { EditorialMarquee } from "@/components/EditorialMarquee";
@@ -67,6 +67,23 @@ const SERVICES = [
     span: "md:col-span-4",
     dark: true,
   },
+  {
+    n: "05",
+    title: "O&M",
+    icon: Wrench,
+    body: "Preventive & corrective maintenance, monitoring and rapid response — we stay after switch-on.",
+    span: "md:col-span-2",
+    solid: true,
+  },
+  {
+    n: "06",
+    title: "Asset Management",
+    icon: TrendingUp,
+    body: "Technical & commercial management of energy assets — performance, compliance and revenue, handled.",
+    image: "/images/rooftop-ci.jpeg",
+    span: "md:col-span-4",
+    dark: true,
+  },
 ];
 
 export default function Home() {
@@ -97,7 +114,7 @@ export default function Home() {
       </KineticHero>
 
       <EditorialMarquee
-        items={["EPC", "Construction", "Design", "Consultancy", "20 MWp Solar PV", "10 MWh BESS", "EPRA Licensed", "East Africa"]}
+        items={["EPC", "Construction", "Design", "Consultancy", "O&M", "Asset Management", "20 MWp Solar PV", "10 MWh BESS", "EPRA Licensed", "East Africa"]}
       />
 
       <section className="bg-bone py-24 lg:py-32" data-testid="manifesto-section">
@@ -137,7 +154,7 @@ export default function Home() {
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">What we do</p>
               <h2 className="mt-6 font-display text-4xl font-extrabold uppercase leading-none tracking-tighter sm:text-5xl lg:text-6xl">
-                Four disciplines.
+                Six disciplines.
                 <br />
                 One standard.
               </h2>

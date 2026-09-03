@@ -77,6 +77,10 @@ Build a sleek, professional, elite-EPC website for GJW Energy — a newly incorp
 - Per-territory delivered-volume stats panel added to PresenceMap (AnimatePresence swap on hover): Kenya 17 MWp PV / 9 MWh BESS / 5 MVA distribution / 10 km transmission; Uganda 200 kWp PV; Tanzania 1 MWp / 1 MWh; Somalia 1 MWp / 0 MWh; Somaliland 0.8 MWp / 0 MWh — with Sun/BatteryCharging/PlugZap/Cable icons
 - Verified: Kenya/Uganda/Somaliland panels swap correctly with the exact figures
 
+## Iteration 10 (2026-09-03)
+- Added two new services: Operations & Maintenance (05) and Asset Management (06) — full popup content on Services page (O&M: preventive/corrective maintenance, 24/7 monitoring, spares & warranties, PR guarantees; AM: technical & commercial management, revenue assurance, EPRA compliance, repowering), Home preview cards (O&M solid forest, AM with rooftop photo), footer links, contact form select options, both marquees; Home heading updated to "Six disciplines. One standard."
+- Verified: 6 cards render on both pages, O&M dialog opens with full title and 6 scope items
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

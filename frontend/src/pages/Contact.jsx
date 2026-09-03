@@ -178,7 +178,7 @@ export default function Contact() {
                     <SelectValue placeholder="Select a service" />
                   </SelectTrigger>
                   <SelectContent className="rounded-none bg-white">
-                    {["EPC", "Construction", "Design", "Consultancy", "Other"].map((s) => (
+                    {["EPC", "Construction", "Design", "Consultancy", "Operations & Maintenance", "Asset Management", "Other"].map((s) => (
                       <SelectItem key={s} value={s} data-testid={`contact-service-option-${s.toLowerCase()}`}>
                         {s}
                       </SelectItem>
