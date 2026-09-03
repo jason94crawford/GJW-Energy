@@ -1,0 +1,127 @@
+{
+  "theme": {
+    "primary_mode": "mixed",
+    "description": "Dark hero sections (Obsidian Black) with light content sections (Bone White). High contrast, editorial style.",
+    "colors": {
+      "background_dark": "#0A0A0C",
+      "background_light": "#F7F7F5",
+      "primary_accent": "#D97725",
+      "secondary_accent": "#2B3A2F",
+      "text_light": "#FFFFFF",
+      "text_dark": "#1A1A1A",
+      "border_dark": "rgba(255, 255, 255, 0.15)",
+      "border_light": "rgba(0, 0, 0, 0.15)"
+    },
+    "typography": {
+      "heading_font": "Cabinet Grotesk",
+      "body_font": "Satoshi",
+      "mono_font": "JetBrains Mono",
+      "rules": [
+        "Headings MUST use tight letter spacing (tracking-tighter) and leading-none.",
+        "Never center text by default; use left alignment for strong editorial structure.",
+        "Use fluid text sizes for headings up to text-6xl (maximum).",
+        "Do not use generic fonts like Inter, Roboto, or Open Sans for headings."
+      ]
+    }
+  },
+  "layouts": {
+    "hero": "Dark background, full-height (min-h-screen), kinetic typography with masked line-by-line reveal on load, overlaid on a dark-dimmed solar farm photography.",
+    "services_grid": "Bento-style asymmetrical grid. Mixing real photography with solid colored cards. Use raw HTML/Tailwind for creative layouts instead of rigid Shadcn cards.",
+    "stats_section": "High density, large typography for numbers, thin mono font for labels. Dark theme to add weight.",
+    "manifesto": "Numbered editorial chapters with wide margins, large typography, and generous negative space (py-24 to py-32).",
+    "marquee": "Slow editorial marquee, 'Electric Ochre' background or pale background with dark earthy text, mono or serif font, massive gaps between items.",
+    "spacing": "Use generous spacing (py-24, py-32) between sections. Containers with border must have internal padding (p-6, p-8). Images must not exceed 80vh on mobile."
+  },
+  "motion": {
+    "libraries": [
+      "framer-motion",
+      "lenis",
+      "react-fast-marquee"
+    ],
+    "rules": [
+      "Smooth momentum scrolling using Lenis is MANDATORY.",
+      "Masked line-by-line text reveal on initial load using framer-motion.",
+      "Framer-motion scroll reveals and micro-interactions.",
+      "One subtle parallax or 3D hero moment.",
+      "Micro-interactions on buttons and cards (slight scale and color shift)."
+    ]
+  },
+  "components_to_use": {
+    "shadcn": [
+      "form",
+      "input",
+      "textarea",
+      "button"
+    ],
+    "custom": [
+      "KineticHero",
+      "BentoGrid",
+      "EditorialMarquee",
+      "SmoothScrollWrapper"
+    ],
+    "rules": [
+      "Use raw div/section/span for creative layouts.",
+      "ALWAYS use Shadcn for interactive logic (Forms, Inputs, etc.) but strip the default Vercel-look to match the brand."
+    ]
+  },
+  "images": [
+    {
+      "url": "https://images.pexels.com/photos/35105443/pexels-photo-35105443.jpeg",
+      "category": "hero",
+      "description": "Aerial view of a vast solar farm at sunrise."
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1660330589257-813305a4a383",
+      "category": "experience_engineers",
+      "description": "Man on a roof installing solar panels."
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e",
+      "category": "transmission",
+      "description": "Transmission lines at sunset."
+    },
+    {
+      "url": "https://images.pexels.com/photos/8783541/pexels-photo-8783541.jpeg",
+      "category": "drone_solar",
+      "description": "High-angle drone shot capturing a grid of solar panels."
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1589276534126-adef63a95e05",
+      "category": "battery_storage",
+      "description": "Industrial energy storage facility and solar panels."
+    },
+    {
+      "url": "https://images.pexels.com/photos/934586/pexels-photo-934586.jpeg",
+      "category": "consultancy_office",
+      "description": "Modern skyscraper with glass facade reflecting the sky."
+    }
+  ],
+  "general_ui_ux_design_guidelines": [
+    "You tend to converge toward generic, 'on distribution' outputs. Avoid this: make creative, distinctive frontends.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters where appropriate.",
+    "CRITICAL: DO NOT use complete transparent background in header, overlays, any surface that has content under it. Example: Dropdown with transparent background.",
+    "DO NOT apply universal transition (transition: all). Add transitions for specific interactive elements.",
+    "DO NOT center align the app container. No .App { text-align: center; }.",
+    "Every interaction needs micro-animations.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "NEVER use placeholder text for images.",
+    "Prioritize using pre-existing components from src/components/ui.",
+    "All interactive and key informational elements MUST include a data-testid attribute to facilitate robust automated testing."
+  ],
+  "specific_instructions_for_main_agent": [
+    "Build a multi-page routing structure (Home, About, Services, Experience, Contact). Use react-router-dom.",
+    "Implement Lenis for smooth momentum scrolling across the app.",
+    "Create a large kinetic hero with masked line-by-line reveal on load.",
+    "Include numbered manifesto chapters with editorial styling.",
+    "Add one slow editorial marquee using react-fast-marquee.",
+    "Implement framer-motion scroll reveals (useInView/useScroll) and micro-interactions.",
+    "Showcase licenses & credentials (EPRA C1/V1/V2, A1, T3 Solar PV Technician, EBK) prominently.",
+    "Create a large stats section (20 MWp Solar PV, 10 MWh BESS, decades of experience).",
+    "Build an asymmetrical services grid (EPC, Construction, Design, Consultancy).",
+    "Create a contact form using Shadcn components that saves to a mocked database (console log or mocked API).",
+    "Ensure the design feels like an award-winning Awwwards site (Site-of-the-Day level) — elite, professional, sleek.",
+    "Use .js/.jsx extensions for all files, DO NOT use TypeScript (.tsx/.ts)."
+  ]
+}
