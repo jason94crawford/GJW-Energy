@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Mail, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -15,9 +15,6 @@ export default function Footer() {
             <p className="mt-6 text-sm leading-relaxed text-white/50">
               Principal-led engineering and EPC for commercial & industrial solar PV, battery
               storage and grid infrastructure. Based in Kenya, delivering across East Africa.
-            </p>
-            <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.25em] text-white/40" data-testid="footer-licenses">
-              EPRA C1 · V1 · V2 · A1 · T3 Solar PV · EBK
             </p>
           </div>
 
@@ -43,19 +40,53 @@ export default function Footer() {
             </div>
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-white/40">Services</p>
-              <ul className="mt-5 space-y-3 text-sm text-white/60">
-                <li>EPC</li>
-                <li>Construction</li>
-                <li>Design</li>
-                <li>Consultancy</li>
+              <ul className="mt-5 space-y-3 text-sm">
+                {[
+                  ["EPC", "footer-service-epc"],
+                  ["Construction", "footer-service-construction"],
+                  ["Design", "footer-service-design"],
+                  ["Consultancy", "footer-service-consultancy"],
+                ].map(([label, id]) => (
+                  <li key={id}>
+                    <Link
+                      to="/services"
+                      data-testid={id}
+                      className="group inline-flex items-center gap-2 text-white/60 transition-colors duration-300 hover:text-ochre"
+                    >
+                      {label}
+                      <ArrowUpRight className="h-3 w-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-white/40">Contact</p>
-              <ul className="mt-5 space-y-3 text-sm text-white/60">
-                <li data-testid="footer-email">info@gjwenergy.co.ke</li>
-                <li data-testid="footer-phone">+254 700 000 000</li>
-                <li>Ngong, Kajiado County, Kenya</li>
+              <ul className="mt-5 space-y-3 text-sm">
+                <li>
+                  <a
+                    href="mailto:info@gjwenergy.co.ke"
+                    data-testid="footer-email"
+                    className="flex items-center gap-2.5 text-white/60 transition-colors duration-300 hover:text-ochre"
+                  >
+                    <Mail className="h-3.5 w-3.5 shrink-0 text-ochre" />
+                    info@gjwenergy.co.ke
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="tel:+254722660630"
+                    data-testid="footer-phone"
+                    className="flex items-center gap-2.5 text-white/60 transition-colors duration-300 hover:text-ochre"
+                  >
+                    <Phone className="h-3.5 w-3.5 shrink-0 text-ochre" />
+                    +254 722 660 630
+                  </a>
+                </li>
+                <li className="flex items-center gap-2.5 text-white/60">
+                  <MapPin className="h-3.5 w-3.5 shrink-0 text-ochre" />
+                  Ngong, Kajiado County, Kenya
+                </li>
               </ul>
               <Link
                 to="/contact"

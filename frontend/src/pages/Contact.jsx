@@ -19,8 +19,8 @@ import {
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 const CONTACT_INFO = [
-  { label: "Email", value: "info@gjwenergy.co.ke", icon: Mail, testId: "contact-email-info" },
-  { label: "Phone", value: "+254 700 000 000", icon: Phone, testId: "contact-phone-info" },
+  { label: "Email", value: "info@gjwenergy.co.ke", href: "mailto:info@gjwenergy.co.ke", icon: Mail, testId: "contact-email-info" },
+  { label: "Phone", value: "+254 722 660 630", href: "tel:+254722660630", icon: Phone, testId: "contact-phone-info" },
   { label: "Office", value: "Ngong, Kajiado County, Kenya", icon: MapPin, testId: "contact-office-info" },
   { label: "Mandate", value: "Kenya & the wider East African region", icon: Globe2, testId: "contact-mandate-info" },
 ];
@@ -89,7 +89,16 @@ export default function Contact() {
                     <c.icon className="h-3.5 w-3.5 shrink-0 text-ochre" />
                     {c.label}
                   </p>
-                  <p className="col-span-2 text-sm font-medium md:text-base">{c.value}</p>
+                  {c.href ? (
+                    <a
+                      href={c.href}
+                      className="col-span-2 text-sm font-medium transition-colors duration-300 hover:text-ochre md:text-base"
+                    >
+                      {c.value}
+                    </a>
+                  ) : (
+                    <p className="col-span-2 text-sm font-medium md:text-base">{c.value}</p>
+                  )}
                 </div>
               ))}
             </div>

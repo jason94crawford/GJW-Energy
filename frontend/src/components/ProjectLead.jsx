@@ -7,7 +7,6 @@ const CREDENTIALS = [
   "EPRA Class A1 Electrician — Licence No. 6767",
   "EPRA Class T3 Solar PV Technician",
   "Formerly Project Developer, New Southern Energy",
-  "20 MWp Solar PV · 10 MWh BESS delivered",
 ];
 
 export const ProjectLead = () => (
@@ -22,7 +21,7 @@ export const ProjectLead = () => (
           </div>
           <div className="absolute inset-x-0 bottom-0 h-px bg-white/15" />
           <div className="absolute bottom-0 left-0 bg-ochre px-6 py-4 md:px-8 md:py-5">
-            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-obsidian">Project Lead</p>
+            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-obsidian">Founder & Technical Director</p>
           </div>
           <div className="absolute right-0 top-0 border-b border-l border-white/15 px-5 py-3">
             <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-white/50">ENG · EBK · EPRA</p>
@@ -36,14 +35,13 @@ export const ProjectLead = () => (
           Eng. Geoffrey Kipyegon
         </h2>
         <p className="mt-4 font-mono text-xs uppercase tracking-[0.25em] text-white/50">
-          Project Lead · GJW Energy
+          Founder & Technical Director · GJW Energy
         </p>
         <p className="mt-8 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
-          Anchors the company's technical governance — an Electrical & Electronic Engineer licensed
-          by the Engineers Board of Kenya, holding statutory EPRA licences, with delivery experience
-          across 20 MWp of solar PV and 10 MWh of battery storage in East Africa. Predominantly
-          commercial & industrial work — powering manufacturing, hospitality, retail, healthcare
-          and horticulture — alongside utility-scale plants.
+          Leads the company's technical governance — an Electrical & Electronic Engineer licensed
+          by the Engineers Board of Kenya, holding statutory EPRA licences, with a track record of
+          commercial & industrial and utility-scale solar and storage delivery across East Africa:
+          manufacturing, hospitality, retail, healthcare and horticulture.
         </p>
 
         <ul className="mt-10 border-t border-white/10" data-testid="project-lead-credentials">

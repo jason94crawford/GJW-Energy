@@ -61,6 +61,12 @@ Build a sleek, professional, elite-EPC website for GJW Energy — a newly incorp
 - Quality & price positioning added: manifesto chapter 04 "Honest value" + new ValueBand section on Home ("Cheap solar dominates. We build what lasts.") with two pillars — Quality you can verify (Gem icon) and Pricing you can defend (Scale icon), hover-animated
 - Verified: all 5 local images load on their sections, chapter 04 renders, ValueBand pillars render
 
+## Iteration 7 (2026-09-03)
+- Footer: removed EPRA licence strip; Services column items (EPC/Construction/Design/Consultancy) now link to /services with hover arrows; contact items now icon-led and tappable (mailto:/tel:)
+- Contact details updated to real phone +254 722 660 630 (footer + contact page, tel: links)
+- About: Eng. Geoffrey Kipyegon re-titled Founder & Technical Director (portrait tag, role line, chapter 02); removed 20 MWp / 10 MWh BESS references from his bio and credentials list
+- Verified: founder title renders, no MWp/MWh text in spotlight, footer licences gone, service links and tel:/mailto: hrefs work
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page
