@@ -70,7 +70,7 @@ export const PresenceMap = () => {
           </Reveal>
 
           <Reveal delay={0.15} className="lg:col-span-7">
-            <div className="border border-white/10 bg-[#0D0D10] p-3 sm:p-6" data-testid="presence-map-canvas">
+            <div data-testid="presence-map-canvas">
               <svg
                 id="presence-map-svg"
                 data-active={activeCountry}
