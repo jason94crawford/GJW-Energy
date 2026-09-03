@@ -1,3 +1,4 @@
+import { BadgeCheck } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 const CREDENTIALS = [
@@ -31,7 +32,7 @@ export const CredentialsBand = () => (
                 key={c}
                 className="flex items-center gap-3 bg-forest px-5 py-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white/75"
               >
-                <span className="h-1.5 w-1.5 rotate-45 bg-ochre" />
+                <BadgeCheck className="h-4 w-4 shrink-0 text-ochre" />
                 {c}
               </li>
             ))}

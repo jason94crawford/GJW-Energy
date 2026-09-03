@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Sun, BatteryCharging, Zap } from "lucide-react";
 import { KineticHero } from "@/components/KineticHero";
 import { Reveal } from "@/components/Reveal";
 import { StatsBand } from "@/components/StatsBand";
@@ -9,18 +9,21 @@ const AREAS = [
   {
     n: "01",
     title: "C&I & utility solar PV",
+    icon: Sun,
     body: "Our team has engineered and delivered 20 MWp of solar PV across East Africa — predominantly commercial & industrial systems powering manufacturers, hotels, malls, hospitals and flower farms, alongside utility-scale plants.",
     image: "https://images.pexels.com/photos/8783541/pexels-photo-8783541.jpeg",
   },
   {
     n: "02",
     title: "Battery energy storage",
+    icon: BatteryCharging,
     body: "10 MWh of BESS designed, built and commissioned — integrating storage with C&I solar and grid infrastructure for reliable, dispatchable power.",
     image: "https://images.unsplash.com/photo-1589276534126-adef63a95e05",
   },
   {
     n: "03",
     title: "Transmission & distribution",
+    icon: Zap,
     body: "Deep experience across transmission and distribution networks — the grid-side expertise that makes generation assets actually deliver.",
     image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e",
   },
@@ -70,10 +73,13 @@ export default function Experience() {
                   }`}
                   data-testid={`experience-area-${a.n}`}
                 >
-                  <div className="relative max-h-[80vh] overflow-hidden">
-                    <img src={a.image} alt={a.title} className="h-full max-h-[80vh] w-full object-cover" />
+                  <div className="group relative max-h-[80vh] overflow-hidden">
+                    <img src={a.image} alt={a.title} className="h-full max-h-[80vh] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     <div className="absolute left-0 top-0 bg-obsidian px-5 py-3">
                       <p className="font-mono text-xs tracking-[0.3em] text-ochre">{a.n}</p>
+                    </div>
+                    <div className="absolute right-0 top-0 flex h-11 w-11 items-center justify-center bg-ochre transition-transform duration-300 group-hover:rotate-6">
+                      <a.icon className="h-5 w-5 text-obsidian" />
                     </div>
                   </div>
                   <div>
@@ -95,19 +101,19 @@ export default function Experience() {
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">Case studies</p>
               <h2 className="mt-6 max-w-2xl font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tighter sm:text-5xl lg:text-6xl">
-                The proof is being documented.
+                Selected work, documented.
               </h2>
               <p className="mt-6 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
-                We're preparing detailed case studies from our delivered solar PV, BESS and grid
-                projects. In the meantime, talk to us directly about our track record.
+                Explore solar PV and storage projects delivered by our team across East Africa's
+                core sectors — from flower farms to factories, resorts to hospitals.
               </p>
             </div>
             <Link
-              to="/contact"
+              to="/case-studies"
               data-testid="experience-cta-button"
               className="group inline-flex shrink-0 items-center gap-3 rounded-full border border-white/25 px-8 py-4 font-mono text-xs uppercase tracking-[0.15em] text-white transition-colors duration-300 hover:border-ochre hover:text-ochre"
             >
-              Ask about our work
+              View case studies
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </Reveal>

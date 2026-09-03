@@ -8,6 +8,7 @@ const LINKS = [
   { to: "/about", label: "About", testId: "nav-link-about" },
   { to: "/services", label: "Services", testId: "nav-link-services" },
   { to: "/experience", label: "Experience", testId: "nav-link-experience" },
+  { to: "/case-studies", label: "Case Studies", testId: "nav-link-case-studies" },
   { to: "/contact", label: "Contact", testId: "nav-link-contact" },
 ];
 

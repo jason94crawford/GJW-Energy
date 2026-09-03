@@ -1,11 +1,12 @@
+import { Factory, Hotel, ShoppingBag, HeartPulse, Flower2 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 const SECTORS = [
-  { n: "01", name: "Manufacturing", driver: "Solar and storage sized to process loads — cutting diesel and tariff exposure on the production line." },
-  { n: "02", name: "Hospitality", driver: "Resilient power for hotels, lodges and camps — guest comfort without the generator hum." },
-  { n: "03", name: "Malls & Retail", driver: "Daytime demand meets daytime generation — solar that mirrors the retail load curve." },
-  { n: "04", name: "Hospitals & Healthcare", driver: "Uninterrupted, high-quality power where uptime is measured in outcomes, not losses." },
-  { n: "05", name: "Flower Farms & Agri", driver: "Cold chain, irrigation and packhouse loads powered reliably — built for East Africa's export engine." },
+  { n: "01", name: "Manufacturing", icon: Factory, driver: "Solar and storage sized to process loads — cutting diesel and tariff exposure on the production line." },
+  { n: "02", name: "Hospitality", icon: Hotel, driver: "Resilient power for hotels, lodges and camps — guest comfort without the generator hum." },
+  { n: "03", name: "Malls & Retail", icon: ShoppingBag, driver: "Daytime demand meets daytime generation — solar that mirrors the retail load curve." },
+  { n: "04", name: "Hospitals & Healthcare", icon: HeartPulse, driver: "Uninterrupted, high-quality power where uptime is measured in outcomes, not losses." },
+  { n: "05", name: "Flower Farms & Agri", icon: Flower2, driver: "Cold chain, irrigation and packhouse loads powered reliably — built for East Africa's export engine." },
 ];
 
 export const SectorsBand = () => (
@@ -32,9 +33,14 @@ export const SectorsBand = () => (
               data-testid={`sector-row-${s.n}`}
             >
               <p className="font-mono text-xs tracking-[0.3em] text-ochre md:col-span-2">{s.n}</p>
-              <h3 className="font-display text-2xl font-extrabold uppercase tracking-tighter transition-colors duration-300 group-hover:text-white sm:text-3xl md:col-span-5">
-                {s.name}
-              </h3>
+              <div className="flex items-center gap-4 md:col-span-5">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center border border-black/15 text-black/55 transition-all duration-300 group-hover:rotate-6 group-hover:border-ochre group-hover:bg-ochre group-hover:text-obsidian">
+                  <s.icon className="h-5 w-5" />
+                </span>
+                <h3 className="font-display text-2xl font-extrabold uppercase tracking-tighter transition-colors duration-300 group-hover:text-white sm:text-3xl">
+                  {s.name}
+                </h3>
+              </div>
               <p className="text-sm leading-relaxed text-black/55 transition-colors duration-300 group-hover:text-white/60 md:col-span-5">
                 {s.driver}
               </p>

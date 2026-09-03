@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Zap, HardHat, DraftingCompass, ClipboardCheck } from "lucide-react";
 import { KineticHero } from "@/components/KineticHero";
 import { Reveal } from "@/components/Reveal";
 import { EditorialMarquee } from "@/components/EditorialMarquee";
@@ -8,6 +8,7 @@ const SERVICES = [
   {
     n: "01",
     title: "EPC",
+    icon: Zap,
     tagline: "Turnkey delivery, single point of accountability.",
     capabilities: ["Engineering, procurement & construction", "C&I rooftop & ground-mount solar PV", "Battery energy storage systems", "Grid connection & commissioning"],
     image: "https://images.pexels.com/photos/8783541/pexels-photo-8783541.jpeg",
@@ -16,6 +17,7 @@ const SERVICES = [
   {
     n: "02",
     title: "Construction",
+    icon: HardHat,
     tagline: "Built to programme, to spec, to standard.",
     capabilities: ["Civil & structural works", "Mechanical installation", "Electrical installation", "Testing & commissioning"],
     span: "md:col-span-2",
@@ -24,6 +26,7 @@ const SERVICES = [
   {
     n: "03",
     title: "Design",
+    icon: DraftingCompass,
     tagline: "Engineering that starts on paper — and holds up in the field.",
     capabilities: ["Feasibility & yield assessment", "System & electrical design", "Grid interconnection studies", "BESS integration design"],
     span: "md:col-span-2",
@@ -32,6 +35,7 @@ const SERVICES = [
   {
     n: "04",
     title: "Consultancy",
+    icon: ClipboardCheck,
     tagline: "Independent expertise across the project lifecycle.",
     capabilities: ["Owner's engineering", "Technical due diligence", "Project management support", "Regulatory & licensing advisory"],
     image: "https://images.pexels.com/photos/934586/pexels-photo-934586.jpeg",
@@ -92,6 +96,9 @@ export default function Services() {
                     <ArrowUpRight className="h-5 w-5 opacity-40 transition-all duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-ochre group-hover:opacity-100" />
                   </div>
                   <div className="relative mt-16">
+                    <div className={`mb-6 flex h-12 w-12 items-center justify-center border transition-transform duration-300 group-hover:-rotate-6 ${s.theme === "light" ? "border-black/20" : "border-white/25"}`}>
+                      <s.icon className="h-5 w-5 text-ochre" />
+                    </div>
                     <h3 className="font-display text-3xl font-extrabold uppercase tracking-tighter sm:text-4xl">{s.title}</h3>
                     <p className={`mt-3 text-sm md:text-base ${s.theme === "light" ? "text-black/60" : "text-white/65"}`}>
                       {s.tagline}

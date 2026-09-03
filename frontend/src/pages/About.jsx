@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Crosshair, ShieldCheck, Globe2 } from "lucide-react";
 import { KineticHero } from "@/components/KineticHero";
 import { Reveal } from "@/components/Reveal";
 import { CredentialsBand } from "@/components/CredentialsBand";
@@ -24,9 +24,9 @@ const CHAPTERS = [
 ];
 
 const VALUES = [
-  { title: "Precision", body: "Engineering decisions backed by calculation, not convention." },
-  { title: "Accountability", body: "One principal. One standard. One name on the line." },
-  { title: "Region-first", body: "Designed for East African grids, climates and realities." },
+  { title: "Precision", icon: Crosshair, body: "Engineering decisions backed by calculation, not convention." },
+  { title: "Accountability", icon: ShieldCheck, body: "One principal. One standard. One name on the line." },
+  { title: "Region-first", icon: Globe2, body: "Designed for East African grids, climates and realities." },
 ];
 
 export default function About() {
@@ -63,15 +63,15 @@ export default function About() {
       <section className="bg-obsidian py-24 lg:py-32" data-testid="about-image-band">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
-            <div className="relative max-h-[80vh] overflow-hidden">
+            <div className="group relative max-h-[80vh] overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1660330589257-813305a4a383"
-                alt="Engineer installing solar panels"
-                className="h-full max-h-[80vh] w-full object-cover"
+                src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2000&q=80"
+                alt="Solar PV plant at golden hour"
+                className="h-full max-h-[80vh] w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute bottom-0 left-0 bg-ochre px-6 py-4 md:px-8 md:py-5">
                 <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-obsidian">
-                  On site · Solar PV installation
+                  Solar PV · Delivered at scale
                 </p>
               </div>
             </div>
@@ -81,6 +81,7 @@ export default function About() {
             {VALUES.map((v, i) => (
               <div key={v.title} className="bg-obsidian p-8 lg:p-10" data-testid={`value-${v.title.toLowerCase()}`}>
                 <Reveal delay={i * 0.08}>
+                  <v.icon className="mb-5 h-6 w-6 text-ochre" />
                   <h3 className="font-display text-2xl font-extrabold uppercase tracking-tighter text-white">{v.title}</h3>
                   <p className="mt-4 text-sm leading-relaxed text-white/55">{v.body}</p>
                 </Reveal>

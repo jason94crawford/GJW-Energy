@@ -40,12 +40,18 @@ Build a sleek, professional, elite-EPC website for GJW Energy — a newly incorp
 - De-emphasized Ngong across hero/footer/about/contact headings; retained only as office location in contact details
 - Verified: spotlight renders with 6 credentials, sectors band hover interaction works, experience chips present
 
+## Iteration 3 (2026-09-03)
+- New Case Studies page (/case-studies): 8 East Africa projects sourced from NSE.africa — Tata Chemicals (5.1 MW, Magadi), Devki Group (3.8 MWp, 4 sites), Tatu City (2.05 MW rooftop SEZ), SAJ Ceramics (693 kWp), Waridi Farm (grid-tied horticulture), Wilfay Flowers (274.5 MWh/yr, Subukia), Kinondo Kwetu Resort (off-grid, Diani), Mwale Medical & Technology City (healthcare, Kakamega). Framed as "delivered by GJW Energy team during prior engagements, including with New Southern Energy"; stock imagery pending user's real project photos
+- Animated lucide icons added across the site: sector rows (Factory/Hotel/ShoppingBag/HeartPulse/Flower2 with rotate+ochre hover), services cards (Zap/HardHat/DraftingCompass/ClipboardCheck), About values, Experience area image chips, Contact info rows (Mail/Phone/MapPin/Globe2), credentials lists (BadgeCheck)
+- Replaced weak About rooftop photo with a dramatic golden-hour solar plant image (+ hover zoom); Experience teaser now links to the live case studies page; nav + footer gained Case Studies links
+- Verified: 8 case studies render with capacity/location/detail meta, sector icon hover animation works, About photo loads, no compile errors
+
 ## Backlog
-- P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; case studies section (user-planned)
+- P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page
 - P2: Blog/insights, project map of East Africa, language toggle
 
 ## Next Tasks
-1. Collect real contact details + Project Lead headshot and swap placeholders
-2. Design + build case studies pages when project content is ready
+1. Swap in real project photos per case study when the user sends them
+2. Collect real contact details + Project Lead headshot
 3. Add email alerts for new enquiries

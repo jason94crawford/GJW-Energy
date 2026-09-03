@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { ArrowUpRight, Loader2 } from "lucide-react";
+import { ArrowUpRight, Loader2, Mail, Phone, MapPin, Globe2 } from "lucide-react";
 import { toast } from "sonner";
 import { KineticHero } from "@/components/KineticHero";
 import { Reveal } from "@/components/Reveal";
@@ -19,10 +19,10 @@ import {
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 const CONTACT_INFO = [
-  { label: "Email", value: "info@gjwenergy.co.ke", testId: "contact-email-info" },
-  { label: "Phone", value: "+254 700 000 000", testId: "contact-phone-info" },
-  { label: "Office", value: "Ngong, Kajiado County, Kenya", testId: "contact-office-info" },
-  { label: "Mandate", value: "Kenya & the wider East African region", testId: "contact-mandate-info" },
+  { label: "Email", value: "info@gjwenergy.co.ke", icon: Mail, testId: "contact-email-info" },
+  { label: "Phone", value: "+254 700 000 000", icon: Phone, testId: "contact-phone-info" },
+  { label: "Office", value: "Ngong, Kajiado County, Kenya", icon: MapPin, testId: "contact-office-info" },
+  { label: "Mandate", value: "Kenya & the wider East African region", icon: Globe2, testId: "contact-mandate-info" },
 ];
 
 const EMPTY = { name: "", email: "", phone: "", company: "", service: "", message: "" };
@@ -85,7 +85,10 @@ export default function Contact() {
             <div className="mt-12 border-t border-black/10">
               {CONTACT_INFO.map((c) => (
                 <div key={c.label} className="grid grid-cols-3 gap-4 border-b border-black/10 py-5" data-testid={c.testId}>
-                  <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-black/45">{c.label}</p>
+                  <p className="flex items-center gap-2.5 font-mono text-[11px] uppercase tracking-[0.25em] text-black/45">
+                    <c.icon className="h-3.5 w-3.5 shrink-0 text-ochre" />
+                    {c.label}
+                  </p>
                   <p className="col-span-2 text-sm font-medium md:text-base">{c.value}</p>
                 </div>
               ))}

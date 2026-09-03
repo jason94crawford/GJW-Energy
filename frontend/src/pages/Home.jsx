@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Zap, HardHat, DraftingCompass, ClipboardCheck } from "lucide-react";
 import { KineticHero } from "@/components/KineticHero";
 import { Reveal } from "@/components/Reveal";
 import { EditorialMarquee } from "@/components/EditorialMarquee";
@@ -29,6 +29,7 @@ const SERVICES = [
   {
     n: "01",
     title: "EPC",
+    icon: Zap,
     body: "Full turnkey engineering, procurement and construction for C&I and utility-scale solar PV, BESS and grid infrastructure.",
     image: "https://images.pexels.com/photos/8783541/pexels-photo-8783541.jpeg",
     span: "md:col-span-4",
@@ -37,6 +38,7 @@ const SERVICES = [
   {
     n: "02",
     title: "Construction",
+    icon: HardHat,
     body: "Civil, mechanical and electrical works — executed to programme, to spec, to standard.",
     span: "md:col-span-2",
     solid: true,
@@ -44,6 +46,7 @@ const SERVICES = [
   {
     n: "03",
     title: "Design",
+    icon: DraftingCompass,
     body: "Feasibility, yield modelling, system design and grid interconnection studies.",
     span: "md:col-span-2",
     solid: true,
@@ -51,6 +54,7 @@ const SERVICES = [
   {
     n: "04",
     title: "Consultancy",
+    icon: ClipboardCheck,
     body: "Owner's engineering, technical due diligence and advisory across the project lifecycle.",
     image: "https://images.pexels.com/photos/934586/pexels-photo-934586.jpeg",
     span: "md:col-span-4",
@@ -160,7 +164,12 @@ export default function Home() {
                     </>
                   )}
                   <div className="relative flex h-full flex-col justify-between p-8">
-                    <p className="font-mono text-xs tracking-[0.3em] text-ochre">{s.n}</p>
+                    <div className="flex items-start justify-between">
+                      <p className="font-mono text-xs tracking-[0.3em] text-ochre">{s.n}</p>
+                      <span className="flex h-10 w-10 items-center justify-center border border-white/25 transition-all duration-300 group-hover:rotate-6 group-hover:border-ochre group-hover:bg-ochre">
+                        <s.icon className="h-4 w-4 text-white transition-colors duration-300 group-hover:text-obsidian" />
+                      </span>
+                    </div>
                     <div>
                       <h3 className="font-display text-3xl font-extrabold uppercase tracking-tighter">{s.title}</h3>
                       <p className="mt-3 max-w-md text-sm leading-relaxed text-white/65">{s.body}</p>
