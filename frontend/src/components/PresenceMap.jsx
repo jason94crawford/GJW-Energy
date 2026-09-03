@@ -1,15 +1,64 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { MapPin, Sun, BatteryCharging, PlugZap, Cable } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { MAP_DOTS, CITIES, LINKS } from "@/components/mapData";
 
 const TERRITORIES = [
-  { id: "kenya", name: "Kenya", city: "nairobi", cityLabel: "Nairobi · HQ", note: "EPRA-licensed delivery, C&I & utility" },
-  { id: "uganda", name: "Uganda", city: "kampala", cityLabel: "Kampala", note: "C&I solar & storage" },
-  { id: "tanzania", name: "Tanzania", city: "dar", cityLabel: "Dar es Salaam", note: "C&I solar & storage" },
-  { id: "somalia", name: "Somalia", city: "mogadishu", cityLabel: "Mogadishu", note: "Off-grid & diesel displacement" },
-  { id: "somaliland", name: "Somaliland", city: "hargeisa", cityLabel: "Hargeisa", note: "Water & utility solar" },
+  {
+    id: "kenya",
+    name: "Kenya",
+    city: "nairobi",
+    cityLabel: "Nairobi · HQ",
+    note: "EPRA-licensed delivery, C&I & utility",
+    stats: [
+      { icon: Sun, value: "17 MWp", label: "Solar PV" },
+      { icon: BatteryCharging, value: "9 MWh", label: "BESS" },
+      { icon: PlugZap, value: "5 MVA", label: "Distribution" },
+      { icon: Cable, value: "10 km", label: "Transmission line" },
+    ],
+  },
+  {
+    id: "uganda",
+    name: "Uganda",
+    city: "kampala",
+    cityLabel: "Kampala",
+    note: "C&I solar & storage",
+    stats: [{ icon: Sun, value: "200 kWp", label: "Solar PV" }],
+  },
+  {
+    id: "tanzania",
+    name: "Tanzania",
+    city: "dar",
+    cityLabel: "Dar es Salaam",
+    note: "C&I solar & storage",
+    stats: [
+      { icon: Sun, value: "1 MWp", label: "Solar PV" },
+      { icon: BatteryCharging, value: "1 MWh", label: "BESS" },
+    ],
+  },
+  {
+    id: "somalia",
+    name: "Somalia",
+    city: "mogadishu",
+    cityLabel: "Mogadishu",
+    note: "Off-grid & diesel displacement",
+    stats: [
+      { icon: Sun, value: "1 MWp", label: "Solar PV" },
+      { icon: BatteryCharging, value: "0 MWh", label: "BESS" },
+    ],
+  },
+  {
+    id: "somaliland",
+    name: "Somaliland",
+    city: "hargeisa",
+    cityLabel: "Hargeisa",
+    note: "Water & utility solar",
+    stats: [
+      { icon: Sun, value: "0.8 MWp", label: "Solar PV" },
+      { icon: BatteryCharging, value: "0 MWh", label: "BESS" },
+    ],
+  },
 ];
 
 export const PresenceMap = () => {
@@ -67,6 +116,42 @@ export const PresenceMap = () => {
               <MapPin className="h-3.5 w-3.5 text-ochre" />
               5 territories · 1 engineering standard
             </p>
+
+            <div className="mt-8 border border-white/10 p-6" data-testid="territory-stats">
+              <AnimatePresence mode="wait">
+                {TERRITORIES.filter((t) => t.id === active).map((t) => (
+                  <motion.div
+                    key={t.id}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -12 }}
+                    transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-ochre">
+                      {t.name} · Delivered volumes
+                    </p>
+                    <div className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5">
+                      {t.stats.map((st) => (
+                        <div key={st.label} className="flex items-center gap-3">
+                          <span className="flex h-9 w-9 shrink-0 items-center justify-center border border-white/15">
+                            <st.icon className="h-4 w-4 text-ochre" />
+                          </span>
+                          <div>
+                            <p
+                              className="font-display text-xl font-extrabold tracking-tight text-white"
+                              data-testid={`stat-value-${st.label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                            >
+                              {st.value}
+                            </p>
+                            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/40">{st.label}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
           </Reveal>
 
           <Reveal delay={0.15} className="lg:col-span-7">
