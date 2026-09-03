@@ -51,6 +51,11 @@ Build a sleek, professional, elite-EPC website for GJW Energy — a newly incorp
 - StatsBand numbers now count up on scroll (framer-motion animate + useInView)
 - Verified: 12 SVG paths render, each territory highlights independently (Kenya/Uganda/Tanzania/Somalia/Somaliland), count-up completes to correct values
 
+## Iteration 5 (2026-09-03)
+- Stats band: "6 EPRA licences" replaced with "5 Countries across our East African footprint"
+- Services page: each service card (EPC, Construction, Design, Consultancy) now opens a dark modal on click with an expanded intro and 6 scope highlights (turnkey delivery, power stabilisation, civils/mechanical/electrical works, energy modelling, grid studies, O&M readiness, due diligence etc.) plus a "Discuss this scope" CTA to the contact form; hover reveals a "Click to explore the full scope" hint
+- Verified: EPC and Design dialogs open with full scope lists, stat counts up to 5
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page
