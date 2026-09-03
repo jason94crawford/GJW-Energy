@@ -1,7 +1,7 @@
 import { Reveal } from "@/components/Reveal";
 
 const STATS = [
-  { value: "20", unit: "MWp", label: "Utility-scale solar PV delivered by our team", testId: "stat-solar" },
+  { value: "20", unit: "MWp", label: "Solar PV delivered across C&I & utility projects", testId: "stat-solar" },
   { value: "10", unit: "MWh", label: "Battery energy storage built & commissioned", testId: "stat-bess" },
   { value: "20+", unit: "yrs", label: "Combined engineering & delivery experience", testId: "stat-years" },
   { value: "6", unit: "", label: "EPRA licences & professional registrations", testId: "stat-licences" },

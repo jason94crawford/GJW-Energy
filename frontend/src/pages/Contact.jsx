@@ -73,7 +73,7 @@ export default function Contact() {
           <Reveal>
             <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">Reach us</p>
             <h2 className="mt-6 font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tighter sm:text-5xl">
-              Based in Ngong.
+              Based in Kenya.
               <br />
               Building for the region.
             </h2>

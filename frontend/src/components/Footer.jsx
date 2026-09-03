@@ -13,8 +13,8 @@ export default function Footer() {
               <span className="text-ochre">Energy</span>
             </p>
             <p className="mt-6 text-sm leading-relaxed text-white/50">
-              Principal-led engineering and EPC for solar PV, battery storage and grid
-              infrastructure across East Africa. Headquartered in Ngong, Kenya.
+              Principal-led engineering and EPC for commercial & industrial solar PV, battery
+              storage and grid infrastructure. Based in Kenya, delivering across East Africa.
             </p>
             <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.25em] text-white/40" data-testid="footer-licenses">
               EPRA C1 · V1 · V2 · A1 · T3 Solar PV · EBK
@@ -70,7 +70,7 @@ export default function Footer() {
 
         <div className="mt-20 flex flex-col gap-3 border-t border-white/10 pt-8 font-mono text-[11px] uppercase tracking-[0.2em] text-white/35 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 GJW Energy Ltd. All rights reserved.</p>
-          <p>Ngong · Kenya · East Africa</p>
+          <p>Kenya · East Africa</p>
         </div>
       </div>
     </footer>

@@ -33,12 +33,19 @@ Build a sleek, professional, elite-EPC website for GJW Energy — a newly incorp
 - curl: root, POST contact (persisted), GET contact (listed)
 - e2e screenshots: all 5 pages render; UI form submission → toast → record present in DB
 
+## Iteration 2 (2026-09-03)
+- Added Project Lead spotlight (About page): Eng. Geoffrey Kipyegon — BSc E&EE, EBK licensed, EPRA Class A1 Electrician (Licence No. 6767), EPRA T3 Solar PV Technician, formerly Project Developer at New Southern Energy; monogram portrait panel (real headshot pending from user)
+- Repositioned messaging to C&I-predominant: hero descriptions, stats label, services capabilities, experience area renamed "C&I & utility solar PV"
+- Added "Sectors we power" interactive section (Home) — Manufacturing, Hospitality, Malls & Retail, Hospitals & Healthcare, Flower Farms & Agri — plus sector chips on Experience
+- De-emphasized Ngong across hero/footer/about/contact headings; retained only as office location in contact details
+- Verified: spotlight renders with 6 credentials, sectors band hover interaction works, experience chips present
+
 ## Backlog
-- P0: Replace placeholder contact details with real email/phone; case studies section (user-planned)
+- P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; case studies section (user-planned)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page
-- P2: Blog/insights, team profiles, project map of East Africa, language toggle
+- P2: Blog/insights, project map of East Africa, language toggle
 
 ## Next Tasks
-1. Collect real contact details and swap placeholders
+1. Collect real contact details + Project Lead headshot and swap placeholders
 2. Design + build case studies pages when project content is ready
 3. Add email alerts for new enquiries

@@ -4,6 +4,7 @@ import { KineticHero } from "@/components/KineticHero";
 import { Reveal } from "@/components/Reveal";
 import { EditorialMarquee } from "@/components/EditorialMarquee";
 import { StatsBand } from "@/components/StatsBand";
+import { SectorsBand } from "@/components/SectorsBand";
 import { CredentialsBand } from "@/components/CredentialsBand";
 
 const MANIFESTO = [
@@ -20,7 +21,7 @@ const MANIFESTO = [
   {
     n: "03",
     title: "Built for the region",
-    body: "From our offices in Ngong, Kenya, we assemble specialist suppliers, installers and subcontract resources matched precisely to each final construction programme — anywhere in East Africa.",
+    body: "From our base in Kenya, we assemble specialist suppliers, installers and subcontract resources matched precisely to each final construction programme — anywhere in East Africa.",
   },
 ];
 
@@ -28,7 +29,7 @@ const SERVICES = [
   {
     n: "01",
     title: "EPC",
-    body: "Full turnkey engineering, procurement and construction for solar PV, BESS and grid infrastructure.",
+    body: "Full turnkey engineering, procurement and construction for C&I and utility-scale solar PV, BESS and grid infrastructure.",
     image: "https://images.pexels.com/photos/8783541/pexels-photo-8783541.jpeg",
     span: "md:col-span-4",
     dark: true,
@@ -61,9 +62,9 @@ export default function Home() {
   return (
     <main data-testid="home-page">
       <KineticHero
-        kicker="GJW Energy · Ngong, Kenya · East Africa"
+        kicker="GJW Energy · Kenya · East Africa"
         lines={["Power,", { text: "Engineered" }, "for East Africa."]}
-        description="A principal-led engineering and EPC company delivering utility-scale solar PV, battery energy storage and grid infrastructure across the region."
+        description="A principal-led engineering and EPC company delivering commercial & industrial solar PV, battery energy storage and utility-scale energy infrastructure across the region."
         image="https://images.pexels.com/photos/35105443/pexels-photo-35105443.jpeg"
       >
         <Link
@@ -114,6 +115,8 @@ export default function Home() {
       </section>
 
       <StatsBand />
+
+      <SectorsBand />
 
       <section className="bg-bone py-24 lg:py-32" data-testid="services-preview">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">

@@ -3,12 +3,13 @@ import { ArrowUpRight } from "lucide-react";
 import { KineticHero } from "@/components/KineticHero";
 import { Reveal } from "@/components/Reveal";
 import { CredentialsBand } from "@/components/CredentialsBand";
+import { ProjectLead } from "@/components/ProjectLead";
 
 const CHAPTERS = [
   {
     n: "01",
     title: "Who we are",
-    body: "GJW Energy is a newly incorporated Kenyan private limited company focused on solar, energy solutions and engineering. From our offices in Ngong, Kenya, we hold a delivery mandate across East Africa — pairing the agility of a young company with the depth of decades of regional project experience.",
+    body: "GJW Energy is a newly incorporated Kenyan private limited company focused on solar, energy solutions and engineering. From our offices in Kenya, we hold a delivery mandate across East Africa — pairing the agility of a young company with the depth of decades of regional project experience.",
   },
   {
     n: "02",
@@ -56,6 +57,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <ProjectLead />
 
       <section className="bg-obsidian py-24 lg:py-32" data-testid="about-image-band">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">

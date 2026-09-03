@@ -9,7 +9,7 @@ const SERVICES = [
     n: "01",
     title: "EPC",
     tagline: "Turnkey delivery, single point of accountability.",
-    capabilities: ["Engineering, procurement & construction", "Utility-scale solar PV plants", "Battery energy storage systems", "Grid connection & commissioning"],
+    capabilities: ["Engineering, procurement & construction", "C&I rooftop & ground-mount solar PV", "Battery energy storage systems", "Grid connection & commissioning"],
     image: "https://images.pexels.com/photos/8783541/pexels-photo-8783541.jpeg",
     span: "md:col-span-4",
   },
@@ -46,7 +46,7 @@ export default function Services() {
         compact
         kicker="Services"
         lines={["From concept", { text: "to commissioning." }]}
-        description="EPC, construction, design and consultancy — delivered by a principal-led engineering team with utility-scale track record across East Africa."
+        description="EPC, construction, design and consultancy — delivered by a principal-led engineering team with a C&I and utility-scale track record across East Africa."
         image="https://images.pexels.com/photos/35105443/pexels-photo-35105443.jpeg"
       />
 

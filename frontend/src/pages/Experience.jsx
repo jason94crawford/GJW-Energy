@@ -8,14 +8,14 @@ import { CredentialsBand } from "@/components/CredentialsBand";
 const AREAS = [
   {
     n: "01",
-    title: "Utility-scale solar PV",
-    body: "Our team has engineered and delivered 20 MWp of solar PV across East Africa — from feasibility and design through construction, grid connection and commissioning.",
+    title: "C&I & utility solar PV",
+    body: "Our team has engineered and delivered 20 MWp of solar PV across East Africa — predominantly commercial & industrial systems powering manufacturers, hotels, malls, hospitals and flower farms, alongside utility-scale plants.",
     image: "https://images.pexels.com/photos/8783541/pexels-photo-8783541.jpeg",
   },
   {
     n: "02",
     title: "Battery energy storage",
-    body: "10 MWh of BESS designed, built and commissioned — integrating storage with solar generation and grid infrastructure for reliable, dispatchable power.",
+    body: "10 MWh of BESS designed, built and commissioned — integrating storage with C&I solar and grid infrastructure for reliable, dispatchable power.",
     image: "https://images.unsplash.com/photo-1589276534126-adef63a95e05",
   },
   {
@@ -33,7 +33,7 @@ export default function Experience() {
         compact
         kicker="Experience"
         lines={["Built at", { text: "utility scale." }]}
-        description="The people behind GJW Energy have delivered 20 MWp of solar PV and 10 MWh of battery storage across East Africa — backed by deep transmission and distribution experience."
+        description="The people behind GJW Energy have delivered 20 MWp of solar PV and 10 MWh of battery storage across East Africa — predominantly for commercial & industrial clients — backed by deep transmission and distribution experience."
         image="https://images.unsplash.com/photo-1589276534126-adef63a95e05"
       />
 
@@ -46,6 +46,19 @@ export default function Experience() {
             <h2 className="mt-6 max-w-3xl font-display text-4xl font-extrabold uppercase leading-none tracking-tighter sm:text-5xl lg:text-6xl">
               Three arenas. One grid.
             </h2>
+          </Reveal>
+
+          <Reveal delay={0.1}>
+            <div className="mt-10 flex flex-wrap gap-3" data-testid="sector-chips">
+              {["Manufacturing", "Hospitality", "Malls & Retail", "Hospitals & Healthcare", "Flower Farms & Agri"].map((s) => (
+                <span
+                  key={s}
+                  className="border border-black/15 px-5 py-2.5 font-mono text-[11px] uppercase tracking-[0.2em] text-black/60 transition-colors duration-300 hover:border-obsidian hover:bg-obsidian hover:text-white"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
           </Reveal>
 
           <div className="mt-20 space-y-24">
