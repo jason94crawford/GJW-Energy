@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
-const IMAGES = {
+export const IMAGES = {
   manufacturing: "/images/infographics/manufacturing.png",
   hospitality: "/images/infographics/hospitality.png",
   retail: "/images/infographics/retail.png",

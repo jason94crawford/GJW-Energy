@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { Factory, Hotel, ShoppingBag, HeartPulse, Flower2 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { SectorInfographic } from "@/components/SectorInfographic";
+import { SectorInfographic, IMAGES as INFOGRAPHIC_IMAGES } from "@/components/SectorInfographic";
 
 const SECTORS = [
   { n: "01", name: "Manufacturing", icon: Factory, scene: "manufacturing", driver: "Solar and storage sized to process loads — cutting diesel and tariff exposure on the production line." },
@@ -14,6 +14,50 @@ const SECTORS = [
 
 export const SectorsBand = () => {
   const [active, setActive] = useState(0);
+  const openTimer = useRef(null);
+  const rowRefs = useRef([]);
+  const anchorRef = useRef(null);
+
+  useEffect(() => {
+    Object.values(INFOGRAPHIC_IMAGES).forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+    return () => clearTimeout(openTimer.current);
+  }, []);
+
+  const openRow = (i) => {
+    const row = rowRefs.current[i];
+    anchorRef.current = row ? { i, y: row.getBoundingClientRect().top } : null;
+    setActive(i);
+  };
+
+  const scheduleOpen = (i) => {
+    clearTimeout(openTimer.current);
+    openTimer.current = setTimeout(() => openRow(i), 400);
+  };
+
+  const openNow = (i) => {
+    clearTimeout(openTimer.current);
+    openRow(i);
+  };
+
+  useLayoutEffect(() => {
+    const a = anchorRef.current;
+    if (!a) return;
+    anchorRef.current = null;
+    const row = rowRefs.current[a.i];
+    if (!row) return;
+    const delta = row.getBoundingClientRect().top - a.y;
+    if (Math.abs(delta) > 1) {
+      const y = window.scrollY + delta;
+      if (window.__lenis) {
+        window.__lenis.scrollTo(y, { immediate: true });
+      } else {
+        window.scrollTo(0, y);
+      }
+    }
+  }, [active]);
 
   return (
     <section className="bg-white py-24 lg:py-32" data-testid="sectors-band">
@@ -33,64 +77,64 @@ export const SectorsBand = () => {
 
         <div className="mt-16 border-t border-black/10">
           {SECTORS.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.04}>
-              <div
-                className={`group grid cursor-pointer grid-cols-1 gap-3 border-b border-black/10 px-4 py-8 transition-colors duration-300 md:grid-cols-12 md:items-center md:px-6 md:py-10 ${
-                  active === i ? "bg-obsidian" : "hover:bg-obsidian"
-                }`}
-                data-testid={`sector-row-${s.n}`}
-                onMouseOver={() => setActive(i)}
-                onClick={() => setActive(i)}
-                onFocus={() => setActive(i)}
-              >
-                <p className="font-mono text-xs tracking-[0.3em] text-ochre md:col-span-2">{s.n}</p>
-                <div className="flex items-center gap-4 md:col-span-5">
-                  <span
-                    className={`flex h-11 w-11 shrink-0 items-center justify-center border transition-all duration-300 group-hover:rotate-6 group-hover:border-ochre group-hover:bg-ochre group-hover:text-obsidian ${
-                      active === i ? "rotate-6 border-ochre bg-ochre text-obsidian" : "border-black/15 text-black/55"
-                    }`}
-                  >
-                    <s.icon className="h-5 w-5" />
-                  </span>
-                  <h3
-                    className={`font-display text-2xl font-extrabold uppercase tracking-tighter transition-colors duration-300 group-hover:text-white sm:text-3xl ${
-                      active === i ? "text-white" : ""
-                    }`}
-                  >
-                    {s.name}
-                  </h3>
-                </div>
-                <p
-                  className={`text-sm leading-relaxed transition-colors duration-300 group-hover:text-white/60 md:col-span-5 ${
-                    active === i ? "text-white/60" : "text-black/55"
+            <div key={s.n}>
+              <Reveal delay={i * 0.04}>
+                <div
+                  ref={(el) => (rowRefs.current[i] = el)}
+                  className={`group grid cursor-pointer grid-cols-1 gap-3 border-b border-black/10 px-4 py-8 transition-colors duration-300 md:grid-cols-12 md:items-center md:px-6 md:py-10 ${
+                    active === i ? "bg-obsidian" : "hover:bg-obsidian"
                   }`}
+                  data-testid={`sector-row-${s.n}`}
+                  onMouseOver={() => scheduleOpen(i)}
+                  onClick={() => openNow(i)}
+                  onFocus={() => openNow(i)}
                 >
-                  {s.driver}
-                </p>
-              </div>
-            </Reveal>
+                  <p className="font-mono text-xs tracking-[0.3em] text-ochre md:col-span-2">{s.n}</p>
+                  <div className="flex items-center gap-4 md:col-span-5">
+                    <span
+                      className={`flex h-11 w-11 shrink-0 items-center justify-center border transition-all duration-300 group-hover:rotate-6 group-hover:border-ochre group-hover:bg-ochre group-hover:text-obsidian ${
+                        active === i ? "rotate-6 border-ochre bg-ochre text-obsidian" : "border-black/15 text-black/55"
+                      }`}
+                    >
+                      <s.icon className="h-5 w-5" />
+                    </span>
+                    <h3
+                      className={`font-display text-2xl font-extrabold uppercase tracking-tighter transition-colors duration-300 group-hover:text-white sm:text-3xl ${
+                        active === i ? "text-white" : ""
+                      }`}
+                    >
+                      {s.name}
+                    </h3>
+                  </div>
+                  <p
+                    className={`text-sm leading-relaxed transition-colors duration-300 group-hover:text-white/60 md:col-span-5 ${
+                      active === i ? "text-white/60" : "text-black/55"
+                    }`}
+                  >
+                    {s.driver}
+                  </p>
+                </div>
+              </Reveal>
+              {active === i && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.35 }}
+                  className="border-b border-black/10 bg-obsidian px-4 py-8 md:px-8 md:py-12"
+                  data-testid={`sector-panel-${s.n}`}
+                >
+                  <SectorInfographic key={s.scene} scene={s.scene} />
+                </motion.div>
+              )}
+            </div>
           ))}
         </div>
 
         <Reveal delay={0.1}>
           <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.25em] text-black/40">
-            Hover a sector to see how solar PV + battery integrate for the application
+            Hover a sector — its system integration renders directly below it
           </p>
         </Reveal>
-
-        <div className="mt-6 bg-obsidian px-4 py-8 md:px-8 md:py-12" data-testid={`sector-panel-${SECTORS[active].n}`}>
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.div
-              key={active}
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <SectorInfographic scene={SECTORS[active].scene} />
-            </motion.div>
-          </AnimatePresence>
-        </div>
       </div>
     </section>
   );

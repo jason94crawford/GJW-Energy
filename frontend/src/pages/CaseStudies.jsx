@@ -99,11 +99,11 @@ export default function CaseStudies() {
         image="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d"
       />
 
-      <section className="border-b border-black/10 bg-white py-8" data-testid="case-studies-note">
+      <section className="border-b border-black/10 bg-white py-12 lg:py-16" data-testid="case-studies-note">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
-          <p className="max-w-3xl font-mono text-[11px] uppercase leading-relaxed tracking-[0.15em] text-black/45">
+          <p className="max-w-4xl font-mono text-sm uppercase leading-relaxed tracking-[0.2em] text-black/60 md:text-base">
             Projects developed, constructed and designed in partnership with regional solar
-            developers, IPPs, EPCs and consultants. Project photography follows shortly.
+            developers, IPPs, EPCs and consultants.
           </p>
         </div>
       </section>

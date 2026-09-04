@@ -100,6 +100,14 @@ Build a sleek, professional, elite-EPC website for GJW Energy — a newly incorp
 - Verified: retail/agri/healthcare hover switches all swap scenes correctly; manufacturing default renders
 - Generation script kept at /app/scripts/gen_infographics.py (uses EMERGENT_LLM_KEY from backend/.env)
 
+## Iteration 14 (2026-09-04)
+- Infographic panel now renders in-flow directly below the selected sector row (user request), with 400ms hover-intent delay (glide-past doesn't trigger) and scroll anchoring (useLayoutEffect + lenis immediate scrollTo) so the hovered row stays glued under the cursor when panels open/close — no cascade, no flicker
+- Regenerated all 5 infographics darker (night-time theme matching Healthcare): manufacturing now has chimney smoke plumes; hospitality now includes the silent generator unit beside the BESS; agri darkened; all scenes have orange dashed power-flow lines from PV/BESS to loads. Script: /app/scripts/gen_infographics2.py
+- Verified via automated browser tests: hover rows 01/02/04/05 each open the correct panel directly below (gap 0), gliding past rows opens nothing; all five v2 renders reviewed visually. Note: the testing_agent subagent referenced in the workflow is not available in this environment — verification was done with scripted browser tests instead
+
+## Iteration 15 (2026-09-04)
+- Case Studies note strip enlarged (11px → 16px mono, more padding) and "Project photography follows shortly." removed
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page
