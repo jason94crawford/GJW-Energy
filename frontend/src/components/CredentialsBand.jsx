@@ -2,12 +2,12 @@ import { BadgeCheck } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
 const CREDENTIALS = [
-  "EPRA Class C1",
-  "EPRA Class V1",
-  "EPRA Class V2",
-  "A1 Electrician",
-  "T3 Solar PV Technician",
-  "Engineers Board of Kenya",
+  "Statutory energy-sector licences",
+  "Licensed electrical contractors",
+  "Certified solar PV technicians",
+  "Registered professional engineers",
+  "Country-specific EPC compliance",
+  "Local permits & grid approvals",
 ];
 
 export const CredentialsBand = () => (
@@ -20,9 +20,9 @@ export const CredentialsBand = () => (
             Licensed to build. Bound to deliver.
           </h2>
           <p className="mt-6 text-sm leading-relaxed text-white/60 md:text-base">
-            Statutory EPRA business licences, an A1 electrician licence and a Class T3 Solar PV
-            Technician licence — backed by an Electrical & Electronic Engineering degree and
-            Engineers Board of Kenya licensing.
+            Licensing frameworks differ across East Africa — and we work within all of them.
+            Statutory energy-sector licences in our home market, certified technicians and
+            registered engineers, with in-country compliance partners wherever the programme lands.
           </p>
         </Reveal>
         <Reveal delay={0.15} className="flex-1">

@@ -14,7 +14,7 @@ const CHAPTERS = [
   {
     n: "02",
     title: "How we operate",
-    body: "We are structured as a principal-led engineering and EPC business. Technical governance is anchored by our Co-Founder & Technical Director and supported by specialist suppliers, installers and subcontract resources assembled to match each final construction programme — no bloated overheads, no diluted accountability.",
+    body: "We are structured as a principal-led engineering and EPC business. Technical governance is anchored by our Founder & Technical Director and supported by specialist suppliers, installers and subcontract resources assembled to match each final construction programme — no bloated overheads, no diluted accountability.",
   },
   {
     n: "03",
@@ -27,6 +27,12 @@ const VALUES = [
   { title: "Precision", icon: Crosshair, body: "Engineering decisions backed by calculation, not convention." },
   { title: "Accountability", icon: ShieldCheck, body: "One principal. One standard. One name on the line." },
   { title: "Region-first", icon: Globe2, body: "Designed for East African grids, climates and realities." },
+];
+
+const FIELD_PHOTOS = [
+  { src: "/images/rooftop-aerial.jpeg", caption: "C&I rooftop · Industrial estate" },
+  { src: "/images/inverter-corridor.jpeg", caption: "Inverter station · String inverters on racking" },
+  { src: "/images/inverter-closeup.jpeg", caption: "DC protection · Labelled, fused & dressed" },
 ];
 
 export default function About() {
@@ -87,6 +93,28 @@ export default function About() {
                 </Reveal>
               </div>
             ))}
+          </div>
+
+          <div className="mt-24" data-testid="field-gallery">
+            <Reveal>
+              <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">From the field</p>
+            </Reveal>
+            <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {FIELD_PHOTOS.map((p, i) => (
+                <Reveal key={p.src} delay={i * 0.08}>
+                  <div className="group relative h-64 overflow-hidden lg:h-80" data-testid={`field-photo-${i + 1}`}>
+                    <img
+                      src={p.src}
+                      alt={p.caption}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute bottom-0 left-0 bg-obsidian px-4 py-2.5">
+                      <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-white/80">{p.caption}</p>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>

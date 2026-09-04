@@ -81,6 +81,13 @@ Build a sleek, professional, elite-EPC website for GJW Energy — a newly incorp
 - Added two new services: Operations & Maintenance (05) and Asset Management (06) — full popup content on Services page (O&M: preventive/corrective maintenance, 24/7 monitoring, spares & warranties, PR guarantees; AM: technical & commercial management, revenue assurance, EPRA compliance, repowering), Home preview cards (O&M solid forest, AM with rooftop photo), footer links, contact form select options, both marquees; Home heading updated to "Six disciplines. One standard."
 - Verified: 6 cards render on both pages, O&M dialog opens with full title and 6 scope items
 
+## Iteration 11 (2026-09-04)
+- CredentialsBand made region-generic (licensing differs across East Africa): statutory energy-sector licences, licensed electrical contractors, certified solar PV technicians, registered professional engineers, country-specific EPC compliance, local permits & grid approvals; Kenyan EPRA/EBK specifics remain in Geoffrey's About spotlight
+- Removed all "Co-Founder" references — single "Founder & Technical Director" throughout
+- Geoffrey's portrait shaded with obsidian overlay + bottom gradient to sit into the dark theme
+- New installation photos added for body: "From the field" gallery on About (rooftop aerial, inverter corridor, fuse-box close-up); Services Construction card now carries the inverter corridor photo
+- Verified: gallery renders 3 photos with captions, portrait shaded with Founder title, generic credentials on Home, Construction card image loads
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

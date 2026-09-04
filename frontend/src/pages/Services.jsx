@@ -46,8 +46,8 @@ const SERVICES = [
       "Site HSE management & quality control",
       "Testing & commissioning",
     ],
+    image: "/images/inverter-corridor.jpeg",
     span: "md:col-span-2",
-    theme: "forest",
   },
   {
     n: "03",
