@@ -108,6 +108,9 @@ Build a sleek, professional, elite-EPC website for GJW Energy — a newly incorp
 ## Iteration 15 (2026-09-04)
 - Case Studies note strip enlarged (11px → 16px mono, more padding) and "Project photography follows shortly." removed
 
+## Iteration 16 (2026-09-04)
+- Experience hero headline updated to "Built at / utility scale / and speed."
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

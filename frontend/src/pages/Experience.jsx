@@ -35,7 +35,7 @@ export default function Experience() {
       <KineticHero
         compact
         kicker="Experience"
-        lines={["Built at", { text: "utility scale." }]}
+        lines={["Built at", { text: "utility scale" }, "and speed."]}
         description="The people behind GJW Energy have delivered 20 MWp of solar PV and 10 MWh of battery storage across East Africa — predominantly for commercial & industrial clients — backed by deep transmission and distribution experience."
         image="https://images.unsplash.com/photo-1589276534126-adef63a95e05"
       />
