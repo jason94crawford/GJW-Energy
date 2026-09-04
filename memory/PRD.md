@@ -111,6 +111,9 @@ Build a sleek, professional, elite-EPC website for GJW Energy — a newly incorp
 ## Iteration 16 (2026-09-04)
 - Experience hero headline updated to "Built at / utility scale / and speed."
 
+## Iteration 17 (2026-09-04)
+- Contact page: "conversation with our Project Lead" → "conversation with our team"; confirmed zero remaining "Project Lead" references site-wide
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

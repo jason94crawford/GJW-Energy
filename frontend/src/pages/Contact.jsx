@@ -79,7 +79,7 @@ export default function Contact() {
             </h2>
             <p className="mt-6 max-w-md text-sm leading-relaxed text-black/60 md:text-base">
               Whether it's a utility-scale plant, a C&I installation or an owner's engineer
-              mandate — the first step is a conversation with our Project Lead.
+              mandate — the first step is a conversation with our team.
             </p>
 
             <div className="mt-12 border-t border-black/10">
