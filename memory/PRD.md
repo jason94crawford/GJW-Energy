@@ -88,6 +88,11 @@ Build a sleek, professional, elite-EPC website for GJW Energy — a newly incorp
 - New installation photos added for body: "From the field" gallery on About (rooftop aerial, inverter corridor, fuse-box close-up); Services Construction card now carries the inverter corridor photo
 - Verified: gallery renders 3 photos with captions, portrait shaded with Founder title, generic credentials on Home, Construction card image loads
 
+## Iteration 12 (2026-09-04)
+- Removed orange "G" box from navbar logo — clean "GJW Energy" wordmark only
+- Removed all New Southern Energy references: Geoffrey's credential now reads "Formerly Project Developer, leading regional EPC"; case studies note now reads "Projects developed, constructed and designed in partnership with regional solar developers, IPPs, EPCs and consultants. Project photography follows shortly."
+- Verified: no NSE references on any page, clean logo renders, new note on Case Studies
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

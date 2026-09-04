@@ -102,9 +102,8 @@ export default function CaseStudies() {
       <section className="border-b border-black/10 bg-white py-8" data-testid="case-studies-note">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <p className="max-w-3xl font-mono text-[11px] uppercase leading-relaxed tracking-[0.15em] text-black/45">
-            Case studies reflect projects delivered by members of the GJW Energy team during prior
-            engagements, including work delivered with New Southern Energy. Project photography
-            follows shortly.
+            Projects developed, constructed and designed in partnership with regional solar
+            developers, IPPs, EPCs and consultants. Project photography follows shortly.
           </p>
         </div>
       </section>

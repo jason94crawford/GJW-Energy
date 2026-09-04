@@ -6,7 +6,7 @@ const CREDENTIALS = [
   "Engineers Board of Kenya (EBK) Licensed Engineer",
   "EPRA Class A1 Electrician — Licence No. 6767",
   "EPRA Class T3 Solar PV Technician",
-  "Formerly Project Developer, New Southern Energy",
+  "Formerly Project Developer, leading regional EPC",
 ];
 
 export const ProjectLead = () => (

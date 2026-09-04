@@ -19,10 +19,7 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-obsidian/90 backdrop-blur-md" data-testid="navbar">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:h-20 lg:px-10">
-        <Link to="/" className="flex items-center gap-3" data-testid="nav-logo" onClick={() => setOpen(false)}>
-          <span className="flex h-8 w-8 items-center justify-center bg-ochre font-display text-sm font-black text-obsidian">
-            G
-          </span>
+        <Link to="/" className="flex items-center" data-testid="nav-logo" onClick={() => setOpen(false)}>
           <span className="font-display text-lg font-extrabold uppercase tracking-tight text-white">
             GJW <span className="text-white/50">Energy</span>
           </span>
