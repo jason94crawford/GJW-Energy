@@ -93,6 +93,13 @@ Build a sleek, professional, elite-EPC website for GJW Energy — a newly incorp
 - Removed all New Southern Energy references: Geoffrey's credential now reads "Formerly Project Developer, leading regional EPC"; case studies note now reads "Projects developed, constructed and designed in partnership with regional solar developers, IPPs, EPCs and consultants. Project photography follows shortly."
 - Verified: no NSE references on any page, clean logo renders, new note on Case Studies
 
+## Iteration 13 (2026-09-04)
+- Manifesto chapter 01: "Project Lead" → "Technical Director"
+- Sector infographics rebuilt as AI-generated 3D isometric renders (Gemini Nano Banana via universal key, /public/images/infographics/): Manufacturing (rooftop PV, walkways, guardrails, roof access ladder, dock safety lines, BESS), Malls & Retail (rooftop PV + solar carports + EV posts + BESS), Hospitals & Healthcare (rooftop PV, helipad, N+1 BESS), Hospitality (lodge villas, ground-mount PV, silent BESS), Flower Farms & Agri (greenhouses, rammed-pile ground-mount, cold store, BESS) — all in obsidian/navy/ochre palette
+- Presentation: clip-path reveal + scale settle on open, mouse-parallax drift (spring), ochre corner ticks, figure caption, notes + legend chips; panel moved to a fixed slot below the sector list with AnimatePresence crossfade (fixed layout-shift hover-flicker bug)
+- Verified: retail/agri/healthcare hover switches all swap scenes correctly; manufacturing default renders
+- Generation script kept at /app/scripts/gen_infographics.py (uses EMERGENT_LLM_KEY from backend/.env)
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

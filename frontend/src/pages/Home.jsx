@@ -13,7 +13,7 @@ const MANIFESTO = [
   {
     n: "01",
     title: "Principal-led",
-    body: "Technical governance is anchored by our Project Lead — an Electrical & Electronic Engineer licensed by the Engineers Board of Kenya. Every engineering decision has a name behind it.",
+    body: "Technical governance is anchored by our Technical Director — an Electrical & Electronic Engineer licensed by the Engineers Board of Kenya. Every engineering decision has a name behind it.",
   },
   {
     n: "02",
