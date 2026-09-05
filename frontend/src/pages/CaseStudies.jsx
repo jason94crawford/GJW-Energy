@@ -6,14 +6,18 @@ import { Reveal } from "@/components/Reveal";
 const STUDIES = [
   {
     name: "Tata Chemicals",
-    sector: "Industrial",
+    sector: "Manufacturing",
     icon: Factory,
-    capacity: "5.1 MW",
+    capacity: "5.1 MWp",
     country: "Kenya · Magadi",
-    tech: "Solar PV · grid-supplementing · COD 2025",
+    tech: "On-grid solar · grid stabilisation · distribution & transmission",
     role: "EPC · grid integration",
-    body: "Grid-supplementing solar for one of Kenya's largest industrial operations — 5.1 MW delivered under a full-turnkey model at a remote, energy-intensive site.",
-    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e",
+    body: "Grid-supplementing solar for one of Kenya's largest industrial operations — 5.1 MWp delivered under a full-turnkey model at a remote, energy-intensive site.",
+    image: "/images/tata-aerial-top.jpg",
+    gallery: [
+      { src: "/images/tata-inverter-room.jpg", alt: "Tata Chemicals Magadi — inverter and control room" },
+      { src: "/images/tata-sunset.jpg", alt: "Tata Chemicals Magadi — plant at dusk" },
+    ],
   },
   {
     name: "Devki Group Portfolio",
@@ -124,16 +128,31 @@ export default function CaseStudies() {
                 className="group grid grid-cols-1 items-center gap-8 border-b border-black/10 py-14 lg:grid-cols-12 lg:gap-16 lg:py-20"
                 data-testid={`case-study-${slug(s.name)}`}
               >
-                <div className={`relative h-72 overflow-hidden lg:col-span-5 lg:h-96 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-                  <img loading="lazy" decoding="async"
-                    src={s.image}
-                    alt={s.name}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute left-0 top-0 flex items-center gap-2 bg-obsidian px-4 py-2.5">
-                    <s.icon className="h-3.5 w-3.5 text-ochre" />
-                    <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-white">{s.sector}</span>
+                <div className={`lg:col-span-5 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
+                  <div className="relative h-72 overflow-hidden lg:h-96">
+                    <img loading="lazy" decoding="async"
+                      src={s.image}
+                      alt={s.name}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute left-0 top-0 flex items-center gap-2 bg-obsidian px-4 py-2.5">
+                      <s.icon className="h-3.5 w-3.5 text-ochre" />
+                      <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-white">{s.sector}</span>
+                    </div>
                   </div>
+                  {s.gallery && (
+                    <div className="mt-2 grid grid-cols-2 gap-2" data-testid={`case-study-${slug(s.name)}-gallery`}>
+                      {s.gallery.map((g) => (
+                        <div key={g.src} className="relative h-32 overflow-hidden lg:h-40">
+                          <img loading="lazy" decoding="async"
+                            src={g.src}
+                            alt={g.alt}
+                            className="absolute inset-0 h-full w-full object-cover"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 <div className={`flex flex-col justify-center lg:col-span-7 ${i % 2 === 1 ? "lg:order-1" : ""}`}>

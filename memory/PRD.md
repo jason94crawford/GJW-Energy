@@ -126,9 +126,16 @@ Full refinement brief applied without redesign:
 - Services: Consultancy → Advisory (full title "Technical Advisory") with PVsyst, energy audits, tender evaluation, commissioning & acceptance testing, performance verification; footer/contact/marquee updated
 - Case studies: consistent CAPACITY / SECTOR / COUNTRY / TECHNOLOGY / SCOPE structure + subtle "Principal project experience" tag per project
 - ProjectLead portrait via PORTRAIT const for easy future swap
+
 - Performance: loading="lazy" + decoding="async" on all below-fold imagery (hero excluded); metadata: keywords, OG tags, JSON-LD Organization schema
 - Mobile: section padding py-24→py-20 (~15% tighter on mobile only, desktop unchanged)
 - QA: 390px — zero horizontal overflow on Home/Services, mobile dialog verified; desktop checks for stats/values/manifesto/case-study structure; metadata served correctly
+
+## Iteration 19 — Tata Chemicals Real Photography (2026-09-05)
+- Tata Chemicals case study updated per client spec: CAPACITY 5.1 MWp, SECTOR Manufacturing, COUNTRY Kenya · Magadi, TECHNOLOGY On-grid solar · grid stabilisation · distribution & transmission
+- Placeholder stock image replaced with real site photography hosted locally in /app/frontend/public/images/: hero = top-down drone aerial of full array (tata-aerial-top.jpg); 2-photo strip below hero = inverter/control room (tata-inverter-room.jpg) + plant at dusk (tata-sunset.jpg)
+- Also saved locally for future use: tata-team.jpg (commissioning team aerial), tata-wide-lake.jpg (wide aerial with Lake Magadi)
+- CaseStudies.jsx: entries now support an optional `gallery` array (2-col strip under hero); only Tata uses it (flagship entry). Lazy loading retained. Verified: all 3 images load, specs row correct, layout intact at desktop width
 
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
