@@ -11,7 +11,7 @@ const CREDENTIALS = [
 ];
 
 export const CredentialsBand = () => (
-  <section className="bg-forest py-24 text-white lg:py-28" data-testid="credentials-band">
+  <section className="bg-forest py-20 text-white lg:py-28" data-testid="credentials-band">
     <div className="mx-auto max-w-7xl px-6 lg:px-10">
       <div className="flex flex-col gap-12 lg:flex-row lg:items-end lg:justify-between">
         <Reveal className="max-w-xl">
@@ -20,9 +20,9 @@ export const CredentialsBand = () => (
             Licensed to build. Bound to deliver.
           </h2>
           <p className="mt-6 text-sm leading-relaxed text-white/60 md:text-base">
-            Licensing frameworks differ across East Africa — and we work within all of them.
-            Statutory energy-sector licences in our home market, certified technicians and
-            registered engineers, with in-country compliance partners wherever the programme lands.
+            Licensing frameworks differ across East Africa. Our delivery model is structured around
+            applicable national licensing, permitting and grid-connection requirements, supported
+            by appropriately licensed in-country partners where required.
           </p>
         </Reveal>
         <Reveal delay={0.15} className="flex-1">

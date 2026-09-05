@@ -28,14 +28,14 @@ const CountUp = ({ value }) => {
 };
 
 const STATS = [
-  { value: "20", unit: "MWp", label: "Solar PV delivered across C&I & utility projects", testId: "stat-solar" },
-  { value: "10", unit: "MWh", label: "Battery energy storage built & commissioned", testId: "stat-bess" },
-  { value: "20+", unit: "yrs", label: "Combined engineering & delivery experience", testId: "stat-years" },
-  { value: "5", unit: "", label: "Countries across our East African footprint", testId: "stat-countries" },
+  { value: "20+", unit: "MWp", label: "Solar PV engineering & delivery experience", testId: "stat-solar" },
+  { value: "10+", unit: "MWh", label: "Battery energy storage engineering & delivery experience", testId: "stat-bess" },
+  { value: "20+", unit: "yrs", label: "Combined engineering & project delivery experience", testId: "stat-years" },
+  { value: "5", unit: "", label: "Markets · regional project experience", testId: "stat-countries" },
 ];
 
 export const StatsBand = () => (
-  <section className="bg-obsidian py-24 text-white lg:py-32" data-testid="stats-band">
+  <section className="bg-obsidian py-20 text-white lg:py-32" data-testid="stats-band">
     <div className="mx-auto max-w-7xl px-6 lg:px-10">
       <Reveal>
         <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">Track record</p>
@@ -59,6 +59,12 @@ export const StatsBand = () => (
           </div>
         ))}
       </div>
+
+      <Reveal delay={0.1}>
+        <p className="mt-8 font-mono text-[11px] uppercase tracking-[0.25em] text-white/35">
+          Principal & team project experience
+        </p>
+      </Reveal>
     </div>
   </section>
 );

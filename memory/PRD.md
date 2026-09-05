@@ -114,6 +114,22 @@ Build a sleek, professional, elite-EPC website for GJW Energy — a newly incorp
 ## Iteration 17 (2026-09-04)
 - Contact page: "conversation with our Project Lead" → "conversation with our team"; confirmed zero remaining "Project Lead" references site-wide
 
+## Iteration 18 — Surgical Refinement Pass (2026-09-05)
+Full refinement brief applied without redesign:
+- Removed all "newly incorporated" references; About hero + chapter 01 now use the Kenyan engineering/EPC positioning copy; About CTA heading → "Principal-led. Engineer-first."
+- Track record reframed as experience: 20+ MWp / 10+ MWh "engineering & delivery experience", 20+ yrs combined, 5 markets regional experience + "Principal & team project experience" footnote
+- Manifesto 03 (multidisciplinary team leadership, not broker language) and 04 (lifecycle value, no competitor attacks) rewritten per brief
+- ValueBand → "THE LOWEST CAPEX ISN'T ALWAYS THE LOWEST COST." + refined pillar copy
+- CredentialsBand intro → applicable-national-licensing wording (no absolute claims); generic categories retained; EPRA/EBK specifics remain in leadership section
+- PresenceMap territory notes now differentiate home market / delivery experience / development experience; stats panel → "Team delivery record"; intro copy softened
+- Sector infographics labelled "Typical system configuration · Solar PV + BESS"
+- Services: Consultancy → Advisory (full title "Technical Advisory") with PVsyst, energy audits, tender evaluation, commissioning & acceptance testing, performance verification; footer/contact/marquee updated
+- Case studies: consistent CAPACITY / SECTOR / COUNTRY / TECHNOLOGY / SCOPE structure + subtle "Principal project experience" tag per project
+- ProjectLead portrait via PORTRAIT const for easy future swap
+- Performance: loading="lazy" + decoding="async" on all below-fold imagery (hero excluded); metadata: keywords, OG tags, JSON-LD Organization schema
+- Mobile: section padding py-24→py-20 (~15% tighter on mobile only, desktop unchanged)
+- QA: 390px — zero horizontal overflow on Home/Services, mobile dialog verified; desktop checks for stats/values/manifesto/case-study structure; metadata served correctly
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

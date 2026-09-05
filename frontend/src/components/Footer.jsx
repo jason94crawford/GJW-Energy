@@ -45,7 +45,7 @@ export default function Footer() {
                   ["EPC", "footer-service-epc"],
                   ["Construction", "footer-service-construction"],
                   ["Design", "footer-service-design"],
-                  ["Consultancy", "footer-service-consultancy"],
+                  ["Technical Advisory", "footer-service-advisory"],
                   ["O&M", "footer-service-om"],
                   ["Asset Management", "footer-service-asset-management"],
                 ].map(([label, id]) => (

@@ -68,7 +68,7 @@ export default function Contact() {
         image="https://images.pexels.com/photos/934586/pexels-photo-934586.jpeg"
       />
 
-      <section className="bg-bone py-24 lg:py-32" data-testid="contact-section">
+      <section className="bg-bone py-20 lg:py-32" data-testid="contact-section">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 lg:grid-cols-2 lg:gap-24 lg:px-10">
           <Reveal>
             <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">Reach us</p>
@@ -178,7 +178,7 @@ export default function Contact() {
                     <SelectValue placeholder="Select a service" />
                   </SelectTrigger>
                   <SelectContent className="rounded-none bg-white">
-                    {["EPC", "Construction", "Design", "Consultancy", "Operations & Maintenance", "Asset Management", "Other"].map((s) => (
+                    {["EPC", "Construction", "Design", "Technical Advisory", "Operations & Maintenance", "Asset Management", "Other"].map((s) => (
                       <SelectItem key={s} value={s} data-testid={`contact-service-option-${s.toLowerCase()}`}>
                         {s}
                       </SelectItem>

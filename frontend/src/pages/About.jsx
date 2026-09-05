@@ -9,7 +9,7 @@ const CHAPTERS = [
   {
     n: "01",
     title: "Who we are",
-    body: "GJW Energy is a newly incorporated Kenyan private limited company focused on solar, energy solutions and engineering. From our offices in Kenya, we hold a delivery mandate across East Africa — pairing the agility of a young company with the depth of decades of regional project experience.",
+    body: "GJW Energy is a Kenyan engineering and EPC company specialising in solar PV, battery energy storage and electrical infrastructure. Headquartered in Kenya, we deliver across East Africa through a principal-led model combining direct technical accountability with deep regional project experience.",
   },
   {
     n: "02",
@@ -42,11 +42,11 @@ export default function About() {
         compact
         kicker="About GJW Energy"
         lines={["Principal-led.", { text: "Engineer-first." }]}
-        description="A newly incorporated Kenyan private limited company delivering solar, energy solutions and engineering across East Africa."
+        description="GJW Energy is a Kenyan engineering and EPC company specialising in solar PV, battery energy storage and electrical infrastructure across East Africa."
         image="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e"
       />
 
-      <section className="bg-bone py-24 lg:py-32" data-testid="about-chapters">
+      <section className="bg-bone py-20 lg:py-32" data-testid="about-chapters">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <div className="border-t border-black/10">
             {CHAPTERS.map((c, i) => (
@@ -66,11 +66,11 @@ export default function About() {
 
       <ProjectLead />
 
-      <section className="bg-obsidian py-24 lg:py-32" data-testid="about-image-band">
+      <section className="bg-obsidian py-20 lg:py-32" data-testid="about-image-band">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <div className="group relative max-h-[80vh] overflow-hidden">
-              <img
+              <img loading="lazy" decoding="async"
                 src="/images/aerial-sunset.jpeg"
                 alt="Utility-scale solar PV plant at dusk, East Africa"
                 className="h-full max-h-[80vh] w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -103,7 +103,7 @@ export default function About() {
               {FIELD_PHOTOS.map((p, i) => (
                 <Reveal key={p.src} delay={i * 0.08}>
                   <div className="group relative h-64 overflow-hidden lg:h-80" data-testid={`field-photo-${i + 1}`}>
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={p.src}
                       alt={p.caption}
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -121,12 +121,12 @@ export default function About() {
 
       <CredentialsBand />
 
-      <section className="bg-bone py-24 lg:py-32" data-testid="about-cta">
+      <section className="bg-bone py-20 lg:py-32" data-testid="about-cta">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">Work with us</p>
             <h2 className="mt-8 max-w-3xl font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tighter sm:text-5xl lg:text-6xl">
-              A young company. Decades behind it.
+              Principal-led. Engineer-first.
             </h2>
             <Link
               to="/contact"

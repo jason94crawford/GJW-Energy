@@ -10,7 +10,7 @@ const TERRITORIES = [
     name: "Kenya",
     city: "nairobi",
     cityLabel: "Nairobi · HQ",
-    note: "EPRA-licensed delivery, C&I & utility",
+    note: "Home market · EPRA-licensed delivery",
     stats: [
       { icon: Sun, value: "17 MWp", label: "Solar PV" },
       { icon: BatteryCharging, value: "9 MWh", label: "BESS" },
@@ -66,7 +66,7 @@ export const PresenceMap = () => {
   const activeCountry = active;
 
   return (
-    <section className="bg-obsidian py-24 text-white lg:py-32" data-testid="presence-map">
+    <section className="bg-obsidian py-20 text-white lg:py-32" data-testid="presence-map">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <Reveal className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
@@ -76,8 +76,8 @@ export const PresenceMap = () => {
             </h2>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-white/55 md:text-base">
-            Headquartered in Kenya with a delivery mandate across East Africa — hover the map or
-            the list to explore the footprint.
+            Headquartered in Kenya, with project delivery and development experience across the
+            region — hover the map or the list to explore the footprint.
           </p>
         </Reveal>
 
@@ -128,7 +128,7 @@ export const PresenceMap = () => {
                     transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-ochre">
-                      {t.name} · Delivered volumes
+                      {t.name} · Team delivery record
                     </p>
                     <div className="mt-5 grid grid-cols-2 gap-x-6 gap-y-5">
                       {t.stats.map((st) => (

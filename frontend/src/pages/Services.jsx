@@ -69,18 +69,19 @@ const SERVICES = [
   },
   {
     n: "04",
-    title: "Consultancy",
+    title: "Advisory",
+    fullTitle: "Technical Advisory",
     icon: ClipboardCheck,
-    tagline: "Independent expertise across the project lifecycle.",
-    capabilities: ["Owner's engineering", "Technical due diligence", "Project management support", "Regulatory & licensing advisory"],
-    intro: "Independent engineering judgement across the project lifecycle — for owners, lenders and developers who need a straight answer.",
+    tagline: "Independent engineering judgement across the project lifecycle.",
+    capabilities: ["Owner's engineering", "Feasibility & PVsyst modelling", "Technical due diligence", "Commissioning & acceptance testing"],
+    intro: "Independent engineering judgement for owners, lenders and developers — from the first feasibility model to the final acceptance certificate.",
     details: [
-      "Owner's engineering & technical advisory",
-      "Lender's technical due diligence",
-      "EPC procurement & contract support",
-      "Regulatory & licensing navigation — EPRA, EBK",
-      "Construction supervision & programme oversight",
-      "Performance audits & power stabilisation reviews",
+      "Feasibility studies & solar PV yield assessment — PVsyst modelling",
+      "BESS sizing, energy audits & grid interconnection studies",
+      "Technical due diligence & EPC tender evaluation",
+      "Owner's engineering & construction oversight",
+      "Commissioning & acceptance testing witness",
+      "Performance verification & power stabilisation reviews",
     ],
     image: "https://images.pexels.com/photos/934586/pexels-photo-934586.jpeg",
     span: "md:col-span-4",
@@ -140,7 +141,7 @@ export default function Services() {
         items={["Engineering", "Procurement", "Construction", "Commissioning", "Monitoring & Maintenance", "Asset Management", "Owner's Engineer", "Due Diligence"]}
       />
 
-      <section className="bg-bone py-24 lg:py-32" data-testid="services-grid">
+      <section className="bg-bone py-20 lg:py-32" data-testid="services-grid">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">Capabilities</p>
@@ -168,7 +169,7 @@ export default function Services() {
                     >
                       {s.image && (
                         <>
-                          <img
+                          <img loading="lazy" decoding="async"
                             src={s.image}
                             alt={s.title}
                             className="absolute inset-0 h-full w-full object-cover opacity-30 transition-transform duration-700 group-hover:scale-105"

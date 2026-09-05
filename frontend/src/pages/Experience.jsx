@@ -42,7 +42,7 @@ export default function Experience() {
 
       <StatsBand />
 
-      <section className="bg-bone py-24 lg:py-32" data-testid="experience-areas">
+      <section className="bg-bone py-20 lg:py-32" data-testid="experience-areas">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">Where we've delivered</p>
@@ -74,7 +74,7 @@ export default function Experience() {
                   data-testid={`experience-area-${a.n}`}
                 >
                   <div className="group relative max-h-[80vh] overflow-hidden">
-                    <img src={a.image} alt={a.title} className="h-full max-h-[80vh] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <img loading="lazy" decoding="async" src={a.image} alt={a.title} className="h-full max-h-[80vh] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     <div className="absolute left-0 top-0 bg-obsidian px-5 py-3">
                       <p className="font-mono text-xs tracking-[0.3em] text-ochre">{a.n}</p>
                     </div>

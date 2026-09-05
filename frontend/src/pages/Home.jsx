@@ -23,12 +23,12 @@ const MANIFESTO = [
   {
     n: "03",
     title: "Built for the region",
-    body: "From our base in Kenya, we assemble specialist suppliers, installers and subcontract resources matched precisely to each final construction programme — anywhere in East Africa.",
+    body: "From our base in Kenya, we lead multidisciplinary project teams combining specialist suppliers, installation partners and technical resources selected for each construction programme — delivering with consistent engineering governance across East Africa.",
   },
   {
     n: "04",
     title: "Honest value",
-    body: "Cheap solar and battery systems dominate this market — and fail quietly within years. We stand for authenticity in both quality and price: tier-1 equipment, engineered margins, and pricing that survives scrutiny.",
+    body: "We optimise for lifecycle value, not lowest upfront cost. Tier-1 equipment, appropriate engineering margins and transparent pricing create assets designed to perform — technically and commercially — over their operating life.",
   },
 ];
 
@@ -60,9 +60,9 @@ const SERVICES = [
   },
   {
     n: "04",
-    title: "Consultancy",
+    title: "Advisory",
     icon: ClipboardCheck,
-    body: "Owner's engineering, technical due diligence and advisory across the project lifecycle.",
+    body: "Owner's engineering, feasibility modelling and technical due diligence across the project lifecycle.",
     image: "https://images.pexels.com/photos/934586/pexels-photo-934586.jpeg",
     span: "md:col-span-4",
     dark: true,
@@ -114,10 +114,10 @@ export default function Home() {
       </KineticHero>
 
       <EditorialMarquee
-        items={["EPC", "Construction", "Design", "Consultancy", "O&M", "Asset Management", "20 MWp Solar PV", "10 MWh BESS", "EPRA Licensed", "East Africa"]}
+        items={["EPC", "Construction", "Design", "Technical Advisory", "O&M", "Asset Management", "20 MWp Solar PV", "10 MWh BESS", "EPRA Licensed", "East Africa"]}
       />
 
-      <section className="bg-bone py-24 lg:py-32" data-testid="manifesto-section">
+      <section className="bg-bone py-20 lg:py-32" data-testid="manifesto-section">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">The manifesto</p>
@@ -148,7 +148,7 @@ export default function Home() {
 
       <PresenceMap />
 
-      <section className="bg-bone py-24 lg:py-32" data-testid="services-preview">
+      <section className="bg-bone py-20 lg:py-32" data-testid="services-preview">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
@@ -181,7 +181,7 @@ export default function Home() {
                 >
                   {s.image && (
                     <>
-                      <img
+                      <img loading="lazy" decoding="async"
                         src={s.image}
                         alt={s.title}
                         className="absolute inset-0 h-full w-full object-cover opacity-45 transition-transform duration-700 group-hover:scale-105"
@@ -216,7 +216,7 @@ export default function Home() {
 
       <CredentialsBand />
 
-      <section className="bg-obsidian py-28 text-white lg:py-36" data-testid="home-cta">
+      <section className="bg-obsidian py-24 text-white lg:py-36" data-testid="home-cta">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">Next step</p>

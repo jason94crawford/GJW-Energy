@@ -5,27 +5,30 @@ const PILLARS = [
   {
     icon: Gem,
     title: "Quality you can verify",
-    body: "Tier-1 modules, inverters and batteries. Documented QA/QC, tested commissioning, and engineering margins that respect East African heat, dust and grid realities.",
+    body: "Tier-1 equipment. Documented QA/QC. Tested commissioning. Engineering margins designed around East African operating conditions.",
   },
   {
     icon: Scale,
     title: "Pricing you can defend",
-    body: "Right-sized systems, transparent BOQs and lifecycle costing. Authenticity in price means no inflated specs — and no hidden shortcuts that surface in year three.",
+    body: "Right-sized systems, transparent BOQs and lifecycle costing. Every material specification and design decision tied to performance, reliability and commercial value.",
   },
 ];
 
 export const ValueBand = () => (
-  <section className="bg-obsidian py-24 text-white lg:py-32" data-testid="value-band">
+  <section className="bg-obsidian py-20 text-white lg:py-32" data-testid="value-band">
     <div className="mx-auto max-w-7xl px-6 lg:px-10">
       <Reveal className="max-w-3xl">
         <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">Quality & price</p>
         <h2 className="mt-6 font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tighter sm:text-5xl lg:text-6xl">
-          Cheap solar dominates. We build what lasts.
+          The lowest capex
+          <br />
+          isn't always the
+          <br />
+          lowest cost.
         </h2>
         <p className="mt-6 text-sm leading-relaxed text-white/60 md:text-base">
-          The market is flooded with cut-price solar and battery systems that fail quietly within a
-          few years. We take the harder line — authenticity in both quality and price, defended
-          over the full 25-year life of the asset.
+          We engineer for lifecycle value — balancing capital cost, performance, reliability and
+          maintainability across the operating life of the asset.
         </p>
       </Reveal>
 

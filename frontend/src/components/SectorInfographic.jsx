@@ -58,7 +58,7 @@ export const SectorInfographic = ({ scene }) => {
     <div data-testid={`infographic-${scene}`}>
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-ochre">
-          System integration · Solar PV + BESS
+          Typical system configuration · Solar PV + BESS
         </p>
         <p className="hidden font-mono text-[10px] uppercase tracking-[0.25em] text-white/35 md:block">
           Hover another sector to compare
@@ -78,6 +78,8 @@ export const SectorInfographic = ({ scene }) => {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.img
+            loading="lazy"
+            decoding="async"
             src={IMAGES[scene]}
             alt={FIG[scene]}
             initial={{ scale: 1.12 }}

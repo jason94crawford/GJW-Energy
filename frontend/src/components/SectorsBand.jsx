@@ -60,7 +60,7 @@ export const SectorsBand = () => {
   }, [active]);
 
   return (
-    <section className="bg-white py-24 lg:py-32" data-testid="sectors-band">
+    <section className="bg-white py-20 lg:py-32" data-testid="sectors-band">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <Reveal className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>

@@ -1,6 +1,8 @@
 import { BadgeCheck } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 
+const PORTRAIT = "/images/geoffrey.jpg";
+
 const CREDENTIALS = [
   "BSc Electrical & Electronic Engineering",
   "Engineers Board of Kenya (EBK) Licensed Engineer",
@@ -10,12 +12,12 @@ const CREDENTIALS = [
 ];
 
 export const ProjectLead = () => (
-  <section className="bg-obsidian py-24 text-white lg:py-32" data-testid="project-lead">
+  <section className="bg-obsidian py-20 text-white lg:py-32" data-testid="project-lead">
     <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-2 lg:gap-24 lg:px-10">
       <Reveal>
         <div className="group relative aspect-[4/5] max-h-[80vh] overflow-hidden bg-bone" data-testid="project-lead-portrait">
-          <img
-            src="/images/geoffrey.jpg"
+          <img loading="lazy" decoding="async"
+            src={PORTRAIT}
             alt="Eng. Geoffrey Kipyegon, Founder & Technical Director of GJW Energy"
             className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
           />

@@ -9,8 +9,9 @@ const STUDIES = [
     sector: "Industrial",
     icon: Factory,
     capacity: "5.1 MW",
-    location: "Magadi, Kenya",
-    meta: "COD 2025",
+    country: "Kenya · Magadi",
+    tech: "Solar PV · grid-supplementing · COD 2025",
+    role: "EPC · grid integration",
     body: "Grid-supplementing solar for one of Kenya's largest industrial operations — 5.1 MW delivered under a full-turnkey model at a remote, energy-intensive site.",
     image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e",
   },
@@ -19,8 +20,9 @@ const STUDIES = [
     sector: "Manufacturing",
     icon: Factory,
     capacity: "3.8 MWp · 4 sites",
-    location: "Athi River & Lukenya, Kenya",
-    meta: "±4.94 GWh / yr",
+    country: "Kenya · Athi River & Lukenya",
+    tech: "Rooftop solar PV · ±4.94 GWh/yr",
+    role: "Engineering · project delivery",
     body: "A portfolio of rooftop solar systems across four premises of Kenya's building-materials group — steel, cement, paving and roofing — delivering close to 5 GWh of clean production a year.",
     image: "https://images.pexels.com/photos/8783541/pexels-photo-8783541.jpeg",
   },
@@ -29,8 +31,9 @@ const STUDIES = [
     sector: "Mixed-use & Retail",
     icon: Building2,
     capacity: "2.05 MW rooftop",
-    location: "Tatu City SEZ, Kenya",
-    meta: "3,468 modules · 8 inverters",
+    country: "Kenya · Tatu City SEZ",
+    tech: "Rooftop solar PV · 3,468 modules",
+    role: "Engineering · project delivery · grid integration",
     body: "A 2.05 MW rooftop system at Kenya's first operational Special Economic Zone — 3,468 Jinko N-type modules and 8 Huawei 200KTL inverters powering a 5,000-acre mixed-use city.",
     image: "https://images.pexels.com/photos/934586/pexels-photo-934586.jpeg",
   },
@@ -39,8 +42,9 @@ const STUDIES = [
     sector: "Manufacturing",
     icon: Factory,
     capacity: "693 kWp rooftop",
-    location: "Kenya",
-    meta: "±12% of demand",
+    country: "Kenya",
+    tech: "Rooftop solar PV + genset control · ±12% of demand",
+    role: "Engineering · project delivery",
     body: "A grid-tied rooftop system with integrated generator control for East & Central Africa's first ceramic tile manufacturer — covering 12% of energy needs and offsetting utility draw.",
     image: "https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg",
   },
@@ -49,8 +53,9 @@ const STUDIES = [
     sector: "Flower Farms & Agri",
     icon: Flower2,
     capacity: "Grid-tied solar",
-    location: "Athi River, Kenya",
-    meta: "Horticulture + aquaculture",
+    country: "Kenya · Athi River",
+    tech: "Grid-tied solar PV",
+    role: "Engineering · project delivery",
     body: "A grid-tied plant cutting operational costs for a boutique rose and horticulture farm — freeing up capital for the farm's expansion into aquaculture.",
     image: "https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg",
   },
@@ -59,8 +64,9 @@ const STUDIES = [
     sector: "Flower Farms & Agri",
     icon: Flower2,
     capacity: "274.5 MWh / yr",
-    location: "Subukia, Nakuru, Kenya",
-    meta: "IPP: GridX Africa",
+    country: "Kenya · Subukia, Nakuru",
+    tech: "Solar PV · IPP (GridX Africa)",
+    role: "Engineering · project delivery",
     body: "Solar for a 40-hectare summer-flower farm on the equator at 2,200 m — clean power for cold chain and packhouse loads at one of the Rift Valley's quality growers.",
     image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d",
   },
@@ -69,8 +75,9 @@ const STUDIES = [
     sector: "Hospitality",
     icon: Hotel,
     capacity: "Off-grid solar",
-    location: "Galu Beach, Diani, Kenya",
-    meta: "Diesel displaced",
+    country: "Kenya · Galu Beach, Diani",
+    tech: "Off-grid solar PV + BESS · diesel displaced",
+    role: "Engineering · project delivery",
     body: "An off-grid solar system for a boutique beach resort south of Diani — ending diesel-generator dependence after years of grid instability, silently.",
     image: "https://images.unsplash.com/photo-1589276534126-adef63a95e05",
   },
@@ -79,8 +86,9 @@ const STUDIES = [
     sector: "Healthcare",
     icon: HeartPulse,
     capacity: "Solar PV plant",
-    location: "Kakamega County, Kenya",
-    meta: "Critical loads",
+    country: "Kenya · Kakamega County",
+    tech: "Solar PV · critical loads",
+    role: "Engineering · project delivery",
     body: "Solar power for the MRI and critical medical machinery of a state-of-the-art medical and technology city — reliability where it matters most.",
     image: "https://images.pexels.com/photos/35105443/pexels-photo-35105443.jpeg",
   },
@@ -117,7 +125,7 @@ export default function CaseStudies() {
                 data-testid={`case-study-${slug(s.name)}`}
               >
                 <div className={`relative h-72 overflow-hidden lg:col-span-5 lg:h-96 ${i % 2 === 1 ? "lg:order-2" : ""}`}>
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={s.image}
                     alt={s.name}
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -129,21 +137,36 @@ export default function CaseStudies() {
                 </div>
 
                 <div className={`flex flex-col justify-center lg:col-span-7 ${i % 2 === 1 ? "lg:order-1" : ""}`}>
-                  <p className="font-mono text-xs tracking-[0.3em] text-ochre">{String(i + 1).padStart(2, "0")}</p>
+                  <div className="flex flex-wrap items-center gap-4">
+                    <p className="font-mono text-xs tracking-[0.3em] text-ochre">{String(i + 1).padStart(2, "0")}</p>
+                    <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-black/40">
+                      Principal project experience
+                    </p>
+                  </div>
                   <h2 className="mt-4 font-display text-3xl font-extrabold uppercase tracking-tighter sm:text-4xl lg:text-5xl">
                     {s.name}
                   </h2>
                   <p className="mt-5 max-w-xl text-sm leading-relaxed text-black/60 md:text-base">{s.body}</p>
-                  <div className="mt-8 flex flex-wrap gap-x-8 gap-y-3 border-t border-black/10 pt-6 font-mono text-[11px] uppercase tracking-[0.15em] text-black/55">
-                    <span data-testid={`case-study-${slug(s.name)}-capacity`}>
-                      <span className="text-ochre">Capacity</span> · {s.capacity}
-                    </span>
-                    <span>
-                      <span className="text-ochre">Location</span> · {s.location}
-                    </span>
-                    <span>
-                      <span className="text-ochre">Detail</span> · {s.meta}
-                    </span>
+                  <div className="mt-8 border-t border-black/10 pt-6 font-mono text-[11px] uppercase tracking-[0.15em] text-black/55">
+                    <div className="flex flex-wrap gap-x-8 gap-y-3">
+                      <span data-testid={`case-study-${slug(s.name)}-capacity`}>
+                        <span className="text-ochre">Capacity</span> · {s.capacity}
+                      </span>
+                      <span>
+                        <span className="text-ochre">Sector</span> · {s.sector}
+                      </span>
+                      <span>
+                        <span className="text-ochre">Country</span> · {s.country}
+                      </span>
+                    </div>
+                    <div className="mt-3 flex flex-wrap gap-x-8 gap-y-3">
+                      <span>
+                        <span className="text-ochre">Technology</span> · {s.tech}
+                      </span>
+                      <span>
+                        <span className="text-ochre">Scope</span> · {s.role}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </article>
@@ -152,7 +175,7 @@ export default function CaseStudies() {
         </div>
       </section>
 
-      <section className="bg-obsidian py-24 text-white lg:py-32" data-testid="case-studies-cta">
+      <section className="bg-obsidian py-20 text-white lg:py-32" data-testid="case-studies-cta">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>
             <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">Your sector. Your site.</p>
