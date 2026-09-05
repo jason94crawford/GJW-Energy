@@ -77,7 +77,7 @@ export const PresenceMap = () => {
           </div>
           <p className="max-w-md text-sm leading-relaxed text-white/55 md:text-base">
             Headquartered in Kenya, with project delivery and development experience across the
-            region — hover the map or the list to explore the footprint.
+            region — hover over the map or the list to explore the footprint.
           </p>
         </Reveal>
 
