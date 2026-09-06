@@ -144,6 +144,12 @@ Full refinement brief applied without redesign:
 - All client/price fields are [BRACKETED PLACEHOLDERS] for per-offer editing; fonts are free (Fontshare/Google Fonts) and must be installed on the presenting machine for exact brand rendering
 - Verified by rendering all 10 slides to images via LibreOffice: no overflow, layout intact
 
+## Iteration 21 — Proposal Deck Imagery (2026-09-06)
+- Cover slide: full-bleed website hero image (Pexels 35105443, saved locally) pre-shaded toward obsidian via PIL to match the site's opacity-40 hero treatment
+- New slide 03 "Geographical presence": the site's dot-matrix East Africa map captured live from presence-map-canvas (674×827 PNG on obsidian) alongside the 5-territory list with delivery notes; deck now 11 slides, footers renumbered
+- Closing slide: full-bleed shaded Tata Magadi dusk aerial (close-shaded.jpg) behind next-steps/contact
+- Assets in /app/tools/assets/ (hero-cover, cover-shaded, close-shaded, presence-map.png); regenerated via tools/generate_proposal_pptx.py; all 11 slides render-verified via LibreOffice
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

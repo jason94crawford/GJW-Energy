@@ -6,17 +6,16 @@ Brand system (from the GJW Energy website):
   Display: Cabinet Grotesk · Body: Satoshi · Mono: JetBrains Mono
   (Fonts are free — Fontshare / Google Fonts. Install them for exact rendering.)
 
-Output: /app/GJW_Energy_Techno_Commercial_Proposal.pptx (16:9, 10 slides)
+Output: /app/GJW_Energy_Techno_Commercial_Proposal.pptx (16:9, 11 slides)
 Placeholders in [SQUARE BRACKETS] are edited per offer.
+Assets (cover/closing imagery, dot-matrix map) live in /app/tools/assets/.
 """
 
 from pptx import Presentation
-from pptx.util import Inches, Pt, Emu
+from pptx.util import Inches, Pt
 from pptx.dml.color import RGBColor
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 from pptx.enum.shapes import MSO_SHAPE
-from pptx.oxml.ns import qn
-import copy
 
 # ---------------------------------------------------------------- brand tokens
 OBSIDIAN = RGBColor(0x0A, 0x0A, 0x0C)
@@ -38,6 +37,8 @@ SW, SH = Inches(13.333), Inches(7.5)
 MARGIN = Inches(0.9)
 CW = Inches(13.333 - 1.8)                # content width
 
+ASSETS = "/app/tools/assets"
+
 prs = Presentation()
 prs.slide_width = SW
 prs.slide_height = SH
@@ -56,6 +57,22 @@ def bg(s, color):
     r.fill.solid(); r.fill.fore_color.rgb = color
     r.line.fill.background(); r.shadow.inherit = False
     return r
+
+
+def bg_image(s, path):
+    """Full-bleed picture, centre-cropped to 16:9."""
+    from PIL import Image
+    w, h = Image.open(path).size
+    img_ratio = w / h
+    slide_ratio = 13.333 / 7.5
+    pic = s.shapes.add_picture(path, 0, 0, SW, SH)
+    if img_ratio > slide_ratio:          # too wide -> crop left/right
+        crop = (1 - slide_ratio / img_ratio) / 2
+        pic.crop_left = crop; pic.crop_right = crop
+    else:                                # too tall -> crop top/bottom
+        crop = (1 - img_ratio / slide_ratio) / 2
+        pic.crop_top = crop; pic.crop_bottom = crop
+    return pic
 
 
 def _track(run, val):
@@ -149,14 +166,14 @@ def body(s, x, y, w, text, color, size=11.5, line_spacing=1.25):
 
 
 # ================================================================ 01 · COVER
-s = slide(); bg(s, OBSIDIAN)
+s = slide(); bg_image(s, f"{ASSETS}/cover-shaded.jpg")
 rule(s, MARGIN, Inches(0.9), Inches(0.55))
 wordmark(s, MARGIN, Inches(1.15))
 txt(s, MARGIN, Inches(2.9), Inches(11), Inches(0.3),
     [[(f"TECHNO-COMMERCIAL PROPOSAL · {REF}", MONO, 12, OCHRE, True, 350)]])
 txt(s, MARGIN, Inches(3.3), Inches(11.5), Inches(2.2),
     [[("[SOLAR PV + BESS PLANT]", DISPLAY, 54, WHITE, True, -10)],
-     [("[CAPACITY] kWp / [kWh] — [SITE NAME], [COUNTRY]", DISPLAY, 20, PAPER_55, False, 20)]],
+     [("[CAPACITY] kWp / [kWh] — [SITE NAME], [COUNTRY]", DISPLAY, 20, RGBColor(0xC9, 0xC9, 0xC9), False, 20)]],
     line_spacing=1.05)
 rule(s, MARGIN, Inches(5.9), Inches(11.53), PAPER_25, Pt(0.75))
 meta = [("PREPARED FOR", "[CLIENT NAME]"), ("PREPARED BY", "GJW ENERGY LTD"),
@@ -208,9 +225,37 @@ body(s, MARGIN, Inches(6.05), Inches(6.6),
      OBSIDIAN, size=12.5, line_spacing=1.3)
 footer(s, 2)
 
-# ================================================================ 03 · UNDERSTANDING
+# ================================================================ 03 · PRESENCE MAP
+s = slide(); bg(s, OBSIDIAN)
+kicker(s, "02 — GEOGRAPHICAL PRESENCE")
+headline(s, "One team. Five territories.", WHITE, y=Inches(1.0), size=36, w=Inches(6.6))
+body(s, MARGIN, Inches(2.35), Inches(6.4),
+     "Headquartered in Kenya, with project delivery and development experience "
+     "across the region — one engineering standard, applied everywhere we work.",
+     PAPER_55, size=12.5, line_spacing=1.3)
+territories = [("01", "KENYA", "Home market · EPRA-licensed delivery"),
+               ("02", "UGANDA", "C&I solar & storage"),
+               ("03", "TANZANIA", "C&I solar & storage"),
+               ("04", "SOMALIA", "Off-grid & diesel displacement"),
+               ("05", "SOMALILAND", "Water & utility solar")]
+y = Inches(3.45)
+for num, name, note in territories:
+    txt(s, MARGIN, y, Inches(0.55), Inches(0.3),
+        [[(num, MONO, 11, OCHRE, True, 150)]])
+    txt(s, Inches(1.55), y - Inches(0.02), Inches(2.6), Inches(0.35),
+        [[(name, DISPLAY, 15, WHITE, True, 40)]])
+    txt(s, Inches(4.25), y + Inches(0.04), Inches(3.4), Inches(0.3),
+        [[(note.upper(), MONO, 8.5, PAPER_55, False, 150)]])
+    y += Inches(0.68)
+    rule(s, MARGIN, y - Inches(0.18), Inches(6.6), PAPER_25, Pt(0.75))
+map_h = Inches(5.9)
+map_w = Inches(5.9 * 674 / 827)
+s.shapes.add_picture(f"{ASSETS}/presence-map.png", Inches(7.6), Inches(1.0), map_w, map_h)
+footer(s, 3, dark_bg=True)
+
+# ================================================================ 04 · UNDERSTANDING
 s = slide(); bg(s, BONE)
-kicker(s, "02 — YOUR REQUIREMENT")
+kicker(s, "03 — YOUR REQUIREMENT")
 headline(s, "The brief, as we understand it.", OBSIDIAN)
 rows = [("CLIENT", "[CLIENT NAME]"),
         ("SITE", "[SITE / FACILITY], [TOWN], [COUNTRY]"),
@@ -230,11 +275,11 @@ body(s, MARGIN, Inches(6.25), Inches(11.5),
      "Source: [site visit dated ___ / client data pack / utility bills for ___ months]. "
      "Any assumption stated here is confirmed during detailed design and does not "
      "alter the fixed price unless the physical scope changes.", INK_55, size=11)
-footer(s, 3)
+footer(s, 4)
 
-# ================================================================ 04 · TECHNICAL OFFER
+# ================================================================ 05 · TECHNICAL OFFER
 s = slide(); bg(s, BONE)
-kicker(s, "03 — TECHNICAL OFFER")
+kicker(s, "04 — TECHNICAL OFFER")
 headline(s, "Proposed system.", OBSIDIAN)
 specs = [("SYSTEM SIZE", "[XXX] kWp DC / [XXX] kW AC"),
          ("PV MODULES", "[N × XXX Wp Tier-1 mono / n-type · make per final BOQ]"),
@@ -256,11 +301,11 @@ body(s, MARGIN, Inches(6.45), Inches(11.5),
      "Engineering basis: PVsyst simulation, utility interconnection study and "
      "structural verification precede construction. All equipment is Tier-1 with "
      "manufacturer warranties registered to the client.", INK_55, size=11)
-footer(s, 4)
+footer(s, 5)
 
-# ================================================================ 05 · SCOPE
+# ================================================================ 06 · SCOPE
 s = slide(); bg(s, BONE)
-kicker(s, "04 — SCOPE OF WORK")
+kicker(s, "05 — SCOPE OF WORK")
 headline(s, "One contract. Full accountability.", OBSIDIAN)
 scope = [("A", "ENGINEERING & DESIGN",
           "Site survey & yield assessment · PVsyst design · single-line diagrams · structural checks · utility application"),
@@ -283,11 +328,11 @@ for tag, title, desc in scope:
 body(s, MARGIN, Inches(6.2), Inches(11.5),
      "Exclusions: [utility connection fees · grid reinforcement · civils beyond agreed platform · VAT as stated].",
      INK_55, size=11)
-footer(s, 5)
+footer(s, 6)
 
-# ================================================================ 06 · PROGRAMME
+# ================================================================ 07 · PROGRAMME
 s = slide(); bg(s, BONE)
-kicker(s, "05 — DELIVERY PROGRAMME")
+kicker(s, "06 — DELIVERY PROGRAMME")
 headline(s, "Built at utility scale and speed.", OBSIDIAN)
 phases = [("01", "Contract & mobilisation", "[WKS 1–2]"),
           ("02", "Detailed design & utility approvals", "[WKS 2–5]"),
@@ -310,11 +355,11 @@ body(s, MARGIN, Inches(6.25), Inches(11.5),
      "Programme assumes timely utility approvals and site access. A week-by-week "
      "schedule is issued at contract signature and tracked to completion.",
      INK_55, size=11)
-footer(s, 6)
+footer(s, 7)
 
-# ================================================================ 07 · TRACK RECORD
+# ================================================================ 08 · TRACK RECORD
 s = slide(); bg(s, OBSIDIAN)
-kicker(s, "06 — PROOF, NOT PROMISES")
+kicker(s, "07 — PROOF, NOT PROMISES")
 headline(s, "Delivered by this team.", WHITE)
 track = [("TATA CHEMICALS · MAGADI, KENYA", "5.1 MWp on-grid solar · grid stabilisation · D&T"),
          ("DEVKI GROUP PORTFOLIO · KENYA", "3.8 MWp rooftop across 4 manufacturing sites"),
@@ -335,11 +380,11 @@ img.crop_top = 0.08; img.crop_bottom = 0.08
 rule(s, Inches(8.15), Inches(2.3), Inches(4.28), OCHRE, Pt(2.2))
 txt(s, Inches(8.15), Inches(6.72), Inches(4.3), Inches(0.3),
     [[("TATA CHEMICALS MAGADI — 5.1 MWP · COMMISSIONED [2025]", MONO, 8, PAPER_55, False, 150)]])
-footer(s, 7, dark_bg=True)
+footer(s, 8, dark_bg=True)
 
-# ================================================================ 08 · COMMERCIAL OFFER
+# ================================================================ 09 · COMMERCIAL OFFER
 s = slide(); bg(s, BONE)
-kicker(s, "07 — COMMERCIAL OFFER")
+kicker(s, "08 — COMMERCIAL OFFER")
 headline(s, "The lowest capex isn't", OBSIDIAN, y=Inches(1.0), size=36)
 txt(s, MARGIN, Inches(1.62), CW, Inches(0.7),
     [[("ALWAYS THE LOWEST COST.", DISPLAY, 36, OBSIDIAN, True, -10)]])
@@ -370,11 +415,11 @@ body(s, MARGIN, Inches(6.35), Inches(11.5),
      "Fixed, lump-sum turnkey price. No variation unless physical scope changes. "
      "Currency: [USD/KES] · price basis: [DDP site / ex-works + install].",
      INK_55, size=11)
-footer(s, 8)
+footer(s, 9)
 
-# ================================================================ 09 · TERMS
+# ================================================================ 10 · TERMS
 s = slide(); bg(s, BONE)
-kicker(s, "08 — COMMERCIAL TERMS")
+kicker(s, "09 — COMMERCIAL TERMS")
 headline(s, "Clear terms. No surprises.", OBSIDIAN)
 pay = [("30%", "Contract signature & mobilisation"),
        ("40%", "Major equipment delivered to site"),
@@ -401,10 +446,10 @@ for lab, val in terms:
         [[(val, BODY, 11.5, OBSIDIAN, False, 0)]])
     y += Inches(0.52)
     rule(s, MARGIN, y - Inches(0.14), Inches(11.53), HAIR, Pt(0.75))
-footer(s, 9)
+footer(s, 10)
 
-# ================================================================ 10 · CLOSE
-s = slide(); bg(s, OBSIDIAN)
+# ================================================================ 11 · CLOSE
+s = slide(); bg_image(s, f"{ASSETS}/close-shaded.jpg")
 rule(s, MARGIN, Inches(0.9), Inches(0.55))
 wordmark(s, MARGIN, Inches(1.15))
 kicker(s, "NEXT STEPS", y=Inches(2.7))
@@ -428,8 +473,8 @@ txt(s, Inches(8.6), Inches(5.1), Inches(3.9), Inches(1.4),
      [("NAIROBI, KENYA", MONO, 10.5, PAPER_55, False, 150)],
      [("GJWENERGY.CO.KE", MONO, 10.5, OCHRE, True, 150)]],
     line_spacing=1.6)
-footer(s, 10, dark_bg=True)
+footer(s, 11, dark_bg=True)
 
 OUT = "/app/GJW_Energy_Techno_Commercial_Proposal.pptx"
 prs.save(OUT)
-print("Saved", OUT, "·", len(prs.slides.__iter__.__self__._sldIdLst), "slides")
+print("Saved", OUT, "·", len(prs.slides._sldIdLst), "slides")
