@@ -150,6 +150,12 @@ Full refinement brief applied without redesign:
 - Closing slide: full-bleed shaded Tata Magadi dusk aerial (close-shaded.jpg) behind next-steps/contact
 - Assets in /app/tools/assets/ (hero-cover, cover-shaded, close-shaded, presence-map.png); regenerated via tools/generate_proposal_pptx.py; all 11 slides render-verified via LibreOffice
 
+## Iteration 22 — Proposal Deck: O&M + Solution Icons + Scope Transparency (2026-09-06)
+- Deck now 14 slides. New slide 05 "The offer at a glance": 6 bordered icon stat boxes (Lucide sun / battery-charging / plug-zap / cable / activity / fuel, rasterised to ochre PNGs via cairosvg) for Solar PV [___] kWp · BESS [___] kWh · Transformer & distribution [___] MVA · Transmission line [___] km · Grid stabilisation [___] kVAR · Generator integration [___] kVA + EPC delivery-model line
+- New slide 08 "Scope, in the open — Priced in. Not sprung on you.": two-column transparency list (walkways, guard rails, roof access, safety lines, generator integration, cable management, earthing, as-builts INCLUDED vs utility fees/grid reinforcement/VAT flagged upfront)
+- New slide 13 "Optional · Annual O&M": included-plan list (preventive visits, cleaning cycles, 24/7 monitoring, [48]h response, spares, P50 review) + obsidian pricing card ([USD —]/yr or per-kWp) + add-ons; positions recurring revenue
+- Kickers/footers renumbered 01–12 sections; spec_rows helper extracted; all 14 slides render-verified via LibreOffice, no out-of-bounds shapes
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

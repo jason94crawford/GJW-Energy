@@ -6,9 +6,9 @@ Brand system (from the GJW Energy website):
   Display: Cabinet Grotesk · Body: Satoshi · Mono: JetBrains Mono
   (Fonts are free — Fontshare / Google Fonts. Install them for exact rendering.)
 
-Output: /app/GJW_Energy_Techno_Commercial_Proposal.pptx (16:9, 11 slides)
+Output: /app/GJW_Energy_Techno_Commercial_Proposal.pptx (16:9, 14 slides)
 Placeholders in [SQUARE BRACKETS] are edited per offer.
-Assets (cover/closing imagery, dot-matrix map) live in /app/tools/assets/.
+Assets (cover/closing imagery, dot-matrix map, icons) live in /app/tools/assets/.
 """
 
 from pptx import Presentation
@@ -28,6 +28,7 @@ INK_35 = RGBColor(0xA6, 0xA6, 0xA3)      # black/35 on bone
 PAPER_55 = RGBColor(0x8C, 0x8C, 0x8C)    # white/55 on obsidian
 PAPER_25 = RGBColor(0x5A, 0x5A, 0x5E)    # hairline on obsidian
 HAIR = RGBColor(0xE3, 0xE3, 0xE0)        # black/10 hairline on bone
+EDGE = RGBColor(0xD4, 0xD4, 0xD1)        # black/15 box border on bone
 
 DISPLAY = "Cabinet Grotesk"
 BODY = "Satoshi"
@@ -75,6 +76,20 @@ def bg_image(s, path):
     return pic
 
 
+def box(s, x, y, w, h, fill=None, line=None, line_w=Pt(1)):
+    r = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, x, y, w, h)
+    if fill is None:
+        r.fill.background()
+    else:
+        r.fill.solid(); r.fill.fore_color.rgb = fill
+    if line is None:
+        r.line.fill.background()
+    else:
+        r.line.color.rgb = line; r.line.width = line_w
+    r.shadow.inherit = False
+    return r
+
+
 def _track(run, val):
     """Letter-spacing in 1/100 pt, e.g. 300 = 3pt tracking."""
     run.font._rPr.set("spc", str(val))
@@ -84,8 +99,8 @@ def txt(s, x, y, w, h, runs, align=PP_ALIGN.LEFT, anchor=MSO_ANCHOR.TOP,
         line_spacing=1.0, space_after=0):
     """runs: list of paragraphs; each paragraph is a list of
     (text, font, size, color, bold, tracking) tuples."""
-    box = s.shapes.add_textbox(x, y, w, h)
-    tf = box.text_frame
+    tbox = s.shapes.add_textbox(x, y, w, h)
+    tf = tbox.text_frame
     tf.word_wrap = True
     tf.vertical_anchor = anchor
     tf.margin_left = tf.margin_right = tf.margin_top = tf.margin_bottom = 0
@@ -101,7 +116,7 @@ def txt(s, x, y, w, h, runs, align=PP_ALIGN.LEFT, anchor=MSO_ANCHOR.TOP,
             r.font.color.rgb = color; r.font.bold = bold
             if tracking:
                 _track(r, tracking)
-    return box
+    return tbox
 
 
 def kicker(s, text, color=OCHRE, x=MARGIN, y=Inches(0.62)):
@@ -155,14 +170,29 @@ def set_cell(cell, paras, fill=None, anchor=MSO_ANCHOR.MIDDLE,
                 _track(r, tracking)
 
 
-def label(s, x, y, text, color=OCHRE):
-    txt(s, x, y, Inches(3), Inches(0.25),
+def label(s, x, y, text, color=OCHRE, w=Inches(6)):
+    txt(s, x, y, w, Inches(0.25),
         [[(text.upper(), MONO, 9, color, True, 250)]])
 
 
 def body(s, x, y, w, text, color, size=11.5, line_spacing=1.25):
     txt(s, x, y, w, Inches(1), [[(text, BODY, size, color, False, 0)]],
         line_spacing=line_spacing)
+
+
+def spec_rows(s, rows, y0, row_h, lab_w=Inches(2.6), lab_size=10,
+              val_x=Inches(3.6), val_w=Inches(8.8), val_size=12.5,
+              val_color=OBSIDIAN, rule_color=HAIR):
+    """Ochre mono label + value rows with hairlines, on light bg."""
+    y = y0
+    for lab, val in rows:
+        txt(s, MARGIN, y, lab_w, Inches(0.3),
+            [[(lab, MONO, lab_size, OCHRE, True, 220)]])
+        txt(s, val_x, y - Inches(0.03), val_w, Inches(0.4),
+            [[(val, BODY, val_size, val_color, False, 0)]])
+        y += row_h
+        rule(s, MARGIN, y - Inches(0.14), Inches(11.53), rule_color, Pt(0.75))
+    return y
 
 
 # ================================================================ 01 · COVER
@@ -257,55 +287,73 @@ footer(s, 3, dark_bg=True)
 s = slide(); bg(s, BONE)
 kicker(s, "03 — YOUR REQUIREMENT")
 headline(s, "The brief, as we understand it.", OBSIDIAN)
-rows = [("CLIENT", "[CLIENT NAME]"),
-        ("SITE", "[SITE / FACILITY], [TOWN], [COUNTRY]"),
-        ("OBJECTIVE", "[Reduce grid energy costs / secure supply / displace diesel]"),
-        ("LOAD PROFILE", "[Daytime baseload ±XXX kW · peak XXX kVA · XX,XXX kWh/month]"),
-        ("SUPPLY CONTEXT", "[Utility grid — utility tariff / outage profile / genset backup]"),
-        ("CONSTRAINTS", "[Roof or land availability · outage windows · interconnection limits]")]
-y = Inches(2.2)
-for lab, val in rows:
-    txt(s, MARGIN, y, Inches(2.6), Inches(0.3),
-        [[(lab, MONO, 10, OCHRE, True, 220)]])
-    txt(s, Inches(3.6), y - Inches(0.03), Inches(8.8), Inches(0.35),
-        [[(val, BODY, 12.5, OBSIDIAN, False, 0)]])
-    y += Inches(0.62)
-    rule(s, MARGIN, y - Inches(0.18), Inches(11.53), HAIR, Pt(0.75))
+spec_rows(s, [("CLIENT", "[CLIENT NAME]"),
+              ("SITE", "[SITE / FACILITY], [TOWN], [COUNTRY]"),
+              ("OBJECTIVE", "[Reduce grid energy costs / secure supply / displace diesel]"),
+              ("LOAD PROFILE", "[Daytime baseload ±XXX kW · peak XXX kVA · XX,XXX kWh/month]"),
+              ("SUPPLY CONTEXT", "[Utility grid — utility tariff / outage profile / genset backup]"),
+              ("CONSTRAINTS", "[Roof or land availability · outage windows · interconnection limits]")],
+          Inches(2.2), Inches(0.62))
 body(s, MARGIN, Inches(6.25), Inches(11.5),
      "Source: [site visit dated ___ / client data pack / utility bills for ___ months]. "
      "Any assumption stated here is confirmed during detailed design and does not "
      "alter the fixed price unless the physical scope changes.", INK_55, size=11)
 footer(s, 4)
 
-# ================================================================ 05 · TECHNICAL OFFER
+# ================================================================ 05 · OFFER AT A GLANCE
 s = slide(); bg(s, BONE)
-kicker(s, "04 — TECHNICAL OFFER")
+kicker(s, "04 — THE OFFER AT A GLANCE")
+headline(s, "One system. Every part sized.", OBSIDIAN)
+solutions = [("icon-sun.png", "[___]", "kWp", "SOLAR PV"),
+             ("icon-battery-charging.png", "[___]", "kWh", "BATTERY STORAGE (BESS)"),
+             ("icon-plug-zap.png", "[___]", "MVA", "TRANSFORMER & DISTRIBUTION"),
+             ("icon-cable.png", "[___]", "km", "TRANSMISSION LINE"),
+             ("icon-activity.png", "[___]", "kVAR", "GRID STABILISATION"),
+             ("icon-fuel.png", "[___]", "kVA", "GENERATOR INTEGRATION")]
+bw, gap = Inches(1.83), Inches(0.11)
+bx = MARGIN
+for icon, val, unit, name in solutions:
+    box(s, bx, Inches(2.45), bw, Inches(2.3), line=EDGE, line_w=Pt(1))
+    s.shapes.add_picture(f"{ASSETS}/{icon}", bx + Inches(0.18), Inches(2.63), Inches(0.42), Inches(0.42))
+    txt(s, bx + Inches(0.18), Inches(3.25), bw - Inches(0.36), Inches(0.4),
+        [[(val + " ", DISPLAY, 20, OBSIDIAN, True, -10),
+          (unit, MONO, 10, OCHRE, True, 100)]])
+    txt(s, bx + Inches(0.18), Inches(3.78), bw - Inches(0.32), Inches(0.8),
+        [[(name, MONO, 8, INK_55, False, 120)]], line_spacing=1.25)
+    bx += bw + gap
+rule(s, MARGIN, Inches(5.25), Inches(11.53), HAIR, Pt(0.75))
+txt(s, MARGIN, Inches(5.5), Inches(11.5), Inches(0.3),
+    [[("DELIVERY MODEL — ", MONO, 10, OCHRE, True, 250),
+      ("EPC · FIXED LUMP-SUM · SINGLE ACCOUNTABLE ENGINEERING LEAD", MONO, 10, OBSIDIAN, True, 200)]])
+body(s, MARGIN, Inches(6.05), Inches(11.5),
+     "Blank figures are completed per offer after site assessment — elements not "
+     "required for your site are marked N/A rather than priced in. Full engineering "
+     "detail follows in the technical offer.", INK_55, size=11)
+footer(s, 5)
+
+# ================================================================ 06 · TECHNICAL OFFER
+s = slide(); bg(s, BONE)
+kicker(s, "05 — TECHNICAL OFFER")
 headline(s, "Proposed system.", OBSIDIAN)
-specs = [("SYSTEM SIZE", "[XXX] kWp DC / [XXX] kW AC"),
-         ("PV MODULES", "[N × XXX Wp Tier-1 mono / n-type · make per final BOQ]"),
-         ("INVERTERS", "[N × XXX kW string inverters · make per final BOQ]"),
-         ("STORAGE (OPTION)", "[XXX kWh LFP BESS · hybrid inverter / PCS]"),
-         ("GRID INTERFACE", "[Grid-tied / grid-stabilising · protection & synchronisation per utility]"),
-         ("MOUNTING", "[Roof / ground-mounted · hot-dip galvanised structure]"),
-         ("MONITORING", "[String-level monitoring · remote portal · generation meter]"),
-         ("EST. YIELD", "[X,XXX MWh in year one · PR ≥ XX%]")]
-y = Inches(2.15)
-for lab, val in specs:
-    txt(s, MARGIN, y, Inches(3.1), Inches(0.3),
-        [[(lab, MONO, 10, OCHRE, True, 200)]])
-    txt(s, Inches(4.2), y - Inches(0.03), Inches(8.2), Inches(0.35),
-        [[(val, BODY, 12, OBSIDIAN, False, 0)]])
-    y += Inches(0.52)
-    rule(s, MARGIN, y - Inches(0.14), Inches(11.53), HAIR, Pt(0.75))
+spec_rows(s, [("SYSTEM SIZE", "[XXX] kWp DC / [XXX] kW AC"),
+              ("PV MODULES", "[N × XXX Wp Tier-1 mono / n-type · make per final BOQ]"),
+              ("INVERTERS", "[N × XXX kW string inverters · make per final BOQ]"),
+              ("STORAGE (OPTION)", "[XXX kWh LFP BESS · hybrid inverter / PCS]"),
+              ("GRID INTERFACE", "[Grid-tied / grid-stabilising · protection & synchronisation per utility]"),
+              ("MOUNTING", "[Roof / ground-mounted · hot-dip galvanised structure]"),
+              ("MONITORING", "[String-level monitoring · remote portal · generation meter]"),
+              ("EST. YIELD", "[X,XXX MWh in year one · PR ≥ XX%]")],
+          Inches(2.15), Inches(0.52), lab_w=Inches(3.1), val_x=Inches(4.2),
+          val_w=Inches(8.2), val_size=12)
 body(s, MARGIN, Inches(6.45), Inches(11.5),
      "Engineering basis: PVsyst simulation, utility interconnection study and "
      "structural verification precede construction. All equipment is Tier-1 with "
      "manufacturer warranties registered to the client.", INK_55, size=11)
-footer(s, 5)
+footer(s, 6)
 
-# ================================================================ 06 · SCOPE
+# ================================================================ 07 · SCOPE OF WORK
 s = slide(); bg(s, BONE)
-kicker(s, "05 — SCOPE OF WORK")
+kicker(s, "06 — SCOPE OF WORK")
 headline(s, "One contract. Full accountability.", OBSIDIAN)
 scope = [("A", "ENGINEERING & DESIGN",
           "Site survey & yield assessment · PVsyst design · single-line diagrams · structural checks · utility application"),
@@ -325,14 +373,53 @@ for tag, title, desc in scope:
         [[(desc, BODY, 11, INK_55, False, 0)]], line_spacing=1.2)
     y += Inches(0.95)
     rule(s, MARGIN, y - Inches(0.22), Inches(11.53), HAIR, Pt(0.75))
-body(s, MARGIN, Inches(6.2), Inches(11.5),
-     "Exclusions: [utility connection fees · grid reinforcement · civils beyond agreed platform · VAT as stated].",
-     INK_55, size=11)
-footer(s, 6)
+footer(s, 7)
 
-# ================================================================ 07 · PROGRAMME
+# ================================================================ 08 · SCOPE, IN THE OPEN
 s = slide(); bg(s, BONE)
-kicker(s, "06 — DELIVERY PROGRAMME")
+kicker(s, "07 — SCOPE, IN THE OPEN")
+headline(s, "Priced in. Not sprung on you.", OBSIDIAN)
+included = ["Module cleaning walkways & access paths",
+            "Guard rails & edge protection",
+            "Roof access — ladders, hatches & steps",
+            "Safety lines & anchor points",
+            "Generator integration & synchronisation controls",
+            "Cable tray, trenching & cable management",
+            "Earthing & lightning protection",
+            "As-built documentation, training & handover pack"]
+excluded = ["Utility application & connection fees",
+            "Grid network reinforcement",
+            "VAT / import duties — unless expressly stated",
+            "Structural roof upgrades beyond the agreed scope",
+            "Land works beyond the agreed platform"]
+label(s, MARGIN, Inches(2.15), "In our price — items others hide")
+y = Inches(2.55)
+for item in included:
+    txt(s, MARGIN, y, Inches(0.3), Inches(0.3),
+        [[("+", MONO, 11, OCHRE, True, 0)]])
+    txt(s, Inches(1.25), y + Inches(0.01), Inches(5.2), Inches(0.35),
+        [[(item, BODY, 11.5, OBSIDIAN, False, 0)]])
+    y += Inches(0.51)
+    rule(s, MARGIN, y - Inches(0.13), Inches(5.45), HAIR, Pt(0.75))
+label(s, Inches(7.0), Inches(2.15), "Client / utility side — flagged upfront")
+y = Inches(2.55)
+for item in excluded:
+    txt(s, Inches(7.0), y, Inches(0.3), Inches(0.3),
+        [[("—", MONO, 11, INK_35, True, 0)]])
+    txt(s, Inches(7.35), y + Inches(0.01), Inches(5.05), Inches(0.35),
+        [[(item, BODY, 11.5, INK_55, False, 0)]])
+    y += Inches(0.51)
+    rule(s, Inches(7.0), y - Inches(0.13), Inches(5.43), HAIR, Pt(0.75))
+rule(s, MARGIN, Inches(6.15), Inches(11.53), HAIR, Pt(0.75))
+body(s, MARGIN, Inches(6.4), Inches(11.5),
+     "If it is required to deliver the system properly and safely, it is in our "
+     "price. Anything outside scope is flagged before signature — never after.",
+     OBSIDIAN, size=12)
+footer(s, 8)
+
+# ================================================================ 09 · PROGRAMME
+s = slide(); bg(s, BONE)
+kicker(s, "08 — DELIVERY PROGRAMME")
 headline(s, "Built at utility scale and speed.", OBSIDIAN)
 phases = [("01", "Contract & mobilisation", "[WKS 1–2]"),
           ("02", "Detailed design & utility approvals", "[WKS 2–5]"),
@@ -355,11 +442,11 @@ body(s, MARGIN, Inches(6.25), Inches(11.5),
      "Programme assumes timely utility approvals and site access. A week-by-week "
      "schedule is issued at contract signature and tracked to completion.",
      INK_55, size=11)
-footer(s, 7)
+footer(s, 9)
 
-# ================================================================ 08 · TRACK RECORD
+# ================================================================ 10 · TRACK RECORD
 s = slide(); bg(s, OBSIDIAN)
-kicker(s, "07 — PROOF, NOT PROMISES")
+kicker(s, "09 — PROOF, NOT PROMISES")
 headline(s, "Delivered by this team.", WHITE)
 track = [("TATA CHEMICALS · MAGADI, KENYA", "5.1 MWp on-grid solar · grid stabilisation · D&T"),
          ("DEVKI GROUP PORTFOLIO · KENYA", "3.8 MWp rooftop across 4 manufacturing sites"),
@@ -380,11 +467,11 @@ img.crop_top = 0.08; img.crop_bottom = 0.08
 rule(s, Inches(8.15), Inches(2.3), Inches(4.28), OCHRE, Pt(2.2))
 txt(s, Inches(8.15), Inches(6.72), Inches(4.3), Inches(0.3),
     [[("TATA CHEMICALS MAGADI — 5.1 MWP · COMMISSIONED [2025]", MONO, 8, PAPER_55, False, 150)]])
-footer(s, 8, dark_bg=True)
+footer(s, 10, dark_bg=True)
 
-# ================================================================ 09 · COMMERCIAL OFFER
+# ================================================================ 11 · COMMERCIAL OFFER
 s = slide(); bg(s, BONE)
-kicker(s, "08 — COMMERCIAL OFFER")
+kicker(s, "10 — COMMERCIAL OFFER")
 headline(s, "The lowest capex isn't", OBSIDIAN, y=Inches(1.0), size=36)
 txt(s, MARGIN, Inches(1.62), CW, Inches(0.7),
     [[("ALWAYS THE LOWEST COST.", DISPLAY, 36, OBSIDIAN, True, -10)]])
@@ -415,11 +502,11 @@ body(s, MARGIN, Inches(6.35), Inches(11.5),
      "Fixed, lump-sum turnkey price. No variation unless physical scope changes. "
      "Currency: [USD/KES] · price basis: [DDP site / ex-works + install].",
      INK_55, size=11)
-footer(s, 9)
+footer(s, 11)
 
-# ================================================================ 10 · TERMS
+# ================================================================ 12 · TERMS
 s = slide(); bg(s, BONE)
-kicker(s, "09 — COMMERCIAL TERMS")
+kicker(s, "11 — COMMERCIAL TERMS")
 headline(s, "Clear terms. No surprises.", OBSIDIAN)
 pay = [("30%", "Contract signature & mobilisation"),
        ("40%", "Major equipment delivered to site"),
@@ -433,22 +520,54 @@ for pct, desc in pay:
     txt(s, px, Inches(3.05), Inches(2.55), Inches(0.7),
         [[(desc.upper(), MONO, 9, INK_55, False, 150)]], line_spacing=1.25)
     px += Inches(2.98)
-terms = [("VALIDITY", "This offer remains open for [30] days from the date of issue."),
-         ("WARRANTIES", "Modules [12/25] yrs product & performance · inverters [5–10] yrs · workmanship [2] yrs."),
-         ("PERFORMANCE", "Year-one yield per PVsyst P50 estimate · measured at the generation meter."),
-         ("EXCLUSIONS", "Utility connection fees · grid reinforcement · unforeseen civils · VAT unless stated."),
-         ("GOVERNING TERMS", "[FIDIC-based / client contract] · Kenyan law · amicable resolution then arbitration.")]
-y = Inches(4.1)
-for lab, val in terms:
-    txt(s, MARGIN, y, Inches(2.6), Inches(0.3),
-        [[(lab, MONO, 10, OCHRE, True, 220)]])
-    txt(s, Inches(3.6), y - Inches(0.03), Inches(8.8), Inches(0.4),
-        [[(val, BODY, 11.5, OBSIDIAN, False, 0)]])
-    y += Inches(0.52)
-    rule(s, MARGIN, y - Inches(0.14), Inches(11.53), HAIR, Pt(0.75))
-footer(s, 10)
+spec_rows(s, [("VALIDITY", "This offer remains open for [30] days from the date of issue."),
+              ("WARRANTIES", "Modules [12/25] yrs product & performance · inverters [5–10] yrs · workmanship [2] yrs."),
+              ("PERFORMANCE", "Year-one yield per PVsyst P50 estimate · measured at the generation meter."),
+              ("EXCLUSIONS", "Utility connection fees · grid reinforcement · unforeseen civils · VAT unless stated."),
+              ("GOVERNING TERMS", "[FIDIC-based / client contract] · Kenyan law · amicable resolution then arbitration.")],
+          Inches(4.1), Inches(0.52), val_size=11.5)
+footer(s, 12)
 
-# ================================================================ 11 · CLOSE
+# ================================================================ 13 · OPTIONAL O&M
+s = slide(); bg(s, BONE)
+kicker(s, "12 — OPTIONAL · ANNUAL O&M")
+headline(s, "Built properly. Kept performing.", OBSIDIAN, size=40)
+label(s, MARGIN, Inches(2.2), "Included in the annual plan")
+om = ["Scheduled preventive maintenance — [2] visits / year",
+      "Module cleaning — [N] cycles / year",
+      "24/7 remote monitoring & monthly performance report",
+      "Breakdown response within [48] hours",
+      "Spare-parts management & warranty administration",
+      "Annual performance review against the P50 yield estimate"]
+y = Inches(2.6)
+for item in om:
+    txt(s, MARGIN, y, Inches(0.3), Inches(0.3),
+        [[("+", MONO, 11, OCHRE, True, 0)]])
+    txt(s, Inches(1.25), y + Inches(0.01), Inches(5.6), Inches(0.35),
+        [[(item, BODY, 11.5, OBSIDIAN, False, 0)]])
+    y += Inches(0.56)
+    rule(s, MARGIN, y - Inches(0.15), Inches(5.9), HAIR, Pt(0.75))
+box(s, Inches(7.6), Inches(2.2), Inches(4.83), Inches(3.75), fill=OBSIDIAN)
+txt(s, Inches(7.95), Inches(2.5), Inches(4.2), Inches(0.3),
+    [[("ANNUAL O&M PLAN", MONO, 10, OCHRE, True, 300)]])
+txt(s, Inches(7.95), Inches(2.9), Inches(4.2), Inches(0.6),
+    [[("[USD —] ", DISPLAY, 30, WHITE, True, -10),
+      ("/ YEAR", MONO, 11, PAPER_55, True, 150)]])
+txt(s, Inches(7.95), Inches(3.6), Inches(4.2), Inches(0.3),
+    [[("OR [USD —] PER kWp PER YEAR", MONO, 9.5, PAPER_55, False, 150)]])
+rule(s, Inches(7.95), Inches(4.1), Inches(4.13), PAPER_25, Pt(0.75))
+txt(s, Inches(7.95), Inches(4.3), Inches(4.2), Inches(1.5),
+    [[("ADD-ONS", MONO, 9, OCHRE, True, 250)],
+     [("Extended warranty wrap — [OPT]", BODY, 11, WHITE, False, 0)],
+     [("Additional cleaning cycles — [OPT]", BODY, 11, WHITE, False, 0)],
+     [("Security & guarding — [OPT]", BODY, 11, WHITE, False, 0)]],
+    line_spacing=1.35)
+body(s, MARGIN, Inches(6.35), Inches(11.5),
+     "O&M clients hold priority breakdown response. Systems we maintain carry our "
+     "name — we keep them performing.", OBSIDIAN, size=12)
+footer(s, 13)
+
+# ================================================================ 14 · CLOSE
 s = slide(); bg_image(s, f"{ASSETS}/close-shaded.jpg")
 rule(s, MARGIN, Inches(0.9), Inches(0.55))
 wordmark(s, MARGIN, Inches(1.15))
@@ -473,7 +592,7 @@ txt(s, Inches(8.6), Inches(5.1), Inches(3.9), Inches(1.4),
      [("NAIROBI, KENYA", MONO, 10.5, PAPER_55, False, 150)],
      [("GJWENERGY.CO.KE", MONO, 10.5, OCHRE, True, 150)]],
     line_spacing=1.6)
-footer(s, 11, dark_bg=True)
+footer(s, 14, dark_bg=True)
 
 OUT = "/app/GJW_Energy_Techno_Commercial_Proposal.pptx"
 prs.save(OUT)
