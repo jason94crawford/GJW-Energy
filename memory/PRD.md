@@ -137,6 +137,13 @@ Full refinement brief applied without redesign:
 - Also saved locally for future use: tata-team.jpg (commissioning team aerial), tata-wide-lake.jpg (wide aerial with Lake Magadi)
 - CaseStudies.jsx: entries now support an optional `gallery` array (2-col strip under hero); only Tata uses it (flagship entry). Lazy loading retained. Verified: all 3 images load, specs row correct, layout intact at desktop width
 
+## Iteration 20 — Branded Proposal Deck (2026-09-06)
+- PresenceMap copy tweak: "hover the map" → "hover over the map"
+- Generated /app/GJW_Energy_Techno_Commercial_Proposal.pptx (10 slides, 16:9) via /app/tools/generate_proposal_pptx.py — site brand system applied: obsidian/bone/ochre/forest, Cabinet Grotesk display, Satoshi body, JetBrains Mono kickers/labels, hairline rules, ochre accents
+- Slides: cover · about (principal-led positioning + stats) · client brief · technical offer spec sheet · scope of work (A–D) · delivery programme table · track record (real project list + Tata Magadi aerial) · commercial offer price table · payment milestones & terms · next steps/contact close
+- All client/price fields are [BRACKETED PLACEHOLDERS] for per-offer editing; fonts are free (Fontshare/Google Fonts) and must be installed on the presenting machine for exact brand rendering
+- Verified by rendering all 10 slides to images via LibreOffice: no overflow, layout intact
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page
