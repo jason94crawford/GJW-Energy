@@ -469,12 +469,43 @@ txt(s, Inches(8.15), Inches(6.72), Inches(4.3), Inches(0.3),
     [[("TATA CHEMICALS MAGADI — 5.1 MWP · COMMISSIONED [2025]", MONO, 8, PAPER_55, False, 150)]])
 footer(s, 10, dark_bg=True)
 
-# ================================================================ 11 · COMMERCIAL OFFER
-s = slide(); bg(s, BONE)
-kicker(s, "10 — COMMERCIAL OFFER")
-headline(s, "The lowest capex isn't", OBSIDIAN, y=Inches(1.0), size=36)
+# ================================================================ 11 · THE ALTERNATIVE
+s = slide(); bg(s, OBSIDIAN)
+kicker(s, "10 — THE ALTERNATIVE")
+headline(s, "The lowest capex isn't", WHITE, y=Inches(1.0), size=36)
 txt(s, MARGIN, Inches(1.62), CW, Inches(0.7),
-    [[("ALWAYS THE LOWEST COST.", DISPLAY, 36, OBSIDIAN, True, -10)]])
+    [[("ALWAYS THE LOWEST COST.", DISPLAY, 36, OCHRE, True, -10)]])
+body(s, MARGIN, Inches(2.55), Inches(6.0),
+     "Cheap solar fails quietly at first — then all at once. What a cut-price "
+     "installation leaves off the BOQ returns as fire risk, corrosion, water "
+     "damage and an unsafe roof. The repair bill arrives with interest.",
+     PAPER_55, size=12, line_spacing=1.3)
+faults = [("PANEL FIRE", "poor DC connections ignite"),
+          ("CORRODED WALKWAYS", "mild steel, not aluminium"),
+          ("WATER INGRESS", "failed roof penetrations"),
+          ("NO GUARDRAILS", "no safety lines — a fall waiting"),
+          ("THERMAL RUNAWAY", "under-spec BESS vents & burns"),
+          ("0 kW OUTPUT", "production meter reads zero")]
+fy = Inches(4.0)
+for i, (t, d) in enumerate(faults):
+    fx = MARGIN if i % 2 == 0 else Inches(4.1)
+    yy = fy + Inches(0.72) * (i // 2)
+    txt(s, fx, yy, Inches(3.1), Inches(0.3),
+        [[(t, MONO, 9.5, OCHRE, True, 200)]])
+    txt(s, fx, yy + Inches(0.24), Inches(3.1), Inches(0.3),
+        [[(d.upper(), MONO, 8, PAPER_55, False, 120)]])
+fail_img = s.shapes.add_picture(
+    "/app/frontend/public/images/infographics/cheap-solar-failure.png",
+    Inches(7.6), Inches(2.2), Inches(4.83))
+rule(s, Inches(7.6), Inches(2.2), Inches(4.83), OCHRE, Pt(2.2))
+txt(s, Inches(7.6), Inches(2.2) + Inches(4.83 * 768 / 1408 / 2) * 2 + Inches(0.15), Inches(4.83), Inches(0.3),
+    [[("WHAT CHEAP SOLAR BECOMES — ZERO OUTPUT, FAILED PLANT, UNSAFE ROOF", MONO, 7.5, PAPER_55, False, 120)]])
+footer(s, 11, dark_bg=True)
+
+# ================================================================ 12 · COMMERCIAL OFFER
+s = slide(); bg(s, BONE)
+kicker(s, "11 — COMMERCIAL OFFER")
+headline(s, "Priced once. Priced properly.", OBSIDIAN, y=Inches(1.0), size=36)
 rows = [("1", "Engineering, design & approvals", "[USD —]"),
         ("2", "Equipment supply — PV, inverters[, BESS], BOS", "[USD —]"),
         ("3", "Civil, structural & electrical installation", "[USD —]"),
@@ -502,11 +533,11 @@ body(s, MARGIN, Inches(6.35), Inches(11.5),
      "Fixed, lump-sum turnkey price. No variation unless physical scope changes. "
      "Currency: [USD/KES] · price basis: [DDP site / ex-works + install].",
      INK_55, size=11)
-footer(s, 11)
+footer(s, 12)
 
-# ================================================================ 12 · TERMS
+# ================================================================ 13 · TERMS
 s = slide(); bg(s, BONE)
-kicker(s, "11 — COMMERCIAL TERMS")
+kicker(s, "12 — COMMERCIAL TERMS")
 headline(s, "Clear terms. No surprises.", OBSIDIAN)
 pay = [("30%", "Contract signature & mobilisation"),
        ("40%", "Major equipment delivered to site"),
@@ -526,11 +557,11 @@ spec_rows(s, [("VALIDITY", "This offer remains open for [30] days from the date 
               ("EXCLUSIONS", "Utility connection fees · grid reinforcement · unforeseen civils · VAT unless stated."),
               ("GOVERNING TERMS", "[FIDIC-based / client contract] · Kenyan law · amicable resolution then arbitration.")],
           Inches(4.1), Inches(0.52), val_size=11.5)
-footer(s, 12)
+footer(s, 13)
 
-# ================================================================ 13 · OPTIONAL O&M
+# ================================================================ 14 · OPTIONAL O&M
 s = slide(); bg(s, BONE)
-kicker(s, "12 — OPTIONAL · ANNUAL O&M")
+kicker(s, "13 — OPTIONAL · ANNUAL O&M")
 headline(s, "Built properly. Kept performing.", OBSIDIAN, size=40)
 label(s, MARGIN, Inches(2.2), "Included in the annual plan")
 om = ["Scheduled preventive maintenance — [2] visits / year",
@@ -565,9 +596,9 @@ txt(s, Inches(7.95), Inches(4.3), Inches(4.2), Inches(1.5),
 body(s, MARGIN, Inches(6.35), Inches(11.5),
      "O&M clients hold priority breakdown response. Systems we maintain carry our "
      "name — we keep them performing.", OBSIDIAN, size=12)
-footer(s, 13)
+footer(s, 14)
 
-# ================================================================ 14 · CLOSE
+# ================================================================ 15 · CLOSE
 s = slide(); bg_image(s, f"{ASSETS}/close-shaded.jpg")
 rule(s, MARGIN, Inches(0.9), Inches(0.55))
 wordmark(s, MARGIN, Inches(1.15))
@@ -592,7 +623,7 @@ txt(s, Inches(8.6), Inches(5.1), Inches(3.9), Inches(1.4),
      [("NAIROBI, KENYA", MONO, 10.5, PAPER_55, False, 150)],
      [("GJWENERGY.CO.KE", MONO, 10.5, OCHRE, True, 150)]],
     line_spacing=1.6)
-footer(s, 14, dark_bg=True)
+footer(s, 15, dark_bg=True)
 
 OUT = "/app/GJW_Energy_Techno_Commercial_Proposal.pptx"
 prs.save(OUT)

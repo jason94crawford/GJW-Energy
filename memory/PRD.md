@@ -235,6 +235,11 @@ Full refinement brief applied without redesign:
 - Lightbox hotspots: 7 pulsing ochre markers (Panel fire / Corroded walkway / No guardrails / Battery thermal runaway / Water leaks / 0 kW output / System offline) with hover tooltips (title + one-line consequence, auto above/below); clicking a marker zooms straight to that fault; testids hotspot-{id}
 - Verified live: markers render, tooltip shows on hover, marker-click zooms + focuses tooltip, strip aligned, Magadi gone
 
+## Iteration 37 — Failure Graphic In Proposal Deck (2026-09-09)
+- New slide 11 "10 — The alternative": sharpened cheap-solar-failure.png with ochre rule + caption "What cheap solar becomes — zero output, failed plant, unsafe roof"; headline "The lowest capex isn't / always the lowest cost." (white/ochre), consequence body copy, six-fault mono list mirroring the site's lightbox hotspots
+- Commercial offer slide re-headlined "Priced once. Priced properly." (quote moved to its own slide); subsequent sections renumbered 11–13, deck now 15 slides
+- Verified: regenerated, all 15 slides render via LibreOffice, no overlaps (fixed headline wrap collision), no out-of-bounds shapes
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page
