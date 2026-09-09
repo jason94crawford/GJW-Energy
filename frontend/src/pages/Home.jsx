@@ -86,6 +86,27 @@ const SERVICES = [
   },
 ];
 
+const CASES = [
+  {
+    name: "Tata Chemicals",
+    sector: "Manufacturing",
+    spec: "5.1 MWp · Kenya · Magadi",
+    image: "/images/tata-aerial-top.jpg",
+  },
+  {
+    name: "SAJ Ceramics",
+    sector: "Manufacturing",
+    spec: "693 kWp rooftop · Kenya",
+    image: "/images/saj-topdown.webp",
+  },
+  {
+    name: "Mwale Medical & Technology City",
+    sector: "Healthcare",
+    spec: "999 kWp + 2 MWh · Kenya",
+    image: "/images/mwale-compound.jpeg",
+  },
+];
+
 export default function Home() {
   return (
     <main data-testid="home-page">
@@ -204,6 +225,54 @@ export default function Home() {
                         <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </span>
                     </div>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 lg:py-32" data-testid="home-case-strip">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <Reveal className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">Selected work</p>
+              <h2 className="mt-6 font-display text-4xl font-extrabold uppercase leading-none tracking-tighter sm:text-5xl lg:text-6xl">
+                Proof, not promises.
+              </h2>
+            </div>
+            <Link
+              to="/case-studies"
+              data-testid="case-strip-view-all"
+              className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-black/60 transition-colors duration-300 hover:text-ochre"
+            >
+              All case studies
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+          </Reveal>
+
+          <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-3">
+            {CASES.map((c, i) => (
+              <Reveal key={c.name} delay={i * 0.06}>
+                <Link
+                  to="/case-studies"
+                  data-testid={`case-strip-card-${c.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                  className="group block"
+                >
+                  <div className="relative h-72 overflow-hidden">
+                    <img loading="lazy" decoding="async"
+                      src={c.image}
+                      alt={c.name}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute left-0 top-0 bg-obsidian px-4 py-2.5">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-white">{c.sector}</span>
+                    </div>
+                  </div>
+                  <div className="border-b border-black/10 py-6">
+                    <h3 className="font-display text-2xl font-extrabold uppercase tracking-tighter">{c.name}</h3>
+                    <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-black/50">{c.spec}</p>
                   </div>
                 </Link>
               </Reveal>

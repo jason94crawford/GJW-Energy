@@ -194,6 +194,12 @@ Full refinement brief applied without redesign:
 - Replaced pexels placeholder; specs row unchanged (999 kWp + 2 MWh · Healthcare · Kakamega)
 - Verified live: all 3 images load, strip renders
 
+## Iteration 30 — Waridi Photography + Homepage Case Strip (2026-09-09)
+- Waridi Flowers entry: first batch (DJI_0007/0009/0022 — tennis court, coastal estate, twin array) initially assigned, then client sent a corrected batch explicitly labelled Waridi: greenhouse aerial (waridi-greenhouses.jpeg, hero), SMA inverter under array (waridi-inverter.jpeg), array edge + grid connection (waridi-array-edge.jpeg). Entry updated to the corrected set
+- First batch kept on disk but UNASSIGNED (waridi-estate/topdown/coastal.webp) — visually reads as a coastal resort, likely Kinondo Kwetu; pending client confirmation
+- Homepage: NEW "Selected work — Proof, not promises." case strip (Home.jsx, data-testid home-case-strip) between services preview and ValueBand: 3 cards with real photos (tata-aerial-top, saj-topdown, mwale-compound), sector chip, name, mono spec line, hover zoom, link to /case-studies; testids case-strip-card-*, case-strip-view-all
+- Verified live: Waridi 3/3 images load; homepage strip 3 cards render with all photos loaded
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

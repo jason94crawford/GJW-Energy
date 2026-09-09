@@ -98,7 +98,11 @@ const STUDIES = [
     tech: "On-grid solar · distribution & transmission",
     role: "Turnkey EPC",
     body: "An on-grid ground-mounted solar PV solution for Waridi Flowers — delivering clean, cost-efficient power to support energy-intensive horticultural operations while reducing grid consumption and long-term electricity costs.",
-    image: "https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg",
+    image: "/images/waridi-greenhouses.jpeg",
+    gallery: [
+      { src: "/images/waridi-inverter.jpeg", alt: "Waridi Flowers — SMA inverter station beneath the array" },
+      { src: "/images/waridi-array-edge.jpeg", alt: "Waridi Flowers — array edge and grid connection beside the greenhouses" },
+    ],
   },
   {
     name: "Mwale Medical & Technology City",
