@@ -228,6 +228,13 @@ Full refinement brief applied without redesign:
 - Uses new field photo field-rooftop-works.webp (walkway mesh, safety lines, cable management) with mono caption "Walkways, safety lines & cable management — installed, not improvised."
 - Verified live: image loads, copy + CTA render
 
+## Iteration 36 — Strip Alignment + Infographic Hotspots (2026-09-09)
+- "Magadi" removed — Tata reads "5.1 MWp · Kenya" (homepage strip) and country "Kenya" (case studies page), per client
+- Homepage case strip: spec rows now pixel-aligned across all 3 cards (text block min-h 9.5rem + mt-auto spec pin; verified identical Y positions)
+- Infographic quality: cheap-solar-failure.png now 2816×1536 (2x Lanczos + contrast + unsharp mask via tools/sharpen_failure_infographic.py) — zoom view visibly crisper
+- Lightbox hotspots: 7 pulsing ochre markers (Panel fire / Corroded walkway / No guardrails / Battery thermal runaway / Water leaks / 0 kW output / System offline) with hover tooltips (title + one-line consequence, auto above/below); clicking a marker zooms straight to that fault; testids hotspot-{id}
+- Verified live: markers render, tooltip shows on hover, marker-click zooms + focuses tooltip, strip aligned, Magadi gone
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

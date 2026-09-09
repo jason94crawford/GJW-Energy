@@ -20,6 +20,16 @@ const INFOGRAPHIC_SRC = "/images/infographics/cheap-solar-failure.png";
 const INFOGRAPHIC_ALT =
   "Isometric render of a failed low-cost solar installation on a factory — system offline, panel fire, corroded walkway and no roof protection";
 
+const HOTSPOTS = [
+  { id: "fire", x: 50, y: 31, title: "Panel fire", body: "Poor DC connections ignite — one panel can take the roof with it." },
+  { id: "walkway", x: 53, y: 45, title: "Corroded walkway", body: "Mild steel instead of aluminium — rust underfoot within a few seasons." },
+  { id: "guardrails", x: 66, y: 48, title: "No guardrails", body: "No guardrails, no safety lines — an unprotected roof edge. A fall waiting to happen." },
+  { id: "battery", x: 36, y: 76, title: "Battery thermal runaway", body: "An under-spec BESS overheats and vents — the asset is a write-off." },
+  { id: "leaks", x: 77, y: 64, title: "Water leaks", body: "Failed roof penetrations — water damages stock and machinery below." },
+  { id: "meter", x: 56, y: 80, title: "0 kW output", body: "The production meter reads zero — the plant is offline." },
+  { id: "offline", x: 25, y: 85, title: "System offline", body: "Faulted feeders, no power flowing. Red means dead." },
+];
+
 export const ValueBand = () => {
   const [open, setOpen] = useState(false);
   const [zoom, setZoom] = useState(null); // {x, y} percentages, or null
@@ -132,24 +142,57 @@ export const ValueBand = () => {
             >
               <X className="h-4 w-4" />
             </button>
-            <motion.img
+            <motion.div
               initial={{ scale: 0.96, opacity: 0 }}
               animate={{ scale: zoom ? 2.2 : 1, opacity: 1 }}
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              src={INFOGRAPHIC_SRC}
-              alt={INFOGRAPHIC_ALT}
-              onClick={handleZoom}
               style={{
                 originX: zoom ? zoom.x / 100 : 0.5,
                 originY: zoom ? zoom.y / 100 : 0.5,
               }}
-              className={`max-h-[82vh] w-auto max-w-full select-none ${
-                zoom ? "cursor-zoom-out" : "cursor-zoom-in"
-              }`}
-              data-testid="value-band-lightbox-image"
-            />
+              className="relative w-fit"
+            >
+              <img
+                src={INFOGRAPHIC_SRC}
+                alt={INFOGRAPHIC_ALT}
+                onClick={handleZoom}
+                className={`max-h-[82vh] w-auto max-w-full select-none ${
+                  zoom ? "cursor-zoom-out" : "cursor-zoom-in"
+                }`}
+                data-testid="value-band-lightbox-image"
+              />
+              {HOTSPOTS.map((h) => (
+                <button
+                  key={h.id}
+                  type="button"
+                  data-testid={`hotspot-${h.id}`}
+                  aria-label={h.title}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setZoom(zoom ? null : { x: h.x, y: h.y });
+                  }}
+                  className="group absolute z-10 -translate-x-1/2 -translate-y-1/2 p-1"
+                  style={{ left: `${h.x}%`, top: `${h.y}%` }}
+                >
+                  <span className="relative flex h-3.5 w-3.5 items-center justify-center">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ochre/50" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full border border-white/70 bg-ochre" />
+                  </span>
+                  <span
+                    className={`pointer-events-none absolute left-1/2 z-20 w-52 -translate-x-1/2 border border-white/15 bg-obsidian/95 p-3 text-left opacity-0 backdrop-blur-sm transition-opacity duration-200 group-hover:opacity-100 group-focus:opacity-100 ${
+                      h.y > 50 ? "bottom-full mb-3" : "top-full mt-3"
+                    }`}
+                  >
+                    <span className="block font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-ochre">
+                      {h.title}
+                    </span>
+                    <span className="mt-1 block text-[11px] leading-relaxed text-white/70">{h.body}</span>
+                  </span>
+                </button>
+              ))}
+            </motion.div>
             <p className="absolute bottom-6 left-1/2 -translate-x-1/2 font-mono text-[10px] uppercase tracking-[0.25em] text-white/40">
-              {zoom ? "Click the image to zoom back out" : "Click any area to zoom in"}
+              {zoom ? "Click the image to zoom back out" : "Hover the markers to read each fault · click any area to zoom in"}
             </p>
           </motion.div>
         )}

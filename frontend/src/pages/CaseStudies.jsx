@@ -9,7 +9,7 @@ const STUDIES = [
     sector: "Manufacturing",
     icon: Factory,
     capacity: "5.1 MWp",
-    country: "Kenya · Magadi",
+    country: "Kenya",
     tech: "On-grid solar · grid stabilisation · distribution & transmission",
     role: "Turnkey EPC",
     body: "Grid-stabilising solar PV for one of Kenya's largest industrial operations — integrating 5.1 MWp of solar PV with grid-support functionality to improve power quality, resilience and energy cost performance at a remote, energy-intensive site.",

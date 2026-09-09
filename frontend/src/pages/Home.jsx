@@ -90,7 +90,7 @@ const CASES = [
   {
     name: "Tata Chemicals",
     sector: "Manufacturing",
-    spec: "5.1 MWp · Kenya · Magadi",
+    spec: "5.1 MWp · Kenya",
     image: "/images/tata-aerial-top.jpg",
   },
   {
@@ -270,9 +270,9 @@ export default function Home() {
                       <span className="font-mono text-[10px] uppercase tracking-[0.25em] text-white">{c.sector}</span>
                     </div>
                   </div>
-                  <div className="border-b border-black/10 py-6">
+                  <div className="flex min-h-[9.5rem] flex-col border-b border-black/10 py-6">
                     <h3 className="font-display text-2xl font-extrabold uppercase tracking-tighter">{c.name}</h3>
-                    <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-black/50">{c.spec}</p>
+                    <p className="mt-auto pt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-black/50">{c.spec}</p>
                   </div>
                 </Link>
               </Reveal>
