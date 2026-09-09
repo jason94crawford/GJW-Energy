@@ -50,7 +50,11 @@ const STUDIES = [
     tech: "On-grid solar",
     role: "Turnkey EPC",
     body: "A grid-tied rooftop solar solution with integrated generator control for East & Central Africa's first ceramic tile manufacturer — reducing utility dependence and improving energy resilience.",
-    image: "https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg",
+    image: "/images/saj-topdown.webp",
+    gallery: [
+      { src: "/images/saj-rooftop-close.webp", alt: "SAJ Ceramics — rooftop array close-up" },
+      { src: "/images/saj-site-overview.webp", alt: "SAJ Ceramics — site overview with both solar roofs" },
+    ],
   },
   {
     name: "Kinondo Kwetu Resort",

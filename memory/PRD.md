@@ -185,6 +185,10 @@ Full refinement brief applied without redesign:
 - Sheet typos corrected on site (flagged to user): "Kinondo Kwethu" → Kinondo Kwetu, "Helthcare" → Healthcare, "Tranmission" → transmission
 - Verified live: order + all storage figures + scope labels present; all 12 images load (initial "3 broken" were lazy-load false positives, confirmed zero broken after full scroll)
 
+## Iteration 28 — SAJ Ceramics Real Photography (2026-09-09)
+- 3 client drone photos saved locally: saj-topdown.webp (hero), saj-rooftop-close.webp + saj-site-overview.webp (2-photo strip) — SAJ becomes second flagship entry with gallery
+- Verified live: all 3 images load, strip renders, specs row intact
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page
