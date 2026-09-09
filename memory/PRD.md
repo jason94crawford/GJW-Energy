@@ -156,6 +156,11 @@ Full refinement brief applied without redesign:
 - New slide 13 "Optional · Annual O&M": included-plan list (preventive visits, cleaning cycles, 24/7 monitoring, [48]h response, spares, P50 review) + obsidian pricing card ([USD —]/yr or per-kWp) + add-ons; positions recurring revenue
 - Kickers/footers renumbered 01–12 sections; spec_rows helper extracted; all 14 slides render-verified via LibreOffice, no out-of-bounds shapes
 
+## Iteration 23 — "Cheap Solar" Failure Infographic (2026-09-09)
+- Generated /images/infographics/cheap-solar-failure.png via Gemini image generation (tools/generate_failure_infographic.py) using manufacturing.png as style reference: same obsidian isometric factory scene but failed state — red (off) accent power lines, production meter reading 0 kW, worker falling off guardrail-less roof edge, rusty steel walkway, charred smoking battery container, one PV panel on fire
+- ValueBand.jsx: header restructured to 12-col grid — headline/copy left (7), infographic right (5) in hairline white/10 frame with mono caption "What cheap solar becomes — zero output, failed plant, unsafe roof"; lazy loading; data-testid value-band-infographic
+- Verified on homepage: image loads, section layout intact desktop; pillars unchanged
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

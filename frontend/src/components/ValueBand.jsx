@@ -17,19 +17,33 @@ const PILLARS = [
 export const ValueBand = () => (
   <section className="bg-obsidian py-20 text-white lg:py-32" data-testid="value-band">
     <div className="mx-auto max-w-7xl px-6 lg:px-10">
-      <Reveal className="max-w-3xl">
-        <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">Quality & price</p>
-        <h2 className="mt-6 font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tighter sm:text-5xl lg:text-6xl">
-          The lowest capex
-          <br />
-          isn't always the
-          <br />
-          lowest cost.
-        </h2>
-        <p className="mt-6 text-sm leading-relaxed text-white/60 md:text-base">
-          We engineer for lifecycle value — balancing capital cost, performance, reliability and
-          maintainability across the operating life of the asset.
-        </p>
+      <Reveal className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-7">
+          <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">Quality & price</p>
+          <h2 className="mt-6 font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tighter sm:text-5xl lg:text-6xl">
+            The lowest capex
+            <br />
+            isn't always the
+            <br />
+            lowest cost.
+          </h2>
+          <p className="mt-6 max-w-xl text-sm leading-relaxed text-white/60 md:text-base">
+            We engineer for lifecycle value — balancing capital cost, performance, reliability and
+            maintainability across the operating life of the asset.
+          </p>
+        </div>
+        <figure className="lg:col-span-5" data-testid="value-band-infographic">
+          <div className="border border-white/10">
+            <img loading="lazy" decoding="async"
+              src="/images/infographics/cheap-solar-failure.png"
+              alt="Isometric render of a failed low-cost solar installation on a factory — system offline, panel fire, corroded walkway and no roof protection"
+              className="block w-full"
+            />
+          </div>
+          <figcaption className="mt-3 font-mono text-[10px] uppercase leading-relaxed tracking-[0.2em] text-white/40">
+            What cheap solar becomes — zero output, failed plant, unsafe roof
+          </figcaption>
+        </figure>
       </Reveal>
 
       <div className="mt-14 grid grid-cols-1 gap-px bg-white/10 md:grid-cols-2">
