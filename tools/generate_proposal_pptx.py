@@ -469,9 +469,45 @@ txt(s, Inches(8.15), Inches(6.72), Inches(4.3), Inches(0.3),
     [[("TATA CHEMICALS MAGADI — 5.1 MWP · COMMISSIONED [2025]", MONO, 8, PAPER_55, False, 150)]])
 footer(s, 10, dark_bg=True)
 
-# ================================================================ 11 · THE ALTERNATIVE
+# ================================================================ 11 · FOR EPCs & IPPs
+s = slide(); bg(s, FOREST)
+kicker(s, "10 — FOR EPCs & IPPs")
+headline(s, "Your installation partner", WHITE, y=Inches(1.0), size=36)
+txt(s, MARGIN, Inches(1.62), CW, Inches(0.7),
+    [[("ON THE GROUND.", DISPLAY, 36, OCHRE, True, -10)]])
+body(s, MARGIN, Inches(2.55), Inches(6.0),
+     "International and regional EPCs and IPPs engage GJW Energy as their "
+     "construction arm in East Africa. We install to your design, under your "
+     "governance — with QA/QC documentation your lenders can audit, and "
+     "white-label delivery under your brand.", RGBColor(0xC9, 0xD1, 0xC9),
+     size=12, line_spacing=1.3)
+partner = [("M&E INSTALLATION CREWS", "licensed, HSE-managed teams"),
+           ("MV/LV BALANCE OF PLANT", "cabling, switchgear, transformers"),
+           ("QA/QC · ITPs · HSE", "to your standard, audit-ready"),
+           ("TESTING & COMMISSIONING", "punch-list & handover support"),
+           ("WHITE-LABEL DELIVERY", "under your brand, NDA-friendly"),
+           ("EPRA-LICENSED COMPLIANCE", "local statutory coverage")]
+fy = Inches(3.75)
+for i, (t, d) in enumerate(partner):
+    fx = MARGIN if i % 2 == 0 else Inches(4.1)
+    yy = fy + Inches(0.78) * (i // 2)
+    txt(s, fx, yy, Inches(3.1), Inches(0.3),
+        [[(t, MONO, 9.5, OCHRE, True, 180)]])
+    txt(s, fx, yy + Inches(0.25), Inches(3.1), Inches(0.3),
+        [[(d.upper(), MONO, 8, RGBColor(0xA9, 0xB4, 0xA9), False, 120)]])
+pimg = s.shapes.add_picture("/app/tools/assets/field-rooftop-works.jpg",
+                            Inches(7.6), Inches(2.2), Inches(4.83))
+rule(s, Inches(7.6), Inches(2.2), Inches(4.83), OCHRE, Pt(2.2))
+txt(s, Inches(7.6), Inches(2.2 + 4.83 * 1500 / 2000) + Inches(0.15), Inches(4.83), Inches(0.3),
+    [[("WALKWAYS, SAFETY LINES & CABLE MANAGEMENT — INSTALLED, NOT IMPROVISED", MONO, 7.5, RGBColor(0xA9, 0xB4, 0xA9), False, 120)]])
+txt(s, MARGIN, Inches(6.35), Inches(11.5), Inches(0.3),
+    [[("DELIVERY MODEL — ", MONO, 9.5, OCHRE, True, 220),
+      ("YOUR CONTRACT · YOUR GOVERNANCE · OUR CREWS ON YOUR SITE", MONO, 9.5, WHITE, True, 180)]])
+footer(s, 11, dark_bg=True)
+
+# ================================================================ 12 · THE ALTERNATIVE
 s = slide(); bg(s, OBSIDIAN)
-kicker(s, "10 — THE ALTERNATIVE")
+kicker(s, "11 — THE ALTERNATIVE")
 headline(s, "The lowest capex isn't", WHITE, y=Inches(1.0), size=36)
 txt(s, MARGIN, Inches(1.62), CW, Inches(0.7),
     [[("ALWAYS THE LOWEST COST.", DISPLAY, 36, OCHRE, True, -10)]])
@@ -500,11 +536,11 @@ fail_img = s.shapes.add_picture(
 rule(s, Inches(7.6), Inches(2.2), Inches(4.83), OCHRE, Pt(2.2))
 txt(s, Inches(7.6), Inches(2.2) + Inches(4.83 * 768 / 1408 / 2) * 2 + Inches(0.15), Inches(4.83), Inches(0.3),
     [[("WHAT CHEAP SOLAR BECOMES — ZERO OUTPUT, FAILED PLANT, UNSAFE ROOF", MONO, 7.5, PAPER_55, False, 120)]])
-footer(s, 11, dark_bg=True)
+footer(s, 12, dark_bg=True)
 
-# ================================================================ 12 · COMMERCIAL OFFER
+# ================================================================ 13 · COMMERCIAL OFFER
 s = slide(); bg(s, BONE)
-kicker(s, "11 — COMMERCIAL OFFER")
+kicker(s, "12 — COMMERCIAL OFFER")
 headline(s, "Priced once. Priced properly.", OBSIDIAN, y=Inches(1.0), size=36)
 rows = [("1", "Engineering, design & approvals", "[USD —]"),
         ("2", "Equipment supply — PV, inverters[, BESS], BOS", "[USD —]"),
@@ -533,11 +569,11 @@ body(s, MARGIN, Inches(6.35), Inches(11.5),
      "Fixed, lump-sum turnkey price. No variation unless physical scope changes. "
      "Currency: [USD/KES] · price basis: [DDP site / ex-works + install].",
      INK_55, size=11)
-footer(s, 12)
+footer(s, 13)
 
-# ================================================================ 13 · TERMS
+# ================================================================ 14 · TERMS
 s = slide(); bg(s, BONE)
-kicker(s, "12 — COMMERCIAL TERMS")
+kicker(s, "13 — COMMERCIAL TERMS")
 headline(s, "Clear terms. No surprises.", OBSIDIAN)
 pay = [("30%", "Contract signature & mobilisation"),
        ("40%", "Major equipment delivered to site"),
@@ -557,11 +593,11 @@ spec_rows(s, [("VALIDITY", "This offer remains open for [30] days from the date 
               ("EXCLUSIONS", "Utility connection fees · grid reinforcement · unforeseen civils · VAT unless stated."),
               ("GOVERNING TERMS", "[FIDIC-based / client contract] · Kenyan law · amicable resolution then arbitration.")],
           Inches(4.1), Inches(0.52), val_size=11.5)
-footer(s, 13)
+footer(s, 14)
 
-# ================================================================ 14 · OPTIONAL O&M
+# ================================================================ 15 · OPTIONAL O&M
 s = slide(); bg(s, BONE)
-kicker(s, "13 — OPTIONAL · ANNUAL O&M")
+kicker(s, "14 — OPTIONAL · ANNUAL O&M")
 headline(s, "Built properly. Kept performing.", OBSIDIAN, size=40)
 label(s, MARGIN, Inches(2.2), "Included in the annual plan")
 om = ["Scheduled preventive maintenance — [2] visits / year",
@@ -596,9 +632,9 @@ txt(s, Inches(7.95), Inches(4.3), Inches(4.2), Inches(1.5),
 body(s, MARGIN, Inches(6.35), Inches(11.5),
      "O&M clients hold priority breakdown response. Systems we maintain carry our "
      "name — we keep them performing.", OBSIDIAN, size=12)
-footer(s, 14)
+footer(s, 15)
 
-# ================================================================ 15 · CLOSE
+# ================================================================ 16 · CLOSE
 s = slide(); bg_image(s, f"{ASSETS}/close-shaded.jpg")
 rule(s, MARGIN, Inches(0.9), Inches(0.55))
 wordmark(s, MARGIN, Inches(1.15))
@@ -623,7 +659,7 @@ txt(s, Inches(8.6), Inches(5.1), Inches(3.9), Inches(1.4),
      [("NAIROBI, KENYA", MONO, 10.5, PAPER_55, False, 150)],
      [("GJWENERGY.CO.KE", MONO, 10.5, OCHRE, True, 150)]],
     line_spacing=1.6)
-footer(s, 15, dark_bg=True)
+footer(s, 16, dark_bg=True)
 
 OUT = "/app/GJW_Energy_Techno_Commercial_Proposal.pptx"
 prs.save(OUT)

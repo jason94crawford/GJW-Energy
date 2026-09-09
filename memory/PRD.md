@@ -240,6 +240,11 @@ Full refinement brief applied without redesign:
 - Commercial offer slide re-headlined "Priced once. Priced properly." (quote moved to its own slide); subsequent sections renumbered 11–13, deck now 15 slides
 - Verified: regenerated, all 15 slides render via LibreOffice, no overlaps (fixed headline wrap collision), no out-of-bounds shapes
 
+## Iteration 38 — Partner Slide In Deck (2026-09-09)
+- New slide 11 "10 — For EPCs & IPPs" (forest bg, mirrors the website band): headline "Your installation partner on the ground.", B2B body copy, six-item capability list (M&E crews, MV/LV BOP, QA/QC-ITP-HSE, T&C + punch-list, white-label NDA-friendly, EPRA compliance), field-rooftop-works photo + "installed, not improvised" caption, delivery-model strip line
+- Note: python-pptx rejects WEBP — deck uses JPEG copy at /app/tools/assets/field-rooftop-works.jpg
+- Deck now 16 slides; sections renumbered 11–16; verified via LibreOffice render, label wrap collision fixed, no out-of-bounds
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page
