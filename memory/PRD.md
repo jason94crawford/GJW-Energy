@@ -167,6 +167,10 @@ Full refinement brief applied without redesign:
 - testids: value-band-zoom-toggle, value-band-lightbox, value-band-lightbox-image, value-band-lightbox-close
 - Verified via browser automation: section render, lightbox open, click-point zoom (transform scale(2.2) at clicked origin), ESC close
 
+## Iteration 25 — Failure Infographic: Roof Leakage (2026-09-09)
+- Edited cheap-solar-failure.png in place via image-edit pass (tools/add_leakage_to_infographic.py): added water streaming through badly sealed roof penetrations, wet stains streaking down wall cladding, ground puddles, splashed pallets/goods at loading bay — all prior failure elements (fire, rust, worker, smoke, 0 kW meter, red fault lines) preserved
+- No code change needed (same file path); verified live: image loads in value-band
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page
