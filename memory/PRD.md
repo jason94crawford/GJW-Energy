@@ -171,6 +171,13 @@ Full refinement brief applied without redesign:
 - Edited cheap-solar-failure.png in place via image-edit pass (tools/add_leakage_to_infographic.py): added water streaming through badly sealed roof penetrations, wet stains streaking down wall cladding, ground puddles, splashed pallets/goods at loading bay — all prior failure elements (fire, rust, worker, smoke, 0 kW meter, red fault lines) preserved
 - No code change needed (same file path); verified live: image loads in value-band
 
+## Iteration 26 — Case Studies Priority Order (2026-09-09)
+- Reordered case studies to client's master spreadsheet: Tata → Devki → Tatu → SAJ → Kinondo → andBeyond → Solio → Waridi → Mwale (+ Wilfay Flowers retained at end — not on the sheet, kept rather than deleted)
+- New entries: andBeyond Lodge (Tanzania, Hospitality, 150 kWp, off-grid PV+BESS, Turnkey EPC, aerial-sunset.jpeg) and Solio Lodge (Kenya, Hospitality, 600 kWp, off-grid PV+BESS, Construction partner, aerial-day.jpeg)
+- Data aligned to sheet: capacities normalised (Kinondo 93 kWp, Waridi renamed Waridi Flowers 600 kWp, Mwale 999 kWp, Tatu 2.05 MWp rooftop); scope/role set to "Turnkey EPC" per sheet (Solio "Construction partner"); tech lines prefixed On-grid/Off-grid solar
+- Sheet's storage figures after "|" were truncated in the screenshot — existing tech lines retain storage detail; pending confirmation of exact kWh figures
+- Verified live: 10 entries render in order, all 13 images load, zero broken
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page
