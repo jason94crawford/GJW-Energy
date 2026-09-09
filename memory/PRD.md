@@ -200,6 +200,12 @@ Full refinement brief applied without redesign:
 - Homepage: NEW "Selected work — Proof, not promises." case strip (Home.jsx, data-testid home-case-strip) between services preview and ValueBand: 3 cards with real photos (tata-aerial-top, saj-topdown, mwale-compound), sector chip, name, mono spec line, hover zoom, link to /case-studies; testids case-strip-card-*, case-strip-view-all
 - Verified live: Waridi 3/3 images load; homepage strip 3 cards render with all photos loaded
 
+## Iteration 31 — Kinondo + Grumeti Real Photography (2026-09-09)
+- Kinondo Kwetu: 3 dedicated DJI photos (estate aerial w/ tennis court = hero, array glint, twin topdown) + earlier "Waridi" batch confirmed as Kinondo estate → renamed to kinondo-tennis-estate / kinondo-twin-topdown / kinondo-coastal-panorama.webp (library, unassigned in UI)
+- andBeyond Grumeti: 3 photos (bush camp aerial = hero, MTU EnergyPack QS battery container, SMA Sunny Tripower inverter station) — replaces aerial-sunset stand-in
+- 5 of 9 case studies now carry real photography: Tata, SAJ, Mwale, Waridi, Kinondo, Grumeti (6 actually); remaining stand-ins: Devki, Tatu, Solio
+- Verified live: both entries 3/3 images load, strips render, specs intact
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

@@ -65,7 +65,11 @@ const STUDIES = [
     tech: "Off-grid solar",
     role: "Turnkey EPC",
     body: "An off-grid solar system for a boutique beach resort south of Diani — ending diesel-generator dependence after years of grid instability, silently.",
-    image: "https://images.unsplash.com/photo-1589276534126-adef63a95e05",
+    image: "/images/kinondo-estate-aerial.webp",
+    gallery: [
+      { src: "/images/kinondo-array-glint.webp", alt: "Kinondo Kwetu — ground-mount array in the estate grounds" },
+      { src: "/images/kinondo-array-topdown.webp", alt: "Kinondo Kwetu — twin array tables from above" },
+    ],
   },
   {
     name: "andBeyond Grumeti",
@@ -76,7 +80,11 @@ const STUDIES = [
     tech: "Off-grid solar & BESS",
     role: "Turnkey EPC",
     body: "An off-grid solar and battery solution for an &Beyond lodge in Tanzania — combining renewable generation, energy storage and intelligent controls to reduce diesel dependence and deliver reliable, resilient power in a remote hospitality environment.",
-    image: "/images/aerial-sunset.jpeg",
+    image: "/images/grumeti-bush-aerial.jpeg",
+    gallery: [
+      { src: "/images/grumeti-mtu-battery.jpeg", alt: "andBeyond Grumeti — MTU EnergyPack battery container" },
+      { src: "/images/grumeti-sma-inverter.jpeg", alt: "andBeyond Grumeti — SMA inverter station" },
+    ],
   },
   {
     name: "Solio Lodge",
