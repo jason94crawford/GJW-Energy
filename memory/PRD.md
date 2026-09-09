@@ -206,6 +206,11 @@ Full refinement brief applied without redesign:
 - 5 of 9 case studies now carry real photography: Tata, SAJ, Mwale, Waridi, Kinondo, Grumeti (6 actually); remaining stand-ins: Devki, Tatu, Solio
 - Verified live: both entries 3/3 images load, strips render, specs intact
 
+## Iteration 32 — Solio Real Photography (2026-09-09)
+- Solio Lodge: 3 client photos (rooftop array mid-install with crew = hero, BESS cabinet row, inverter room) — replaces aerial-day stand-in
+- 7 of 9 case studies now carry real photography; remaining stand-ins: Devki, Tatu City
+- Verified live: 3/3 images load, strip renders, specs intact (600 kWp + 1,075 kWh · Construction lead)
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

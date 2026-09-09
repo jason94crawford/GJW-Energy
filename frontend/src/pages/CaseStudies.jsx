@@ -95,7 +95,11 @@ const STUDIES = [
     tech: "Off-grid solar & BESS",
     role: "Construction lead",
     body: "An off-grid solar and battery solution for Solio Lodge in Kenya — integrating renewable generation, energy storage and intelligent energy management to reduce diesel consumption, lower operating costs and provide reliable power in a remote safari environment.",
-    image: "/images/aerial-day.jpeg",
+    image: "/images/solio-rooftop-install.jpg",
+    gallery: [
+      { src: "/images/solio-bess-cabinets.jpg", alt: "Solio Lodge — battery storage cabinet row" },
+      { src: "/images/solio-inverter-room.jpg", alt: "Solio Lodge — inverter room" },
+    ],
   },
   {
     name: "Waridi Flowers",
