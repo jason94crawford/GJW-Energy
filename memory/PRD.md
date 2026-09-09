@@ -211,6 +211,13 @@ Full refinement brief applied without redesign:
 - 7 of 9 case studies now carry real photography; remaining stand-ins: Devki, Tatu City
 - Verified live: 3/3 images load, strip renders, specs intact (600 kWp + 1,075 kWh · Construction lead)
 
+## Iteration 33 — Devki Wording + Real Photography (2026-09-09)
+- Devki entry strictly aligned to client spec table: capacity "3.8 MWp" (dropped "· 4 sites"), country "Kenya" (dropped locations); name/description/tech/scope already matched
+- 2 real drone photos: devki-rooftop-crew.webp (hero — cleaning crew at work), devki-rooftop-aerial.webp (full-width strip); gallery grid now goes single-column when an entry has 1 gallery photo
+- NOTE: the inverter-room photo attached to the Devki message is byte-identical to Solio's inverter room — deliberately NOT reused on Devki to avoid visible duplication
+- 8 of 9 case studies now real photography; only Tatu City remains on a stand-in
+- Verified live: both Devki images load, strict spec row confirmed
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

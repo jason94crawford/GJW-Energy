@@ -23,12 +23,15 @@ const STUDIES = [
     name: "Devki Group",
     sector: "Manufacturing",
     icon: Factory,
-    capacity: "3.8 MWp · 4 sites",
-    country: "Kenya · Athi River & Lukenya",
+    capacity: "3.8 MWp",
+    country: "Kenya",
     tech: "On-grid solar",
     role: "Turnkey EPC",
     body: "A multi-site rooftop solar portfolio spanning four facilities across Kenya's building-materials sector — delivering nearly 5 GWh of clean energy annually across steel, cement, paving and roofing operations.",
-    image: "https://images.pexels.com/photos/8783541/pexels-photo-8783541.jpeg",
+    image: "/images/devki-rooftop-crew.webp",
+    gallery: [
+      { src: "/images/devki-rooftop-aerial.webp", alt: "Devki Group — rooftop solar array across the factory complex" },
+    ],
   },
   {
     name: "Tatu City",
@@ -176,7 +179,7 @@ export default function CaseStudies() {
                     </div>
                   </div>
                   {s.gallery && (
-                    <div className="mt-2 grid grid-cols-2 gap-2" data-testid={`case-study-${slug(s.name)}-gallery`}>
+                    <div className={`mt-2 grid gap-2 ${s.gallery.length === 1 ? "grid-cols-1" : "grid-cols-2"}`} data-testid={`case-study-${slug(s.name)}-gallery`}>
                       {s.gallery.map((g) => (
                         <div key={g.src} className="relative h-32 overflow-hidden lg:h-40">
                           <img loading="lazy" decoding="async"
