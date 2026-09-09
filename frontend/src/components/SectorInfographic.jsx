@@ -2,11 +2,11 @@ import { useRef } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 
 export const IMAGES = {
-  manufacturing: "/images/infographics/manufacturing.png",
-  hospitality: "/images/infographics/hospitality.png",
-  retail: "/images/infographics/retail.png",
-  healthcare: "/images/infographics/healthcare.png",
-  agri: "/images/infographics/agri.png",
+  manufacturing: "/images/infographics/manufacturing.webp",
+  hospitality: "/images/infographics/hospitality.webp",
+  retail: "/images/infographics/retail.webp",
+  healthcare: "/images/infographics/healthcare.webp",
+  agri: "/images/infographics/agri.webp",
 };
 
 const FIG = {
@@ -78,7 +78,7 @@ export const SectorInfographic = ({ scene }) => {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
         >
           <motion.img
-            loading="lazy"
+            loading="eager"
             decoding="async"
             src={IMAGES[scene]}
             alt={FIG[scene]}

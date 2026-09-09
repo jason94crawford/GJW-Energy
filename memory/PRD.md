@@ -245,6 +245,11 @@ Full refinement brief applied without redesign:
 - Note: python-pptx rejects WEBP — deck uses JPEG copy at /app/tools/assets/field-rooftop-works.jpg
 - Deck now 16 slides; sections renumbered 11–16; verified via LibreOffice render, label wrap collision fixed, no out-of-bounds
 
+## Iteration 39 — Infographic Load Performance (2026-09-09)
+- Root cause: sector infographics were 500–800KB PNGs with loading="lazy", mounted only when the hover panel opened — fetch started at first hover
+- Fixes: all 5 sector infographics converted PNG→WebP q84 (56–130KB each, ~85% smaller); cheap-solar-failure PNG 3.9MB→347KB WebP; <link rel="prefetch" as="image"> for all 6 in index.html (fetch at browser idle, cached before first hover); motion.img loading lazy→eager
+- Verified live: hover → panel image visible in 0.09s; webp served for sectors + value-band; original PNGs kept on disk as masters
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page

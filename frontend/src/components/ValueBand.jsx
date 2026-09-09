@@ -16,7 +16,7 @@ const PILLARS = [
   },
 ];
 
-const INFOGRAPHIC_SRC = "/images/infographics/cheap-solar-failure.png";
+const INFOGRAPHIC_SRC = "/images/infographics/cheap-solar-failure.webp";
 const INFOGRAPHIC_ALT =
   "Isometric render of a failed low-cost solar installation on a factory — system offline, panel fire, corroded walkway and no roof protection";
 
