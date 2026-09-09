@@ -254,6 +254,61 @@ export default function Services() {
         </div>
       </section>
 
+      <section className="bg-forest py-20 text-white lg:py-32" data-testid="partner-band">
+        <div className="mx-auto max-w-7xl px-6 lg:px-10">
+          <Reveal className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-7">
+              <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-ochre">For EPCs & IPPs</p>
+              <h2 className="mt-6 font-display text-4xl font-extrabold uppercase leading-[0.95] tracking-tighter sm:text-5xl lg:text-6xl">
+                Your installation partner
+                <br />
+                on the ground.
+              </h2>
+              <p className="mt-6 max-w-xl text-sm leading-relaxed text-white/65 md:text-base">
+                International and regional EPCs and IPPs engage GJW Energy as their construction arm in East
+                Africa. We install to your design, under your governance — mechanical, electrical and civil works
+                delivered by licensed, HSE-managed crews, with QA/QC documentation your lenders can audit.
+              </p>
+              <ul className="mt-10 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+                {[
+                  "Mechanical & electrical installation crews",
+                  "MV/LV balance of plant",
+                  "QA/QC, ITPs & HSE to your standard",
+                  "Testing, commissioning & punch-list support",
+                  "White-label delivery under your brand",
+                  "EPRA-licensed local compliance",
+                ].map((c) => (
+                  <li key={c} className="flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.15em] text-white/70">
+                    <span className="h-1.5 w-1.5 shrink-0 rotate-45 bg-ochre" />
+                    {c}
+                  </li>
+                ))}
+              </ul>
+              <Link
+                to="/contact"
+                data-testid="partner-cta"
+                className="group mt-12 inline-flex items-center gap-2 rounded-full bg-ochre px-7 py-3.5 font-mono text-xs font-semibold uppercase tracking-[0.15em] text-obsidian transition-colors duration-300 hover:bg-white"
+              >
+                Partner with us
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </div>
+            <figure className="lg:col-span-5">
+              <div className="relative h-80 overflow-hidden lg:h-[26rem]">
+                <img loading="lazy" decoding="async"
+                  src="/images/field-rooftop-works.webp"
+                  alt="GJW Energy field installation — walkway mesh, safety lines and cable management on a rooftop array"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              </div>
+              <figcaption className="mt-3 font-mono text-[10px] uppercase leading-relaxed tracking-[0.2em] text-white/40">
+                Walkways, safety lines & cable management — installed, not improvised
+              </figcaption>
+            </figure>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="bg-obsidian py-24 text-white lg:py-32" data-testid="services-cta">
         <div className="mx-auto max-w-7xl px-6 lg:px-10">
           <Reveal>

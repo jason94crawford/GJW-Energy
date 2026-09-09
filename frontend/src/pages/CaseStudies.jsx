@@ -42,7 +42,10 @@ const STUDIES = [
     tech: "On-grid solar · distribution & transmission",
     role: "Turnkey EPC",
     body: "A flagship rooftop solar installation at Tatu City, Kenya's first operational Special Economic Zone — supporting one of East Africa's most ambitious mixed-use developments.",
-    image: "https://images.pexels.com/photos/934586/pexels-photo-934586.jpeg",
+    image: "/images/tatu-rooftop-aerial.webp",
+    gallery: [
+      { src: "/images/tatu-city-context.webp", alt: "Tatu City SEZ — the solar rooftop within the wider city development" },
+    ],
   },
   {
     name: "SAJ Ceramics",

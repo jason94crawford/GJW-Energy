@@ -218,6 +218,16 @@ Full refinement brief applied without redesign:
 - 8 of 9 case studies now real photography; only Tatu City remains on a stand-in
 - Verified live: both Devki images load, strict spec row confirmed
 
+## Iteration 34 — Tatu City Real Photography (2026-09-09) — ALL 9 REAL
+- Tatu City: 2 unique drone aerials (tatu-rooftop-aerial.webp hero, tatu-city-context.webp full-width strip showing SEZ + Nairobi skyline); third attachment was byte-identical duplicate (md5-verified) — discarded
+- MILESTONE: all 9 case studies now use real client photography; only remaining stock image on the page is the KineticHero header background (intentional)
+- Verified live: both Tatu images load, specs row intact (2.05 MWp rooftop · On-grid solar · D&T)
+
+## Iteration 35 — EPC/IPP Installation-Partner Positioning (2026-09-09)
+- New Services page band (data-testid partner-band, forest bg, between capabilities grid and CTA): "For EPCs & IPPs — Your installation partner on the ground." Positions GJW as construction arm for international/regional EPCs & IPPs: install-to-design under partner governance, checklist (M&E crews, MV/LV BOP, QA/QC-ITP-HSE, T&C + punch-list, white-label delivery, EPRA compliance), "Partner with us" CTA → /contact
+- Uses new field photo field-rooftop-works.webp (walkway mesh, safety lines, cable management) with mono caption "Walkways, safety lines & cable management — installed, not improvised."
+- Verified live: image loads, copy + CTA render
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page
