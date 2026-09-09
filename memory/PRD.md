@@ -161,6 +161,12 @@ Full refinement brief applied without redesign:
 - ValueBand.jsx: header restructured to 12-col grid — headline/copy left (7), infographic right (5) in hairline white/10 frame with mono caption "What cheap solar becomes — zero output, failed plant, unsafe roof"; lazy loading; data-testid value-band-infographic
 - Verified on homepage: image loads, section layout intact desktop; pillars unchanged
 
+## Iteration 24 — Interactive Infographic Zoom (2026-09-09)
+- ValueBand infographic: border removed, image sits directly on obsidian; hover subtle scale; caption gains "click to inspect" ochre hint
+- Click-to-inspect lightbox: full-screen obsidian/95 overlay, framer-motion fade, click any point on the image to zoom 2.2x anchored at that point (originX/originY), click again to zoom out, ESC / backdrop / X button closes; zoom hint line at bottom
+- testids: value-band-zoom-toggle, value-band-lightbox, value-band-lightbox-image, value-band-lightbox-close
+- Verified via browser automation: section render, lightbox open, click-point zoom (transform scale(2.2) at clicked origin), ESC close
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page
