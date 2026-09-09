@@ -109,7 +109,11 @@ const STUDIES = [
     tech: "Off-grid solar & BESS · distribution & transmission",
     role: "Turnkey EPC",
     body: "Solar power for the MRI and critical medical machinery of a state-of-the-art medical and technology city — reliability where it matters most.",
-    image: "https://images.pexels.com/photos/35105443/pexels-photo-35105443.jpeg",
+    image: "/images/mwale-compound.jpeg",
+    gallery: [
+      { src: "/images/mwale-aerial-road.jpeg", alt: "Mwale Medical & Technology City — solar plant from the access road" },
+      { src: "/images/mwale-array-topdown.jpeg", alt: "Mwale Medical & Technology City — array tables from above" },
+    ],
   },
 ];
 
