@@ -178,6 +178,13 @@ Full refinement brief applied without redesign:
 - Sheet's storage figures after "|" were truncated in the screenshot — existing tech lines retain storage detail; pending confirmation of exact kWh figures
 - Verified live: 10 entries render in order, all 13 images load, zero broken
 
+## Iteration 27 — Case Studies from Client Spreadsheet (2026-09-09)
+- Source of truth: client's Case Studies.xlsx (uploaded). All 9 entries updated verbatim: descriptions replaced with sheet text; capacities now include storage (Kinondo 93 kWp + 120 kWh · andBeyond Grumeti 150 kWp + 450 kWh · Solio 600 kWp + 1,075 kWh · Mwale 999 kWp + 2 MWh); technology lines per sheet (On/Off-Grid Solar · BESS · D&T); scopes per sheet (Turnkey EPC, Solio = Construction lead)
+- andBeyond Lodge renamed "andBeyond Grumeti"; Solio scope "Construction partner" → "Construction lead"
+- Wilfay Flowers REMOVED per client instruction — list now exactly the 9 sheet projects
+- Sheet typos corrected on site (flagged to user): "Kinondo Kwethu" → Kinondo Kwetu, "Helthcare" → Healthcare, "Tranmission" → transmission
+- Verified live: order + all storage figures + scope labels present; all 12 images load (initial "3 broken" were lazy-load false positives, confirmed zero broken after full scroll)
+
 ## Backlog
 - P0: Replace placeholder contact details with real email/phone; real headshot for Project Lead panel; real per-case-study photos (user sending)
 - P1: Email notification on enquiry (Resend); simple admin view/password for enquiries; SEO meta/OG images per page
